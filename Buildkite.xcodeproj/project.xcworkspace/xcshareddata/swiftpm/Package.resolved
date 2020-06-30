@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Buildkite",
+        "repositoryURL": "https://github.com/aaronsky/buildkite-swift.git",
+        "state": {
+          "branch": "master",
+          "revision": "57788f44a9e30860a58413718dff332b3dba5ad9",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
