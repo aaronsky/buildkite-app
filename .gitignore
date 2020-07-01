@@ -49,3 +49,8 @@ playground.xcworkspace
 # .swiftpm
 
 .build/
+
+# Environment
+Shared/env.swift
+Shared/Previews/Preview Assets.xcassets/**/*.json
+!**/*.xcassets/**/Contents.json

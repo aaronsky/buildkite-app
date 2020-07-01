@@ -1,0 +1,13 @@
+{
+  "data" : [
+    {
+      "filename" : "v2.teams.json",
+      "idiom" : "universal",
+      "universal-type-identifier" : "public.json"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

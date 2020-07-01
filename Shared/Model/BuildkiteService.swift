@@ -11,7 +11,7 @@ import Buildkite
 
 class BuildkiteService: ObservableObject {
     let client: BuildkiteClient = {
-        $0.token = ",,,"
+        $0.token = Env.buildkiteToken
         return $0
     }(BuildkiteClient())
     

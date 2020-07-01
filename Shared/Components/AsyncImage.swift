@@ -102,6 +102,17 @@ struct ImageMemoryCache: AsyncImageCache {
     }
 }
 
+struct AsyncImageCacheKey: EnvironmentKey {
+    static let defaultValue: AsyncImageCache = ImageMemoryCache()
+}
+
+extension EnvironmentValues {
+    var imageCache: AsyncImageCache {
+        get { self[AsyncImageCacheKey.self] }
+        set { self[AsyncImageCacheKey.self] = newValue }
+    }
+}
+
 struct AsyncImage_Previews: PreviewProvider {
     static let url = URL(string: "https://buildkiteassets.com/emojis/img-apple-64/1f45e.png")!
     
