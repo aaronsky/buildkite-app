@@ -91,6 +91,35 @@ extension BuildkiteService {
         }
         .eraseToAnyPublisher()
     }
+
+    func followURL<T: Decodable>(_ url: URL, completion: @escaping (Result<T, Error>) -> Void) {
+        send(resource: AnyResource(url), completion: completion)
+    }
+    func followURLPublisher<T: Decodable>(_ url: URL) -> AnyPublisher<T, Error> {
+        sendPublisher(resource: AnyResource(url))
+    }
+    
+    func sendQuery<T: GraphQLQuery>(_ query: T, completion: @escaping (Result<GraphQL<T.Response>.Content, Error>) -> Void) {
+        send(resource: GraphQL<T.Response>(rawQuery: T.query, variables: query.variables), completion: completion)
+    }
+    func sendQueryPublisher<T: GraphQLQuery>(_ query: T) -> AnyPublisher<GraphQL<T.Response>.Content, Error> {
+        sendPublisher(resource: GraphQL<T.Response>(rawQuery: T.query, variables: query.variables))
+    }
+}
+
+private struct AnyResource<T: Decodable>: Resource, HasResponseBody {
+    typealias Content = T
+    let path = ""
+    
+    var url: URL
+    
+    init(_ url: URL) {
+        self.url = url
+    }
+    
+    func transformRequest(_ request: inout URLRequest) {
+        request.url = self.url
+    }
 }
 
 extension Publisher {

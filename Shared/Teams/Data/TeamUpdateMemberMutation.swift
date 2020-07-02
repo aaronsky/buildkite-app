@@ -9,7 +9,7 @@
 import Foundation
 import Buildkite
 
-struct TeamUpdateMemberMutation {
+struct TeamUpdateMemberMutation: GraphQLQuery {
     static var query = """
 mutation TeamMemberUpdate($input: TeamMemberUpdateInput!) {
   teamMemberUpdate(input: $input) {
@@ -29,13 +29,13 @@ mutation TeamMemberUpdate($input: TeamMemberUpdateInput!) {
     var id: String
     var role: Fragments.Team.Member.Role
     
-    var resource: GraphQL<Response> {
-        GraphQL(rawQuery: TeamUpdateMemberMutation.query, variables: [
+    var variables: [String : JSONValue] {
+        [
             "input": [
                 "id": .string(id),
                 "role": .string(role.rawValue),
             ]
-        ])
+        ]
     }
     
     

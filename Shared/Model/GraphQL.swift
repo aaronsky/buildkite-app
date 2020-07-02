@@ -9,6 +9,12 @@
 import Foundation
 import Buildkite
 
+protocol GraphQLQuery {
+    associatedtype Response: Decodable
+    static var query: String { get }
+    var variables: [String: JSONValue] { get }
+}
+
 struct Connection<T: Decodable>: Decodable {
     var edges: [Edge]
     var pageInfo: PageInfo?
@@ -57,6 +63,14 @@ extension HashableFromIdentifier {
     
     public func hash(into hasher: inout Hasher) {
         hasher.combine(id)
+    }
+}
+
+struct EmptyIdentifiable: Identifiable {
+    var id: UUID
+    
+    init() {
+        self.id = .init()
     }
 }
 

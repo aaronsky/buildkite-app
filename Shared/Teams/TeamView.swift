@@ -49,14 +49,16 @@ struct TeamView: View {
         }
         .onAppear(perform: reloadTeam)
         .sheet(isPresented: $presentingSearchUsersModal, onDismiss: onDismissSearchUserModal) {
-            UsersList()
-            //            SearchUsersModal(isPresenting: self.$presentingSearchUsersModal, userID: self.$selectedUserIDFromSearching, teamSlug: self.viewModel.team.slug)
+            UsersList(teamSlug: team.slug, onUserSelection: { user in
+                presentingSearchUsersModal = false
+                selectedUserIDFromSearching = user.user.id
+            })
         }
     }
     
     var teamGraphQLPublisher: AnyPublisher<TeamGetQuery.Response, Error> {
         service
-            .sendPublisher(resource: TeamGetQuery(organization: service.organization, team: team.slug).resource)
+            .sendQueryPublisher(TeamGetQuery(organization: service.organization, team: team.slug))
             .tryMap { try $0.get() }
             .eraseToAnyPublisher()
     }
@@ -77,7 +79,7 @@ struct TeamView: View {
     
     func addMember(with userID: String) {
         service
-            .sendPublisher(resource: TeamCreateMemberMutation(teamID: team.id, userID: userID).resource)
+            .sendQueryPublisher(TeamCreateMemberMutation(teamID: team.id, userID: userID))
             .tryMap { try $0.get() }
             .zip(teamGraphQLPublisher)
             .receive(on: DispatchQueue.main)
@@ -89,7 +91,7 @@ struct TeamView: View {
         let ids = offsets.map { team.members.edges[$0].node.id }
         let deletions = ids.map {
             service
-                .sendPublisher(resource: TeamDeleteMemberMutation(id: $0).resource)
+                .sendQueryPublisher(TeamDeleteMemberMutation(id: $0))
                 .tryMap { try $0.get() }
         }
         

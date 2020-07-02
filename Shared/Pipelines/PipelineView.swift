@@ -6,15 +6,46 @@
 //
 
 import SwiftUI
+import Buildkite
 
 struct PipelineView: View {
+    @EnvironmentObject var service: BuildkiteService
+    
+    var pipeline: PipelinesListQuery.Response.Pipeline
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            HStack {
+                Text(pipeline.name)
+                switch pipeline.visibility {
+                case .public:
+                    Image(systemName: "eye")
+                case .private:
+                    Image(systemName: "lock.fill")
+                }
+            }
+            List {
+                let builds = pipeline.builds.nodes
+                if builds.isEmpty {
+                    HStack {
+                        Spacer()
+                        ProgressView()
+                        Spacer()
+                    }
+                } else {
+                    ForEach(builds) { build in
+                        NavigationLink(destination: BuildView(inputs: .init(pipelineSlug: pipeline.slug, buildNumber: build.number))) {
+                            Text("\(build.number)")
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
-struct PipelineView_Previews: PreviewProvider {
-    static var previews: some View {
-        PipelineView()
-    }
-}
+//struct PipelineView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PipelineView()
+//    }
+//}

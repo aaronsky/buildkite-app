@@ -9,29 +9,38 @@ import SwiftUI
 import Buildkite
 
 struct PipelinesList: View {
-    typealias Pipeline = PipelinesListQuery.Response.Organization.Pipeline
-    
     @EnvironmentObject var service: BuildkiteService
     
-    @State var pipelines: [Pipeline] = []
-    @State private var selection: Pipeline?
+    @State var pipelines: [PipelinesListQuery.Response.Pipeline] = []
+    @State private var selection: PipelinesListQuery.Response.Pipeline?
+    @State var searchQuery: String = ""
     
     var body: some View {
         List(selection: $selection) {
-            ForEach(pipelines) { pipeline in
-                NavigationLink(destination: EmptyView()) {
-                    PipelineRow(pipeline: pipeline)
+            if pipelines.isEmpty {
+                HStack {
+                    Spacer()
+                    ProgressView()
+                    Spacer()
+                }
+            } else {
+                ForEach(pipelines) { pipeline in
+                    NavigationLink(destination: PipelineView(pipeline: pipeline)) {
+                        PipelineRow(pipeline: pipeline)
+                    }
                 }
             }
         }
         .onAppear(perform: loadPipelines)
-            .navigationTitle("Pipelines")
+        .navigationTitle("Pipelines")
     }
     
     func loadPipelines() {
-        let resource = PipelinesListQuery(organizationSlug: service.organization, perPage: 10).resource
         service
-            .sendPublisher(resource: resource)
+            .sendQueryPublisher(PipelinesListQuery(organization: service.organization,
+                                                   pipelinesCount: 50,
+                                                   pipelinesSearch: searchQuery,
+                                                   buildsCount: 50))
             .tryMap { try $0.get() }
             .receive(on: DispatchQueue.main)
             .sink(into: service,

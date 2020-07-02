@@ -54,3 +54,4 @@ playground.xcworkspace
 Shared/env.swift
 Shared/Previews/Preview Assets.xcassets/**/*.json
 !**/*.xcassets/**/Contents.json
+/Designs/

@@ -12,20 +12,18 @@ struct AgentRow: View {
     var agent: Agent
     
     var body: some View {
-        NavigationLink(destination: AgentView(agent: agent)) {
-            HStack(alignment: .top) {
-                ConnectionState(state: agent.connectionState, isRunningJob: agent.isRunningJob)
-                VStack(alignment: .leading) {
-                    Text(agent.nameFormatted)
-                        .font(.system(size: 15))
-                    Text(agent.metaData.joined(separator: ","))
-                        .font(.system(size: 14))
-                        .foregroundColor(.secondary)
-                }
-                Spacer()
-                Text(agent.version)
+        HStack(alignment: .top) {
+            ConnectionState(state: agent.connectionState, isRunningJob: agent.isRunningJob)
+            VStack(alignment: .leading) {
+                Text(agent.nameFormatted)
+                    .font(.system(size: 15))
+                Text(agent.metaData.joined(separator: ","))
                     .font(.system(size: 14))
+                    .foregroundColor(.secondary)
             }
+            Spacer()
+            Text(agent.version)
+                .font(.system(size: 14))
         }
     }
 }

@@ -9,9 +9,9 @@
 import Foundation
 import Buildkite
 
-struct UsersSearchQuery {
+struct UsersSearchQuery: GraphQLQuery {
     static var query = """
-query UsersSearch($organization: ID!, $first: Int!, $search: String!, $selector: TeamSelector!) {
+query UsersSearch($organization: ID!, $first: Int!, $search: String, $selector: TeamSelector) {
   organization(slug: $organization) {
     members(first: $first, search: $search, team: $selector) {
       edges {
@@ -29,21 +29,24 @@ query UsersSearch($organization: ID!, $first: Int!, $search: String!, $selector:
   }
 }
 """
-
-    var organizationSlug: String
-    var search: String
-    var teamSlug: String
     
-    var resource: GraphQL<Response> {
-        GraphQL(rawQuery: UsersSearchQuery.query, variables: [
+    var organizationSlug: String
+    var search: String?
+    var teamSlug: String?
+    
+    var variables: [String: JSONValue] {
+        var vars: [String: JSONValue] = [
             "organization": .string(organizationSlug),
-            "first": 50,
-            "search": .string(search),
-            "selector": .string("!\(teamSlug)")
-        ])
+            "first": 50
+        ]
+        
+        if let search = self.search { vars["search"] = .string(search) }
+        if let teamSlug = self.teamSlug { vars["teamSlug"] = .string(teamSlug) }
+        
+        return vars
     }
     
-    init(organization: String, search: String, notInTeam team: String) {
+    init(organization: String, search: String?, notInTeam team: String?) {
         self.organizationSlug = organization
         self.search = search
         self.teamSlug = team

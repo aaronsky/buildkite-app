@@ -8,8 +8,37 @@
 import SwiftUI
 
 struct UsersList: View {
+    typealias User = Fragments.Organization.Member
+    
+    @EnvironmentObject var service: BuildkiteService
+    
+    var teamSlug: String?
+    var onUserSelection: ((User) -> ())?
+    
+    @State var users: [User] = []
+    @State var searchQuery: String = ""
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            SearchField(text: $searchQuery)
+            List {
+                ForEach(users) { user in
+                    Text(user.user.name)
+                        .onTapGesture {
+                            onUserSelection?(user)
+                        }
+                }
+            }
+        }
+    }
+    
+    func loadUsers() {
+        service
+            .sendQueryPublisher(UsersSearchQuery(organization: service.organization, search: searchQuery, notInTeam: teamSlug))
+            .tryMap { try $0.get() }
+            .receive(on: DispatchQueue.main)
+            .sink(into: service,
+                  receiveValue: { self.users = $0.organization.members.nodes })
     }
 }
 

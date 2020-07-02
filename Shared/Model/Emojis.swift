@@ -50,8 +50,8 @@ extension String {
             //     .accessibility(label: Text(name))
             //
             // str.replaceSubrange(matchRange, with: "\(image)")
-            str.replaceSubrange(matchRange, with: "")
+            str.replaceSubrange(matchRange, with: "🤬")
         }
-        return str
+        return str.trimmingCharacters(in: .whitespaces)
     }
 }

@@ -9,7 +9,7 @@
 import Foundation
 import Buildkite
 
-struct TeamDeleteMemberMutation {
+struct TeamDeleteMemberMutation: GraphQLQuery {
     static var query = """
 mutation TeamMemberDelete($input: TeamMemberDeleteInput!) {
   teamMemberDelete(input: $input) {
@@ -20,12 +20,12 @@ mutation TeamMemberDelete($input: TeamMemberDeleteInput!) {
     
     var id: String
     
-    var resource: GraphQL<Response> {
-        GraphQL(rawQuery: TeamDeleteMemberMutation.query, variables: [
+    var variables: [String : JSONValue] {
+        [
             "input": [
                 "id": .string(id),
             ]
-        ])
+        ]
     }
     
     

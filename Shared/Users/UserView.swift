@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UserView: View {
-    @State var userID: String
+    var userID: String
     
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)

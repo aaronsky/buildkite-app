@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		332F766624AD293500A0D61C /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332F766524AD293500A0D61C /* SearchField.swift */; };
+		332F766724AD293500A0D61C /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332F766524AD293500A0D61C /* SearchField.swift */; };
+		332F766B24AD58C500A0D61C /* PipelinesListQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332F766A24AD58C500A0D61C /* PipelinesListQuery.swift */; };
+		332F766C24AD58C500A0D61C /* PipelinesListQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332F766A24AD58C500A0D61C /* PipelinesListQuery.swift */; };
 		334E246724A5875D00B30357 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E245424A5875C00B30357 /* Application.swift */; };
 		334E246824A5875D00B30357 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E245424A5875C00B30357 /* Application.swift */; };
 		334E246924A5875D00B30357 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E245524A5875C00B30357 /* ContentView.swift */; };
@@ -69,27 +73,30 @@
 		334E24E324A602A300B30357 /* TeamCreateMemberMutation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E24D424A602A300B30357 /* TeamCreateMemberMutation.swift */; };
 		334E24E424A602A300B30357 /* GraphQL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E24D524A602A300B30357 /* GraphQL.swift */; };
 		334E24E524A602A300B30357 /* GraphQL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E24D524A602A300B30357 /* GraphQL.swift */; };
-		338A57D024A7D05400F80306 /* PipelinesListQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338A57CF24A7D05400F80306 /* PipelinesListQuery.swift */; };
-		338A57D124A7D05400F80306 /* PipelinesListQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338A57CF24A7D05400F80306 /* PipelinesListQuery.swift */; };
 		338A57D324A7D7DF00F80306 /* PipelineRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338A57D224A7D7DF00F80306 /* PipelineRow.swift */; };
 		338A57D424A7D7DF00F80306 /* PipelineRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338A57D224A7D7DF00F80306 /* PipelineRow.swift */; };
 		33AC4D5524AC074400508156 /* PipelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AC4D5424AC074400508156 /* PipelineView.swift */; };
 		33AC4D5624AC074400508156 /* PipelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AC4D5424AC074400508156 /* PipelineView.swift */; };
-		33AC4D5824AC075000508156 /* BuildsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AC4D5724AC075000508156 /* BuildsView.swift */; };
-		33AC4D5924AC075000508156 /* BuildsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AC4D5724AC075000508156 /* BuildsView.swift */; };
 		33AC4D5B24AC075800508156 /* BuildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AC4D5A24AC075800508156 /* BuildView.swift */; };
 		33AC4D5C24AC075800508156 /* BuildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AC4D5A24AC075800508156 /* BuildView.swift */; };
 		33AC4D5E24AC076500508156 /* JobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AC4D5D24AC076500508156 /* JobView.swift */; };
 		33AC4D5F24AC076500508156 /* JobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AC4D5D24AC076500508156 /* JobView.swift */; };
 		33AC4D6124AC086D00508156 /* env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AC4D6024AC086D00508156 /* env.swift */; };
 		33AC4D6224AC086D00508156 /* env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AC4D6024AC086D00508156 /* env.swift */; };
+		33AC4D7124AC16E900508156 /* Job+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AC4D7024AC16E900508156 /* Job+Extensions.swift */; };
+		33AC4D7224AC16E900508156 /* Job+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AC4D7024AC16E900508156 /* Job+Extensions.swift */; };
 		33F251C724A818D60049CB58 /* Emojis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F251C624A818D60049CB58 /* Emojis.swift */; };
 		33F251C824A818D60049CB58 /* Emojis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F251C624A818D60049CB58 /* Emojis.swift */; };
 		33F251CA24A833460049CB58 /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F251C924A833460049CB58 /* AsyncImage.swift */; };
 		33F251CB24A833460049CB58 /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F251C924A833460049CB58 /* AsyncImage.swift */; };
+		33F82FC524AE05E1006DF51C /* BuildGetQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F82FC424AE05E1006DF51C /* BuildGetQuery.swift */; };
+		33F82FC624AE05E1006DF51C /* BuildGetQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F82FC424AE05E1006DF51C /* BuildGetQuery.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		332F766524AD293500A0D61C /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
+		332F766824AD513400A0D61C /* Packages.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Packages.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		332F766A24AD58C500A0D61C /* PipelinesListQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelinesListQuery.swift; sourceTree = "<group>"; };
 		334E245424A5875C00B30357 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		334E245524A5875C00B30357 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		334E245624A5875D00B30357 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -126,15 +133,24 @@
 		334E24D324A602A300B30357 /* TeamDeleteMemberMutation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamDeleteMemberMutation.swift; sourceTree = "<group>"; };
 		334E24D424A602A300B30357 /* TeamCreateMemberMutation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCreateMemberMutation.swift; sourceTree = "<group>"; };
 		334E24D524A602A300B30357 /* GraphQL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQL.swift; sourceTree = "<group>"; };
-		338A57CF24A7D05400F80306 /* PipelinesListQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelinesListQuery.swift; sourceTree = "<group>"; };
 		338A57D224A7D7DF00F80306 /* PipelineRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelineRow.swift; sourceTree = "<group>"; };
 		33AC4D5424AC074400508156 /* PipelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelineView.swift; sourceTree = "<group>"; };
-		33AC4D5724AC075000508156 /* BuildsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildsView.swift; sourceTree = "<group>"; };
 		33AC4D5A24AC075800508156 /* BuildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildView.swift; sourceTree = "<group>"; };
 		33AC4D5D24AC076500508156 /* JobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobView.swift; sourceTree = "<group>"; };
 		33AC4D6024AC086D00508156 /* env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = env.swift; sourceTree = "<group>"; };
+		33AC4D7024AC16E900508156 /* Job+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Job+Extensions.swift"; sourceTree = "<group>"; };
+		33C6EEE224AE56B900C57E1B /* macOS-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-Release.xcconfig"; sourceTree = "<group>"; };
+		33C6EEE324AE56B900C57E1B /* Project-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Project-Release.xcconfig"; sourceTree = "<group>"; };
+		33C6EEE424AE56B900C57E1B /* iOS-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS-Debug.xcconfig"; sourceTree = "<group>"; };
+		33C6EEE524AE56B900C57E1B /* Project-Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Project-Shared.xcconfig"; sourceTree = "<group>"; };
+		33C6EEE624AE56B900C57E1B /* macOS-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-Debug.xcconfig"; sourceTree = "<group>"; };
+		33C6EEE724AE56B900C57E1B /* iOS-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS-Release.xcconfig"; sourceTree = "<group>"; };
+		33C6EEE824AE56B900C57E1B /* iOS-Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS-Shared.xcconfig"; sourceTree = "<group>"; };
+		33C6EEE924AE56B900C57E1B /* macOS-Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-Shared.xcconfig"; sourceTree = "<group>"; };
+		33C6EEEA24AE56B900C57E1B /* Project-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Project-Debug.xcconfig"; sourceTree = "<group>"; };
 		33F251C624A818D60049CB58 /* Emojis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emojis.swift; sourceTree = "<group>"; };
 		33F251C924A833460049CB58 /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
+		33F82FC424AE05E1006DF51C /* BuildGetQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildGetQuery.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +173,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		332F766924AD58B300A0D61C /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				33AC4D7024AC16E900508156 /* Job+Extensions.swift */,
+				332F766A24AD58C500A0D61C /* PipelinesListQuery.swift */,
+				33F82FC424AE05E1006DF51C /* BuildGetQuery.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		334E244E24A5875C00B30357 = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +190,7 @@
 				334E245D24A5875D00B30357 /* iOS */,
 				334E246424A5875D00B30357 /* macOS */,
 				334E248624A5890300B30357 /* Playgrounds */,
+				33C6EEE124AE56B900C57E1B /* xcconfigs */,
 				334E247824A587CB00B30357 /* Frameworks */,
 				334E245C24A5875D00B30357 /* Products */,
 			);
@@ -246,7 +273,7 @@
 		334E248024A5886200B30357 /* Agents */ = {
 			isa = PBXGroup;
 			children = (
-				334E24BC24A5A37D00B30357 /* Agent+Extensions.swift */,
+				33C6EEEB24AE5B4100C57E1B /* Data */,
 				334E248D24A58CFB00B30357 /* AgentsList.swift */,
 				334E24B524A5A32700B30357 /* AgentRow.swift */,
 				334E24B824A5A34300B30357 /* AgentView.swift */,
@@ -268,11 +295,10 @@
 		334E248224A5887600B30357 /* Pipelines */ = {
 			isa = PBXGroup;
 			children = (
-				338A57CE24A7D04200F80306 /* Data */,
+				332F766924AD58B300A0D61C /* Data */,
 				334E249024A58D0500B30357 /* PipelinesList.swift */,
 				338A57D224A7D7DF00F80306 /* PipelineRow.swift */,
 				33AC4D5424AC074400508156 /* PipelineView.swift */,
-				33AC4D5724AC075000508156 /* BuildsView.swift */,
 				33AC4D5A24AC075800508156 /* BuildView.swift */,
 				33AC4D5D24AC076500508156 /* JobView.swift */,
 			);
@@ -286,6 +312,7 @@
 				334E249624A58D4C00B30357 /* BuildState.swift */,
 				334E249924A58D4C00B30357 /* ConnectionState.swift */,
 				33F251C924A833460049CB58 /* AsyncImage.swift */,
+				332F766524AD293500A0D61C /* SearchField.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -307,6 +334,7 @@
 		334E248624A5890300B30357 /* Playgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				332F766824AD513400A0D61C /* Packages.playground */,
 			);
 			path = Playgrounds;
 			sourceTree = "<group>";
@@ -330,10 +358,26 @@
 			path = Users;
 			sourceTree = "<group>";
 		};
-		338A57CE24A7D04200F80306 /* Data */ = {
+		33C6EEE124AE56B900C57E1B /* xcconfigs */ = {
 			isa = PBXGroup;
 			children = (
-				338A57CF24A7D05400F80306 /* PipelinesListQuery.swift */,
+				33C6EEE424AE56B900C57E1B /* iOS-Debug.xcconfig */,
+				33C6EEE724AE56B900C57E1B /* iOS-Release.xcconfig */,
+				33C6EEE824AE56B900C57E1B /* iOS-Shared.xcconfig */,
+				33C6EEE624AE56B900C57E1B /* macOS-Debug.xcconfig */,
+				33C6EEE224AE56B900C57E1B /* macOS-Release.xcconfig */,
+				33C6EEE924AE56B900C57E1B /* macOS-Shared.xcconfig */,
+				33C6EEEA24AE56B900C57E1B /* Project-Debug.xcconfig */,
+				33C6EEE324AE56B900C57E1B /* Project-Release.xcconfig */,
+				33C6EEE524AE56B900C57E1B /* Project-Shared.xcconfig */,
+			);
+			path = xcconfigs;
+			sourceTree = "<group>";
+		};
+		33C6EEEB24AE5B4100C57E1B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				334E24BC24A5A37D00B30357 /* Agent+Extensions.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -467,10 +511,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				334E24B624A5A32700B30357 /* AgentRow.swift in Sources */,
+				33AC4D7224AC16E900508156 /* Job+Extensions.swift in Sources */,
+				332F766B24AD58C500A0D61C /* PipelinesListQuery.swift in Sources */,
 				334E24BE24A5A37D00B30357 /* Agent+Extensions.swift in Sources */,
 				334E24D824A602A300B30357 /* Organization+Fragment.swift in Sources */,
 				334E249424A58D0F00B30357 /* TeamsList.swift in Sources */,
-				338A57D024A7D05400F80306 /* PipelinesListQuery.swift in Sources */,
+				332F766624AD293500A0D61C /* SearchField.swift in Sources */,
 				334E24B924A5A34300B30357 /* AgentView.swift in Sources */,
 				338A57D324A7D7DF00F80306 /* PipelineRow.swift in Sources */,
 				334E24D624A602A300B30357 /* Team+Fragment.swift in Sources */,
@@ -484,7 +530,6 @@
 				33F251C724A818D60049CB58 /* Emojis.swift in Sources */,
 				334E248E24A58CFB00B30357 /* AgentsList.swift in Sources */,
 				33F251CA24A833460049CB58 /* AsyncImage.swift in Sources */,
-				33AC4D5824AC075000508156 /* BuildsView.swift in Sources */,
 				33AC4D5524AC074400508156 /* PipelineView.swift in Sources */,
 				334E24CA24A6023100B30357 /* UserView.swift in Sources */,
 				334E24C724A6022800B30357 /* UsersList.swift in Sources */,
@@ -493,6 +538,7 @@
 				33AC4D5E24AC076500508156 /* JobView.swift in Sources */,
 				334E24B024A59C3A00B30357 /* Formatters.swift in Sources */,
 				334E249124A58D0500B30357 /* PipelinesList.swift in Sources */,
+				33F82FC524AE05E1006DF51C /* BuildGetQuery.swift in Sources */,
 				334E24A024A58D4C00B30357 /* ConnectionState.swift in Sources */,
 				334E24E224A602A300B30357 /* TeamCreateMemberMutation.swift in Sources */,
 				334E24C324A5A5ED00B30357 /* Team+Extensions.swift in Sources */,
@@ -512,10 +558,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				334E24B724A5A32700B30357 /* AgentRow.swift in Sources */,
+				33AC4D7124AC16E900508156 /* Job+Extensions.swift in Sources */,
+				332F766C24AD58C500A0D61C /* PipelinesListQuery.swift in Sources */,
 				334E24BF24A5A37D00B30357 /* Agent+Extensions.swift in Sources */,
 				334E24D924A602A300B30357 /* Organization+Fragment.swift in Sources */,
 				334E249524A58D0F00B30357 /* TeamsList.swift in Sources */,
-				338A57D124A7D05400F80306 /* PipelinesListQuery.swift in Sources */,
+				332F766724AD293500A0D61C /* SearchField.swift in Sources */,
 				334E24BA24A5A34300B30357 /* AgentView.swift in Sources */,
 				338A57D424A7D7DF00F80306 /* PipelineRow.swift in Sources */,
 				334E24D724A602A300B30357 /* Team+Fragment.swift in Sources */,
@@ -529,7 +577,6 @@
 				33F251C824A818D60049CB58 /* Emojis.swift in Sources */,
 				334E248F24A58CFB00B30357 /* AgentsList.swift in Sources */,
 				33F251CB24A833460049CB58 /* AsyncImage.swift in Sources */,
-				33AC4D5924AC075000508156 /* BuildsView.swift in Sources */,
 				33AC4D5624AC074400508156 /* PipelineView.swift in Sources */,
 				334E24CB24A6023100B30357 /* UserView.swift in Sources */,
 				334E24C824A6022800B30357 /* UsersList.swift in Sources */,
@@ -538,6 +585,7 @@
 				33AC4D5F24AC076500508156 /* JobView.swift in Sources */,
 				334E24B124A59C3A00B30357 /* Formatters.swift in Sources */,
 				334E249224A58D0500B30357 /* PipelinesList.swift in Sources */,
+				33F82FC624AE05E1006DF51C /* BuildGetQuery.swift in Sources */,
 				334E24A124A58D4C00B30357 /* ConnectionState.swift in Sources */,
 				334E24E324A602A300B30357 /* TeamCreateMemberMutation.swift in Sources */,
 				334E24C424A5A5ED00B30357 /* Team+Extensions.swift in Sources */,
@@ -557,211 +605,43 @@
 /* Begin XCBuildConfiguration section */
 		334E246D24A5875D00B30357 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33C6EEEA24AE56B900C57E1B /* Project-Debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		334E246E24A5875D00B30357 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33C6EEE324AE56B900C57E1B /* Project-Release.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
 		};
 		334E247024A5875D00B30357 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33C6EEE424AE56B900C57E1B /* iOS-Debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "Shared/Previews/Preview\\ Assets.xcassets";
-				DEVELOPMENT_TEAM = 52W2H99QHH;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sky.Buildkite;
-				PRODUCT_NAME = BuildkiteApp;
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		334E247124A5875D00B30357 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33C6EEE724AE56B900C57E1B /* iOS-Release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "Shared/Previews/Preview\\ Assets.xcassets";
-				DEVELOPMENT_TEAM = 52W2H99QHH;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sky.Buildkite;
-				PRODUCT_NAME = BuildkiteApp;
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		334E247324A5875D00B30357 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33C6EEE624AE56B900C57E1B /* macOS-Debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_ASSET_PATHS = "Shared/Previews/Preview\\ Assets.xcassets";
-				DEVELOPMENT_TEAM = 52W2H99QHH;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = macOS/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.16;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sky.Buildkite;
-				PRODUCT_NAME = BuildkiteApp;
-				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		334E247424A5875D00B30357 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33C6EEE224AE56B900C57E1B /* macOS-Release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_ASSET_PATHS = "Shared/Previews/Preview\\ Assets.xcassets";
-				DEVELOPMENT_TEAM = 52W2H99QHH;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = macOS/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.16;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sky.Buildkite;
-				PRODUCT_NAME = BuildkiteApp;
-				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

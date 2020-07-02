@@ -24,9 +24,17 @@ struct TeamsList: View {
     
     var content: some View {
         List(selection: $selection) {
-            ForEach(teams) { team in
-                NavigationLink(destination: TeamView(team: Fragments.Team(team: team))) {
-                    TeamRow(team: team)
+            if teams.isEmpty {
+                HStack {
+                    Spacer()
+                    ProgressView()
+                    Spacer()
+                }
+            } else {
+                ForEach(teams) { team in
+                    NavigationLink(destination: TeamView(team: Fragments.Team(team: team))) {
+                        TeamRow(team: team)
+                    }
                 }
             }
         }

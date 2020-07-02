@@ -9,7 +9,7 @@
 import Foundation
 import Buildkite
 
-struct TeamGetQuery {
+struct TeamGetQuery: GraphQLQuery {
     static var query = """
 query TeamGet($slug: ID!, $first: Int!) {
   team(slug: $slug) {
@@ -37,11 +37,11 @@ query TeamGet($slug: ID!, $first: Int!) {
     
     var slug: String
     
-    var resource: GraphQL<Response> {
-        GraphQL(rawQuery: TeamGetQuery.query, variables: [
+    var variables: [String : JSONValue] {
+        [
             "slug": .string(slug),
             "first": 100,
-        ])
+        ]
     }
     
     init(organization: String, team: String) {

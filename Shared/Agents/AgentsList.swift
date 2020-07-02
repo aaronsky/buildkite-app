@@ -16,9 +16,17 @@ struct AgentsList: View {
     
     var body: some View {
         List(selection: $selection) {
-            ForEach(agents) { agent in
-                NavigationLink(destination: AgentView(agent: agent)) {
-                    AgentRow(agent: agent)
+            if agents.isEmpty {
+                HStack {
+                    Spacer()
+                    ProgressView()
+                    Spacer()
+                }
+            } else {
+                ForEach(agents) { agent in
+                    NavigationLink(destination: AgentView(agent: agent)) {
+                        AgentRow(agent: agent)
+                    }
                 }
             }
         }
