@@ -51,7 +51,6 @@ playground.xcworkspace
 .build/
 
 # Environment
-Shared/env.swift
-Shared/Previews/Preview Assets.xcassets/**/*.json
+Sources/Shared/env.swift
+Sources/Shared/Previews/Preview Assets.xcassets/**/*.json
 !**/*.xcassets/**/Contents.json
-/Designs/

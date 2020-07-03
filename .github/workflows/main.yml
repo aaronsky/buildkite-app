@@ -13,11 +13,14 @@ jobs:
         uses: actions/checkout@v1
       - name: Set Xcode Version
         run: sudo xcode-select --switch /Applications/Xcode_12_beta.app
+      - name: Bootstrap environment
+        run: ./Scripts/bootstrap.sh
       - name: xcodebuild test
         run: |-
           xcodebuild \
             -project Buildkite.xcodeproj \
-            -scheme "iOS" \
-            -destination "platform=iOS Simulator,OS=latest,name=iPhone 11" \
+            -scheme 'iOS' \
+            -configuration 'Debug' \
+            -destination 'platform=iOS Simulator,OS=latest,name=iPhone 11' \
             -quiet \
-            build
+            build test
