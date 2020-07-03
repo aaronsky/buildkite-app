@@ -22,7 +22,7 @@ ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor
 // 
 // The path to a file specifying code-signing entitlements.
 
-CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements
+CODE_SIGN_ENTITLEMENTS = Sources/macOS/macOS.entitlements
 
 
 
@@ -63,7 +63,7 @@ COMBINE_HIDPI_IMAGES = YES
 // Files and directories used only for development. Archive and install builds will
 // exclude this content.
 
-DEVELOPMENT_ASSET_PATHS = Shared/Previews/Preview\ Assets.xcassets
+DEVELOPMENT_ASSET_PATHS = Sources/Shared/Previews/Preview\ Assets.xcassets
 
 
 
@@ -107,7 +107,7 @@ ENABLE_PREVIEWS = YES
 // in [Runtime Configuration
 // Guidelines](https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPRuntimeConfig/000-Introduction/introduction.html).
 
-INFOPLIST_FILE = macOS/Info.plist
+INFOPLIST_FILE = Sources/macOS/Info.plist
 
 
 

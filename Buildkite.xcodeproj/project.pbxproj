@@ -228,8 +228,9 @@
 				334E24C524A6021500B30357 /* Users */,
 				334E248524A5888B00B30357 /* Widgets */,
 			);
-			path = Shared;
-			sourceTree = "<group>";
+			name = Shared;
+			path = Sources/Shared;
+			sourceTree = SOURCE_ROOT;
 		};
 		334E245C24A5875D00B30357 /* Products */ = {
 			isa = PBXGroup;
@@ -238,7 +239,7 @@
 				334E246324A5875D00B30357 /* BuildkiteApp.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		334E245D24A5875D00B30357 /* iOS */ = {
 			isa = PBXGroup;
@@ -246,8 +247,9 @@
 				334E245E24A5875D00B30357 /* Info.plist */,
 				334E248A24A58BE600B30357 /* AppTabNavigation.swift */,
 			);
-			path = iOS;
-			sourceTree = "<group>";
+			name = iOS;
+			path = Sources/iOS;
+			sourceTree = SOURCE_ROOT;
 		};
 		334E246424A5875D00B30357 /* macOS */ = {
 			isa = PBXGroup;
@@ -255,15 +257,16 @@
 				334E246524A5875D00B30357 /* Info.plist */,
 				334E246624A5875D00B30357 /* macOS.entitlements */,
 			);
-			path = macOS;
-			sourceTree = "<group>";
+			name = macOS;
+			path = Sources/macOS;
+			sourceTree = SOURCE_ROOT;
 		};
 		334E247824A587CB00B30357 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		334E247B24A5881C00B30357 /* Navigation */ = {
 			isa = PBXGroup;
@@ -354,8 +357,9 @@
 			children = (
 				332F766824AD513400A0D61C /* Packages.playground */,
 			);
-			path = Playgrounds;
-			sourceTree = "<group>";
+			name = Playgrounds;
+			path = Sources/Playgrounds;
+			sourceTree = SOURCE_ROOT;
 		};
 		334E24A824A59B8300B30357 /* Previews */ = {
 			isa = PBXGroup;
@@ -450,7 +454,7 @@
 				33C6EEE524AE56B900C57E1B /* Project-Shared.xcconfig */,
 			);
 			path = xcconfigs;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -685,6 +689,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 33C6EEE424AE56B900C57E1B /* iOS-Debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 52W2H99QHH;
 			};
 			name = Debug;
 		};
@@ -692,6 +697,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 33C6EEE724AE56B900C57E1B /* iOS-Release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 52W2H99QHH;
 			};
 			name = Release;
 		};
