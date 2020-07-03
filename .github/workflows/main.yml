@@ -16,6 +16,8 @@ jobs:
       - name: Bootstrap environment
         run: ./Scripts/bootstrap.sh
       - name: xcodebuild test
+        env:
+          SECRET_BUILDKITE_TOKEN: ${{ secrets.BuildkiteToken }}
         run: |-
           xcodebuild \
             -project Buildkite.xcodeproj \
