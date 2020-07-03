@@ -1,9 +1,11 @@
 name: Build and Test
 on:
   push:
-    branches: [master]
+    branches:
+      - master
   pull_request:
-    branches: [master]
+    branches:
+      - master
 jobs:
   # lints:
   tests:
@@ -14,10 +16,10 @@ jobs:
       - name: Set Xcode Version
         run: sudo xcode-select --switch /Applications/Xcode_12_beta.app
       - name: Bootstrap environment
-        run: ./Scripts/bootstrap.sh
-      - name: xcodebuild test
         env:
           SECRET_BUILDKITE_TOKEN: ${{ secrets.BuildkiteToken }}
+        run: ./Scripts/bootstrap.sh
+      - name: xcodebuild test
         run: |-
           xcodebuild \
             -project Buildkite.xcodeproj \
