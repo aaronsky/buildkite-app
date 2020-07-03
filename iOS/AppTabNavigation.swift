@@ -8,43 +8,24 @@
 import SwiftUI
 
 struct AppTabNavigation: View {
-    enum Tab {
-        case agents
-        case pipelines
-        case teams
-    }
-    
-    @State private var selection: Tab = .agents
+    @State private var selection: NavigationItem = .pipelines
 
     var body: some View {
         TabView(selection: $selection) {
-            NavigationView {
-                AgentsList()
+            ForEach(NavigationItem.allCases) { item in
+                tab(for: item)
             }
-            .tabItem {
-                Label("Agents", systemImage: "ant.fill")
-                    .accessibility(label: Text("Agents"))
-            }
-            .tag(Tab.agents)
-            
-            NavigationView {
-                PipelinesList()
-            }
-            .tabItem {
-                Label("Pipelines", systemImage: "hammer.fill")
-                    .accessibility(label: Text("Pipelines"))
-            }
-            .tag(Tab.pipelines)
-            
-            NavigationView {
-                TeamsList()
-            }
-            .tabItem {
-                Label("Teams", systemImage: "person.3.fill")
-                    .accessibility(label: Text("Teams"))
-            }
-            .tag(Tab.teams)
         }
+    }
+    
+    func tab(for item: NavigationItem) -> some View {
+        NavigationView {
+            item.destination
+        }.tabItem {
+            item.label
+                .accessibility(label: item.accessibilityLabel)
+        }.tag(item)
+        
     }
 }
 

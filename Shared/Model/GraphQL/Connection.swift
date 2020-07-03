@@ -1,26 +1,19 @@
 //
-//  GraphQL.swift
-//  Shared
+//  Connection.swift
+//  Buildkite
 //
-//  Created by Aaron Sky on 5/24/20.
-//  Copyright © 2020 Aaron Sky. All rights reserved.
+//  Created by Aaron Sky on 7/3/20.
 //
 
 import Foundation
-import Buildkite
-
-protocol GraphQLQuery {
-    associatedtype Response: Decodable
-    static var query: String { get }
-    var variables: [String: JSONValue] { get }
-}
 
 struct Connection<T: Decodable>: Decodable {
-    var edges: [Edge]
+    var count: Int?
+    var edges: [Edge]?
     var pageInfo: PageInfo?
     
     var nodes: [T] {
-        edges.map(\.node)
+        edges?.map(\.node) ?? []
     }
     
     struct Edge: Decodable {
@@ -54,24 +47,3 @@ extension Connection: ExpressibleByArrayLiteral {
         self.init(nodes: elements)
     }
 }
-
-protocol HashableFromIdentifier: Hashable, Identifiable {}
-extension HashableFromIdentifier {
-    static func == (lhs: Self, rhs: Self) -> Bool {
-        lhs.id == rhs.id
-    }
-    
-    public func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
-}
-
-struct EmptyIdentifiable: Identifiable {
-    var id: UUID
-    
-    init() {
-        self.id = .init()
-    }
-}
-
-enum Fragments {}

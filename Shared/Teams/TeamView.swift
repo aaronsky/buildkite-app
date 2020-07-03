@@ -88,7 +88,7 @@ struct TeamView: View {
     }
     
     func deleteMembers(at offsets: IndexSet) {
-        let ids = offsets.map { team.members.edges[$0].node.id }
+        let ids = offsets.compactMap { team.members.edges?[$0].node.id }
         let deletions = ids.map {
             service
                 .sendQueryPublisher(TeamDeleteMemberMutation(id: $0))
@@ -99,7 +99,7 @@ struct TeamView: View {
             .receive(on: DispatchQueue.main)
             .sink(into: service,
                   receiveValue: { data in
-                    self.team.members.edges.removeAll(where: { $0.node.id == data.teamMemberDelete.deletedTeamMemberID })
+                    self.team.members.edges?.removeAll(where: { $0.node.id == data.teamMemberDelete.deletedTeamMemberID })
                   })
     }
 }

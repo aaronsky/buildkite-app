@@ -71,10 +71,26 @@
 		334E24E124A602A300B30357 /* TeamDeleteMemberMutation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E24D324A602A300B30357 /* TeamDeleteMemberMutation.swift */; };
 		334E24E224A602A300B30357 /* TeamCreateMemberMutation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E24D424A602A300B30357 /* TeamCreateMemberMutation.swift */; };
 		334E24E324A602A300B30357 /* TeamCreateMemberMutation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E24D424A602A300B30357 /* TeamCreateMemberMutation.swift */; };
-		334E24E424A602A300B30357 /* GraphQL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E24D524A602A300B30357 /* GraphQL.swift */; };
-		334E24E524A602A300B30357 /* GraphQL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E24D524A602A300B30357 /* GraphQL.swift */; };
+		334E24E424A602A300B30357 /* GraphQLQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E24D524A602A300B30357 /* GraphQLQuery.swift */; };
+		334E24E524A602A300B30357 /* GraphQLQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E24D524A602A300B30357 /* GraphQLQuery.swift */; };
 		338A57D324A7D7DF00F80306 /* PipelineRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338A57D224A7D7DF00F80306 /* PipelineRow.swift */; };
 		338A57D424A7D7DF00F80306 /* PipelineRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338A57D224A7D7DF00F80306 /* PipelineRow.swift */; };
+		339F000424AFBFB800E37FC9 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339F000324AFBFB800E37FC9 /* Connection.swift */; };
+		339F000524AFBFB800E37FC9 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339F000324AFBFB800E37FC9 /* Connection.swift */; };
+		339F000724AFBFE200E37FC9 /* HashableFromIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339F000624AFBFE200E37FC9 /* HashableFromIdentifier.swift */; };
+		339F000824AFBFE200E37FC9 /* HashableFromIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339F000624AFBFE200E37FC9 /* HashableFromIdentifier.swift */; };
+		339F000A24AFC01400E37FC9 /* Fragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339F000924AFC01400E37FC9 /* Fragment.swift */; };
+		339F000B24AFC01400E37FC9 /* Fragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339F000924AFC01400E37FC9 /* Fragment.swift */; };
+		339FFFF224AFBAD800E37FC9 /* NavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339FFFF124AFBAD800E37FC9 /* NavigationItem.swift */; };
+		339FFFF324AFBAD800E37FC9 /* NavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339FFFF124AFBAD800E37FC9 /* NavigationItem.swift */; };
+		339FFFF624AFBD8900E37FC9 /* SettingsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339FFFF524AFBD8900E37FC9 /* SettingsList.swift */; };
+		339FFFF724AFBD8900E37FC9 /* SettingsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339FFFF524AFBD8900E37FC9 /* SettingsList.swift */; };
+		339FFFF924AFBDA700E37FC9 /* ChangelogList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339FFFF824AFBDA700E37FC9 /* ChangelogList.swift */; };
+		339FFFFA24AFBDA700E37FC9 /* ChangelogList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339FFFF824AFBDA700E37FC9 /* ChangelogList.swift */; };
+		339FFFFC24AFBDB800E37FC9 /* ChangelogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339FFFFB24AFBDB800E37FC9 /* ChangelogView.swift */; };
+		339FFFFD24AFBDB800E37FC9 /* ChangelogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339FFFFB24AFBDB800E37FC9 /* ChangelogView.swift */; };
+		33A1E96824AF737D00C3491D /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A1E96724AF737D00C3491D /* WebView.swift */; };
+		33A1E96924AF737D00C3491D /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A1E96724AF737D00C3491D /* WebView.swift */; };
 		33AC4D5524AC074400508156 /* PipelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AC4D5424AC074400508156 /* PipelineView.swift */; };
 		33AC4D5624AC074400508156 /* PipelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AC4D5424AC074400508156 /* PipelineView.swift */; };
 		33AC4D5B24AC075800508156 /* BuildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AC4D5A24AC075800508156 /* BuildView.swift */; };
@@ -132,8 +148,16 @@
 		334E24D224A602A300B30357 /* TeamUpdateMemberMutation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamUpdateMemberMutation.swift; sourceTree = "<group>"; };
 		334E24D324A602A300B30357 /* TeamDeleteMemberMutation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamDeleteMemberMutation.swift; sourceTree = "<group>"; };
 		334E24D424A602A300B30357 /* TeamCreateMemberMutation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCreateMemberMutation.swift; sourceTree = "<group>"; };
-		334E24D524A602A300B30357 /* GraphQL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQL.swift; sourceTree = "<group>"; };
+		334E24D524A602A300B30357 /* GraphQLQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLQuery.swift; sourceTree = "<group>"; };
 		338A57D224A7D7DF00F80306 /* PipelineRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelineRow.swift; sourceTree = "<group>"; };
+		339F000324AFBFB800E37FC9 /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
+		339F000624AFBFE200E37FC9 /* HashableFromIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashableFromIdentifier.swift; sourceTree = "<group>"; };
+		339F000924AFC01400E37FC9 /* Fragment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fragment.swift; sourceTree = "<group>"; };
+		339FFFF124AFBAD800E37FC9 /* NavigationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationItem.swift; sourceTree = "<group>"; };
+		339FFFF524AFBD8900E37FC9 /* SettingsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsList.swift; sourceTree = "<group>"; };
+		339FFFF824AFBDA700E37FC9 /* ChangelogList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangelogList.swift; sourceTree = "<group>"; };
+		339FFFFB24AFBDB800E37FC9 /* ChangelogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangelogView.swift; sourceTree = "<group>"; };
+		33A1E96724AF737D00C3491D /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		33AC4D5424AC074400508156 /* PipelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelineView.swift; sourceTree = "<group>"; };
 		33AC4D5A24AC075800508156 /* BuildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildView.swift; sourceTree = "<group>"; };
 		33AC4D5D24AC076500508156 /* JobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobView.swift; sourceTree = "<group>"; };
@@ -173,16 +197,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		332F766924AD58B300A0D61C /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				33AC4D7024AC16E900508156 /* Job+Extensions.swift */,
-				332F766A24AD58C500A0D61C /* PipelinesListQuery.swift */,
-				33F82FC424AE05E1006DF51C /* BuildGetQuery.swift */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
 		334E244E24A5875C00B30357 = {
 			isa = PBXGroup;
 			children = (
@@ -200,14 +214,15 @@
 			isa = PBXGroup;
 			children = (
 				334E245424A5875C00B30357 /* Application.swift */,
-				334E245624A5875D00B30357 /* Assets.xcassets */,
 				33AC4D6024AC086D00508156 /* env.swift */,
+				334E245624A5875D00B30357 /* Assets.xcassets */,
 				334E248024A5886200B30357 /* Agents */,
 				334E248324A5887B00B30357 /* Components */,
 				334E247F24A5884F00B30357 /* Model */,
 				334E247B24A5881C00B30357 /* Navigation */,
 				334E248224A5887600B30357 /* Pipelines */,
 				334E24A824A59B8300B30357 /* Previews */,
+				339FFFF424AFBD7E00E37FC9 /* Settings */,
 				334E248424A5888200B30357 /* Styles */,
 				334E248124A5887000B30357 /* Teams */,
 				334E24C524A6021500B30357 /* Users */,
@@ -253,8 +268,9 @@
 		334E247B24A5881C00B30357 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				334E245524A5875C00B30357 /* ContentView.swift */,
 				334E247C24A5884200B30357 /* AppSidebarNavigation.swift */,
+				334E245524A5875C00B30357 /* ContentView.swift */,
+				339FFFF124AFBAD800E37FC9 /* NavigationItem.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -262,10 +278,14 @@
 		334E247F24A5884F00B30357 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				339F000124AFBEC800E37FC9 /* GraphQL */,
 				334E248724A589DC00B30357 /* BuildkiteService.swift */,
+				334E24C224A5A5ED00B30357 /* Team+Extensions.swift */,
+				334E24BC24A5A37D00B30357 /* Agent+Extensions.swift */,
+				33AC4D7024AC16E900508156 /* Job+Extensions.swift */,
 				334E24AF24A59C3A00B30357 /* Formatters.swift */,
-				334E24D524A602A300B30357 /* GraphQL.swift */,
 				33F251C624A818D60049CB58 /* Emojis.swift */,
+				339F000624AFBFE200E37FC9 /* HashableFromIdentifier.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -273,7 +293,6 @@
 		334E248024A5886200B30357 /* Agents */ = {
 			isa = PBXGroup;
 			children = (
-				33C6EEEB24AE5B4100C57E1B /* Data */,
 				334E248D24A58CFB00B30357 /* AgentsList.swift */,
 				334E24B524A5A32700B30357 /* AgentRow.swift */,
 				334E24B824A5A34300B30357 /* AgentView.swift */,
@@ -284,7 +303,6 @@
 		334E248124A5887000B30357 /* Teams */ = {
 			isa = PBXGroup;
 			children = (
-				33DDC58424A6942800F57269 /* Data */,
 				334E249324A58D0F00B30357 /* TeamsList.swift */,
 				334E24A524A5995900B30357 /* TeamRow.swift */,
 				334E24B224A59C4D00B30357 /* TeamView.swift */,
@@ -295,7 +313,6 @@
 		334E248224A5887600B30357 /* Pipelines */ = {
 			isa = PBXGroup;
 			children = (
-				332F766924AD58B300A0D61C /* Data */,
 				334E249024A58D0500B30357 /* PipelinesList.swift */,
 				338A57D224A7D7DF00F80306 /* PipelineRow.swift */,
 				33AC4D5424AC074400508156 /* PipelineView.swift */,
@@ -313,6 +330,7 @@
 				334E249924A58D4C00B30357 /* ConnectionState.swift */,
 				33F251C924A833460049CB58 /* AsyncImage.swift */,
 				332F766524AD293500A0D61C /* SearchField.swift */,
+				33A1E96724AF737D00C3491D /* WebView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -351,11 +369,71 @@
 		334E24C524A6021500B30357 /* Users */ = {
 			isa = PBXGroup;
 			children = (
-				33DDC58524A6942E00F57269 /* Data */,
 				334E24C624A6022800B30357 /* UsersList.swift */,
 				334E24C924A6023100B30357 /* UserView.swift */,
 			);
 			path = Users;
+			sourceTree = "<group>";
+		};
+		339F000024AFBEC300E37FC9 /* Mutations */ = {
+			isa = PBXGroup;
+			children = (
+				334E24D224A602A300B30357 /* TeamUpdateMemberMutation.swift */,
+				334E24D324A602A300B30357 /* TeamDeleteMemberMutation.swift */,
+				334E24D424A602A300B30357 /* TeamCreateMemberMutation.swift */,
+			);
+			path = Mutations;
+			sourceTree = "<group>";
+		};
+		339F000124AFBEC800E37FC9 /* GraphQL */ = {
+			isa = PBXGroup;
+			children = (
+				339F000224AFBEEC00E37FC9 /* Fragments */,
+				339FFFFF24AFBEBA00E37FC9 /* Queries */,
+				339F000024AFBEC300E37FC9 /* Mutations */,
+				334E24D524A602A300B30357 /* GraphQLQuery.swift */,
+				339F000324AFBFB800E37FC9 /* Connection.swift */,
+				339F000924AFC01400E37FC9 /* Fragment.swift */,
+			);
+			path = GraphQL;
+			sourceTree = "<group>";
+		};
+		339F000224AFBEEC00E37FC9 /* Fragments */ = {
+			isa = PBXGroup;
+			children = (
+				334E24CE24A602A300B30357 /* Organization+Fragment.swift */,
+				334E24CD24A602A300B30357 /* Team+Fragment.swift */,
+			);
+			path = Fragments;
+			sourceTree = "<group>";
+		};
+		339FFFF424AFBD7E00E37FC9 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				339FFFF524AFBD8900E37FC9 /* SettingsList.swift */,
+				339FFFFE24AFBDBC00E37FC9 /* Changelog */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		339FFFFE24AFBDBC00E37FC9 /* Changelog */ = {
+			isa = PBXGroup;
+			children = (
+				339FFFF824AFBDA700E37FC9 /* ChangelogList.swift */,
+				339FFFFB24AFBDB800E37FC9 /* ChangelogView.swift */,
+			);
+			path = Changelog;
+			sourceTree = "<group>";
+		};
+		339FFFFF24AFBEBA00E37FC9 /* Queries */ = {
+			isa = PBXGroup;
+			children = (
+				334E24D024A602A300B30357 /* TeamGetQuery.swift */,
+				334E24D124A602A300B30357 /* UsersSearchQuery.swift */,
+				332F766A24AD58C500A0D61C /* PipelinesListQuery.swift */,
+				33F82FC424AE05E1006DF51C /* BuildGetQuery.swift */,
+			);
+			path = Queries;
 			sourceTree = "<group>";
 		};
 		33C6EEE124AE56B900C57E1B /* xcconfigs */ = {
@@ -372,36 +450,6 @@
 				33C6EEE524AE56B900C57E1B /* Project-Shared.xcconfig */,
 			);
 			path = xcconfigs;
-			sourceTree = "<group>";
-		};
-		33C6EEEB24AE5B4100C57E1B /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				334E24BC24A5A37D00B30357 /* Agent+Extensions.swift */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		33DDC58424A6942800F57269 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				334E24C224A5A5ED00B30357 /* Team+Extensions.swift */,
-				334E24CE24A602A300B30357 /* Organization+Fragment.swift */,
-				334E24CD24A602A300B30357 /* Team+Fragment.swift */,
-				334E24D024A602A300B30357 /* TeamGetQuery.swift */,
-				334E24D224A602A300B30357 /* TeamUpdateMemberMutation.swift */,
-				334E24D324A602A300B30357 /* TeamDeleteMemberMutation.swift */,
-				334E24D424A602A300B30357 /* TeamCreateMemberMutation.swift */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		33DDC58524A6942E00F57269 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				334E24D124A602A300B30357 /* UsersSearchQuery.swift */,
-			);
-			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -513,6 +561,7 @@
 				334E24B624A5A32700B30357 /* AgentRow.swift in Sources */,
 				33AC4D7224AC16E900508156 /* Job+Extensions.swift in Sources */,
 				332F766B24AD58C500A0D61C /* PipelinesListQuery.swift in Sources */,
+				339F000424AFBFB800E37FC9 /* Connection.swift in Sources */,
 				334E24BE24A5A37D00B30357 /* Agent+Extensions.swift in Sources */,
 				334E24D824A602A300B30357 /* Organization+Fragment.swift in Sources */,
 				334E249424A58D0F00B30357 /* TeamsList.swift in Sources */,
@@ -522,12 +571,14 @@
 				334E24D624A602A300B30357 /* Team+Fragment.swift in Sources */,
 				334E246924A5875D00B30357 /* ContentView.swift in Sources */,
 				334E24B324A59C4D00B30357 /* TeamView.swift in Sources */,
+				339FFFF224AFBAD800E37FC9 /* NavigationItem.swift in Sources */,
 				334E249C24A58D4C00B30357 /* BuildkiteIcon.swift in Sources */,
 				334E24A624A5995900B30357 /* TeamRow.swift in Sources */,
 				334E24AB24A59B8400B30357 /* PreviewData.swift in Sources */,
 				334E24E024A602A300B30357 /* TeamDeleteMemberMutation.swift in Sources */,
 				33AC4D5B24AC075800508156 /* BuildView.swift in Sources */,
 				33F251C724A818D60049CB58 /* Emojis.swift in Sources */,
+				339F000724AFBFE200E37FC9 /* HashableFromIdentifier.swift in Sources */,
 				334E248E24A58CFB00B30357 /* AgentsList.swift in Sources */,
 				33F251CA24A833460049CB58 /* AsyncImage.swift in Sources */,
 				33AC4D5524AC074400508156 /* PipelineView.swift in Sources */,
@@ -537,6 +588,7 @@
 				334E24DC24A602A300B30357 /* UsersSearchQuery.swift in Sources */,
 				33AC4D5E24AC076500508156 /* JobView.swift in Sources */,
 				334E24B024A59C3A00B30357 /* Formatters.swift in Sources */,
+				339FFFFC24AFBDB800E37FC9 /* ChangelogView.swift in Sources */,
 				334E249124A58D0500B30357 /* PipelinesList.swift in Sources */,
 				33F82FC524AE05E1006DF51C /* BuildGetQuery.swift in Sources */,
 				334E24A024A58D4C00B30357 /* ConnectionState.swift in Sources */,
@@ -544,11 +596,15 @@
 				334E24C324A5A5ED00B30357 /* Team+Extensions.swift in Sources */,
 				334E248824A589DC00B30357 /* BuildkiteService.swift in Sources */,
 				334E246724A5875D00B30357 /* Application.swift in Sources */,
-				334E24E424A602A300B30357 /* GraphQL.swift in Sources */,
+				334E24E424A602A300B30357 /* GraphQLQuery.swift in Sources */,
+				33A1E96824AF737D00C3491D /* WebView.swift in Sources */,
 				334E247D24A5884200B30357 /* AppSidebarNavigation.swift in Sources */,
 				33AC4D6124AC086D00508156 /* env.swift in Sources */,
+				339FFFF624AFBD8900E37FC9 /* SettingsList.swift in Sources */,
 				334E249A24A58D4C00B30357 /* BuildState.swift in Sources */,
 				334E248B24A58BE600B30357 /* AppTabNavigation.swift in Sources */,
+				339F000A24AFC01400E37FC9 /* Fragment.swift in Sources */,
+				339FFFF924AFBDA700E37FC9 /* ChangelogList.swift in Sources */,
 				334E24DA24A602A300B30357 /* TeamGetQuery.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -560,6 +616,7 @@
 				334E24B724A5A32700B30357 /* AgentRow.swift in Sources */,
 				33AC4D7124AC16E900508156 /* Job+Extensions.swift in Sources */,
 				332F766C24AD58C500A0D61C /* PipelinesListQuery.swift in Sources */,
+				339F000524AFBFB800E37FC9 /* Connection.swift in Sources */,
 				334E24BF24A5A37D00B30357 /* Agent+Extensions.swift in Sources */,
 				334E24D924A602A300B30357 /* Organization+Fragment.swift in Sources */,
 				334E249524A58D0F00B30357 /* TeamsList.swift in Sources */,
@@ -569,12 +626,14 @@
 				334E24D724A602A300B30357 /* Team+Fragment.swift in Sources */,
 				334E246A24A5875D00B30357 /* ContentView.swift in Sources */,
 				334E24B424A59C4D00B30357 /* TeamView.swift in Sources */,
+				339FFFF324AFBAD800E37FC9 /* NavigationItem.swift in Sources */,
 				334E249D24A58D4C00B30357 /* BuildkiteIcon.swift in Sources */,
 				334E24A724A5995900B30357 /* TeamRow.swift in Sources */,
 				334E24AC24A59B8400B30357 /* PreviewData.swift in Sources */,
 				334E24E124A602A300B30357 /* TeamDeleteMemberMutation.swift in Sources */,
 				33AC4D5C24AC075800508156 /* BuildView.swift in Sources */,
 				33F251C824A818D60049CB58 /* Emojis.swift in Sources */,
+				339F000824AFBFE200E37FC9 /* HashableFromIdentifier.swift in Sources */,
 				334E248F24A58CFB00B30357 /* AgentsList.swift in Sources */,
 				33F251CB24A833460049CB58 /* AsyncImage.swift in Sources */,
 				33AC4D5624AC074400508156 /* PipelineView.swift in Sources */,
@@ -584,6 +643,7 @@
 				334E24DD24A602A300B30357 /* UsersSearchQuery.swift in Sources */,
 				33AC4D5F24AC076500508156 /* JobView.swift in Sources */,
 				334E24B124A59C3A00B30357 /* Formatters.swift in Sources */,
+				339FFFFD24AFBDB800E37FC9 /* ChangelogView.swift in Sources */,
 				334E249224A58D0500B30357 /* PipelinesList.swift in Sources */,
 				33F82FC624AE05E1006DF51C /* BuildGetQuery.swift in Sources */,
 				334E24A124A58D4C00B30357 /* ConnectionState.swift in Sources */,
@@ -591,11 +651,15 @@
 				334E24C424A5A5ED00B30357 /* Team+Extensions.swift in Sources */,
 				334E248924A589DC00B30357 /* BuildkiteService.swift in Sources */,
 				334E246824A5875D00B30357 /* Application.swift in Sources */,
-				334E24E524A602A300B30357 /* GraphQL.swift in Sources */,
+				334E24E524A602A300B30357 /* GraphQLQuery.swift in Sources */,
+				33A1E96924AF737D00C3491D /* WebView.swift in Sources */,
 				334E247E24A5884200B30357 /* AppSidebarNavigation.swift in Sources */,
 				33AC4D6224AC086D00508156 /* env.swift in Sources */,
+				339FFFF724AFBD8900E37FC9 /* SettingsList.swift in Sources */,
 				334E249B24A58D4C00B30357 /* BuildState.swift in Sources */,
 				334E248C24A58BE600B30357 /* AppTabNavigation.swift in Sources */,
+				339F000B24AFC01400E37FC9 /* Fragment.swift in Sources */,
+				339FFFFA24AFBDA700E37FC9 /* ChangelogList.swift in Sources */,
 				334E24DB24A602A300B30357 /* TeamGetQuery.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

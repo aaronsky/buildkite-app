@@ -7,36 +7,15 @@
 
 import SwiftUI
 
-struct AppSidebarNavigation: View {
-    
-    enum NavigationItem {
-        case agents
-        case pipelines
-        case teams
-    }
-    
+struct AppSidebarNavigation: View {    
     @EnvironmentObject private var service: BuildkiteService
     @State private var selection: Set<NavigationItem> = [.pipelines]
     
     var sidebar: some View {
-        List(selection: $selection) {            
-            NavigationLink(destination: AgentsList()) {
-                Label("Agents", systemImage: "ant.fill")
+        List(selection: $selection) {
+            ForEach(NavigationItem.allCases) { item in
+                sidebarItem(for: item)
             }
-            .accessibility(label: Text("Agents"))
-            .tag(NavigationItem.agents)
-            
-            NavigationLink(destination: PipelinesList()) {
-                Label("Pipelines", systemImage: "hammer.fill")
-            }
-            .accessibility(label: Text("Pipelines"))
-            .tag(NavigationItem.pipelines)
-            
-            NavigationLink(destination: TeamsList()) {
-                Label("Teams", systemImage: "person.3.fill")
-            }
-            .accessibility(label: Text("Teams"))
-            .tag(NavigationItem.teams)
         }
         .listStyle(SidebarListStyle())
     }
@@ -44,7 +23,8 @@ struct AppSidebarNavigation: View {
     var body: some View {
         NavigationView {
             #if os(macOS)
-            sidebar.frame(minWidth: 100, idealWidth: 150, maxWidth: 200, maxHeight: .infinity)
+            sidebar
+                .frame(minWidth: 100, idealWidth: 150, maxWidth: 200, maxHeight: .infinity)
             #else
             sidebar
             #endif
@@ -61,6 +41,14 @@ struct AppSidebarNavigation: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             #endif
         }
+    }
+    
+    func sidebarItem(for item: NavigationItem) -> some View {
+        NavigationLink(destination: item.destination) {
+            item.label
+        }
+        .accessibility(label: item.accessibilityLabel)
+        .tag(item)
     }
 }
 
