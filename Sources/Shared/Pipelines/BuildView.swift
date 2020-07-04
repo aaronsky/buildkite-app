@@ -51,5 +51,6 @@ struct BuildView: View {
 //struct BuildView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        BuildView()
+//            .environmentObject(BuildkiteService())
 //    }
 //}

@@ -55,9 +55,11 @@ struct TeamsList: View {
 }
 
 struct TeamsList_Previews: PreviewProvider {
-    static let teams = [Team](assetNamed: "v2.teams")!
+    static let teams = [Team](assetNamed: "v2.teams")
     
     static var previews: some View {
         TeamsList(teams: teams)
+            .environmentObject(BuildkiteService())
+            .environmentObject(Emojis())
     }
 }

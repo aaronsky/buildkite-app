@@ -29,7 +29,7 @@ struct AgentRow: View {
 }
 
 struct AgentRow_Previews: PreviewProvider {
-    static let agent = Agent(assetNamed: "v2.agent")!
+    static let agent = Agent(assetNamed: "v2.agent")
     
     static var previews: some View {
         AgentRow(agent: agent)

@@ -44,8 +44,11 @@ struct PipelineView: View {
     }
 }
 
-//struct PipelineView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PipelineView()
-//    }
-//}
+struct PipelineView_Previews: PreviewProvider {
+    static var query = try! GraphQL<PipelinesListQuery.Response>.Content(assetNamed: "gql.PipelinesList").get()
+    
+    static var previews: some View {
+        PipelineView(pipeline: query.organization.pipelines.nodes.first!)
+            .environmentObject(BuildkiteService())
+    }
+}

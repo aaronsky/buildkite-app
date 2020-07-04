@@ -104,9 +104,10 @@ struct AgentView: View {
 }
 
 struct AgentView_Previews: PreviewProvider {
-    static let agent = Agent(assetNamed: "v2.agent")!
+    static let agent = Agent(assetNamed: "v2.agent")
     
     static var previews: some View {
         AgentView(agent: agent)
+            .environmentObject(BuildkiteService())
     }
 }

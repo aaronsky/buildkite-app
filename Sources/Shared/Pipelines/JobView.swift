@@ -68,8 +68,15 @@ struct JobView: View {
     }
 }
 
-//struct JobView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        JobView()
-//    }
-//}
+struct JobView_Previews: PreviewProvider {
+    static var build = Build(assetNamed: "v2.build")
+    
+    static var previews: some View {
+        VStack {
+            ForEach(build.jobs) { job in
+                JobView(job: job)
+            }
+        }
+        .environmentObject(Emojis())
+    }
+}

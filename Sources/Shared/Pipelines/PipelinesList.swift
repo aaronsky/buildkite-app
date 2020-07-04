@@ -49,7 +49,10 @@ struct PipelinesList: View {
 }
 
 struct PipelinesList_Previews: PreviewProvider {
+    static var query = try! GraphQL<PipelinesListQuery.Response>.Content(assetNamed: "gql.PipelinesList").get()
+    
     static var previews: some View {
-        PipelinesList()
+        PipelinesList(pipelines: query.organization.pipelines.nodes)
+            .environmentObject(BuildkiteService())
     }
 }

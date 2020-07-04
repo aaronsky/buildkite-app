@@ -52,10 +52,11 @@ private struct BuildsGraph: View {
     }
 }
 
-//struct PipelineRow_Previews: PreviewProvider {
-//    static let pipelines = try! GraphQL<PipelinesListQuery.Response>.Content(assetNamed: "gql.PipelinesList")!.get()
-//
-//    static var previews: some View {
-//        PipelineRow(pipeline: pipelines.organization.pipelines.nodes[0])
-//    }
-//}
+struct PipelineRow_Previews: PreviewProvider {
+    static var query = try! GraphQL<PipelinesListQuery.Response>.Content(assetNamed: "gql.PipelinesList").get()
+    
+    static var previews: some View {
+        PipelineRow(pipeline: query.organization.pipelines.nodes.first!)
+            .environmentObject(BuildkiteService())
+    }
+}

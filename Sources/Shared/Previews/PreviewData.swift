@@ -21,10 +21,12 @@ private let decoder: JSONDecoder = {
 }()
 
 extension Decodable {
-    init?(assetNamed name: String, bundle: Bundle = .main) {
-        guard let asset = NSDataAsset(name: name, bundle: bundle),
-              let instance = try? decoder.decode(Self.self, from: asset.data) else {
-            return nil
+    init(assetNamed name: String, bundle: Bundle = .main) {
+        guard let asset = NSDataAsset(name: name, bundle: bundle) else {
+            fatalError("MISSING ASSET \(name) in bundle \(bundle.bundlePath)")
+        }
+        guard let instance = try? decoder.decode(Self.self, from: asset.data) else {
+            fatalError("DECODING ERROR for asset \(asset.name)")
         }
         self = instance
     }

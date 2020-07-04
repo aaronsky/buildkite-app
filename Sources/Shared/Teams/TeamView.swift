@@ -105,17 +105,14 @@ struct TeamView: View {
 }
 
 struct TeamView_Previews: PreviewProvider {
-    static let teams = [Team](assetNamed: "v2.teams")!.map(Fragments.Team.init)
+    static let teams = [Team](assetNamed: "v2.teams").map(Fragments.Team.init)
     
     static var previews: some View {
-        Group {
-            NavigationView {
-                TeamView(team: teams[0])
-            }
+        NavigationView {
             TeamView(team: teams[1])
-                .previewLayout(.sizeThatFits)
-                .frame(height: 700)
         }
+        .frame(height: 700)
+        .previewLayout(.sizeThatFits)
         .environmentObject(BuildkiteService())
     }
 }

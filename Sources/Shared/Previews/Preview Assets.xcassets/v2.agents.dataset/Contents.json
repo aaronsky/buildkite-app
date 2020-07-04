@@ -2,8 +2,7 @@
   "data" : [
     {
       "filename" : "v2.agents.json",
-      "idiom" : "universal",
-      "universal-type-identifier" : "public.json"
+      "idiom" : "universal"
     }
   ],
   "info" : {

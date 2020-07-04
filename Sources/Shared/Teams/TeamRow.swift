@@ -19,16 +19,15 @@ struct TeamRow: View {
 }
 
 struct TeamRow_Previews: PreviewProvider {
-    static let teams = [Team](assetNamed: "v2.teams")!
+    static let teams = [Team](assetNamed: "v2.teams")
     
     static var previews: some View {
-        Group {
+        List {
             TeamRow(team: teams[0])
             TeamRow(team: teams[1])
         }
-        .frame(width: 250, alignment: .leading)
-        .padding(.horizontal)
+        .frame(height: 150)
         .previewLayout(.sizeThatFits)
-        .environmentObject(BuildkiteService())
+        .environmentObject(Emojis())
     }
 }
