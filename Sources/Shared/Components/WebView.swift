@@ -12,10 +12,12 @@ import WebKit
 struct WebView {
     var request: URLRequest
     var configuration: WKWebViewConfiguration = { config in
-        config.allowsInlineMediaPlayback = false
         config.allowsAirPlayForMediaPlayback = false
-        config.allowsPictureInPictureMediaPlayback = false
         config.limitsNavigationsToAppBoundDomains = true
+        #if os(iOS)
+        config.allowsInlineMediaPlayback = false
+        config.allowsPictureInPictureMediaPlayback = false
+        #endif
         return config
     }(WKWebViewConfiguration())
     
@@ -49,6 +51,23 @@ extension WebView: UIViewRepresentable {
     
     func updateUIView(_ uiView: WKWebView, context: Context) {
         uiView.load(request)
+    }
+}
+#else
+extension WebView: NSViewRepresentable {
+    func makeCoordinator() -> Coordinator {
+        Coordinator()
+    }
+    
+    func makeNSView(context: Context) -> WKWebView {
+        let view = WKWebView(frame: .zero, configuration: configuration)
+        view.navigationDelegate = context.coordinator
+        view.uiDelegate = context.coordinator
+        return view
+    }
+    
+    func updateNSView(_ nsView: WKWebView, context: Context) {
+        nsView.load(request)
     }
 }
 #endif

@@ -75,6 +75,8 @@
 		334E24E324A602A300B30357 /* TeamCreateMemberMutation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E24D424A602A300B30357 /* TeamCreateMemberMutation.swift */; };
 		334E24E424A602A300B30357 /* GraphQLQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E24D524A602A300B30357 /* GraphQLQuery.swift */; };
 		334E24E524A602A300B30357 /* GraphQLQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E24D524A602A300B30357 /* GraphQLQuery.swift */; };
+		336DD17124B102D70061963C /* EmojiLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336DD17024B102D60061963C /* EmojiLabel.swift */; };
+		336DD17224B102D70061963C /* EmojiLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336DD17024B102D60061963C /* EmojiLabel.swift */; };
 		338A57D324A7D7DF00F80306 /* PipelineRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338A57D224A7D7DF00F80306 /* PipelineRow.swift */; };
 		338A57D424A7D7DF00F80306 /* PipelineRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338A57D224A7D7DF00F80306 /* PipelineRow.swift */; };
 		339F000424AFBFB800E37FC9 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339F000324AFBFB800E37FC9 /* Connection.swift */; };
@@ -107,8 +109,8 @@
 		33AC4D7224AC16E900508156 /* Job+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AC4D7024AC16E900508156 /* Job+Extensions.swift */; };
 		33F251C724A818D60049CB58 /* Emojis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F251C624A818D60049CB58 /* Emojis.swift */; };
 		33F251C824A818D60049CB58 /* Emojis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F251C624A818D60049CB58 /* Emojis.swift */; };
-		33F251CA24A833460049CB58 /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F251C924A833460049CB58 /* AsyncImage.swift */; };
-		33F251CB24A833460049CB58 /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F251C924A833460049CB58 /* AsyncImage.swift */; };
+		33F251CA24A833460049CB58 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F251C924A833460049CB58 /* ImageCache.swift */; };
+		33F251CB24A833460049CB58 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F251C924A833460049CB58 /* ImageCache.swift */; };
 		33F82FC524AE05E1006DF51C /* BuildGetQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F82FC424AE05E1006DF51C /* BuildGetQuery.swift */; };
 		33F82FC624AE05E1006DF51C /* BuildGetQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F82FC424AE05E1006DF51C /* BuildGetQuery.swift */; };
 /* End PBXBuildFile section */
@@ -170,6 +172,7 @@
 		334E24D324A602A300B30357 /* TeamDeleteMemberMutation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamDeleteMemberMutation.swift; sourceTree = "<group>"; };
 		334E24D424A602A300B30357 /* TeamCreateMemberMutation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCreateMemberMutation.swift; sourceTree = "<group>"; };
 		334E24D524A602A300B30357 /* GraphQLQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLQuery.swift; sourceTree = "<group>"; };
+		336DD17024B102D60061963C /* EmojiLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiLabel.swift; sourceTree = "<group>"; };
 		338A57D224A7D7DF00F80306 /* PipelineRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelineRow.swift; sourceTree = "<group>"; };
 		339F000324AFBFB800E37FC9 /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
 		339F000624AFBFE200E37FC9 /* HashableFromIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashableFromIdentifier.swift; sourceTree = "<group>"; };
@@ -206,7 +209,7 @@
 		33E479D724AFD65B0083A7CA /* iOSTests-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOSTests-Release.xcconfig"; sourceTree = "<group>"; };
 		33E479D824AFD65B0083A7CA /* iOSTests-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOSTests-Debug.xcconfig"; sourceTree = "<group>"; };
 		33F251C624A818D60049CB58 /* Emojis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emojis.swift; sourceTree = "<group>"; };
-		33F251C924A833460049CB58 /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
+		33F251C924A833460049CB58 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		33F82FC424AE05E1006DF51C /* BuildGetQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildGetQuery.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -336,6 +339,7 @@
 				334E248724A589DC00B30357 /* BuildkiteService.swift */,
 				334E24C224A5A5ED00B30357 /* Team+Extensions.swift */,
 				334E24BC24A5A37D00B30357 /* Agent+Extensions.swift */,
+				33F251C924A833460049CB58 /* ImageCache.swift */,
 				33AC4D7024AC16E900508156 /* Job+Extensions.swift */,
 				334E24AF24A59C3A00B30357 /* Formatters.swift */,
 				33F251C624A818D60049CB58 /* Emojis.swift */,
@@ -382,9 +386,9 @@
 				334E249724A58D4C00B30357 /* BuildkiteIcon.swift */,
 				334E249624A58D4C00B30357 /* BuildState.swift */,
 				334E249924A58D4C00B30357 /* ConnectionState.swift */,
-				33F251C924A833460049CB58 /* AsyncImage.swift */,
 				332F766524AD293500A0D61C /* SearchField.swift */,
 				33A1E96724AF737D00C3491D /* WebView.swift */,
+				336DD17024B102D60061963C /* EmojiLabel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -723,12 +727,13 @@
 				33F251C724A818D60049CB58 /* Emojis.swift in Sources */,
 				339F000724AFBFE200E37FC9 /* HashableFromIdentifier.swift in Sources */,
 				334E248E24A58CFB00B30357 /* AgentsList.swift in Sources */,
-				33F251CA24A833460049CB58 /* AsyncImage.swift in Sources */,
+				33F251CA24A833460049CB58 /* ImageCache.swift in Sources */,
 				33AC4D5524AC074400508156 /* PipelineView.swift in Sources */,
 				334E24CA24A6023100B30357 /* UserView.swift in Sources */,
 				334E24C724A6022800B30357 /* UsersList.swift in Sources */,
 				334E24DE24A602A300B30357 /* TeamUpdateMemberMutation.swift in Sources */,
 				334E24DC24A602A300B30357 /* UsersSearchQuery.swift in Sources */,
+				336DD17124B102D70061963C /* EmojiLabel.swift in Sources */,
 				33AC4D5E24AC076500508156 /* JobView.swift in Sources */,
 				334E24B024A59C3A00B30357 /* Formatters.swift in Sources */,
 				339FFFFC24AFBDB800E37FC9 /* ChangelogView.swift in Sources */,
@@ -778,12 +783,13 @@
 				33F251C824A818D60049CB58 /* Emojis.swift in Sources */,
 				339F000824AFBFE200E37FC9 /* HashableFromIdentifier.swift in Sources */,
 				334E248F24A58CFB00B30357 /* AgentsList.swift in Sources */,
-				33F251CB24A833460049CB58 /* AsyncImage.swift in Sources */,
+				33F251CB24A833460049CB58 /* ImageCache.swift in Sources */,
 				33AC4D5624AC074400508156 /* PipelineView.swift in Sources */,
 				334E24CB24A6023100B30357 /* UserView.swift in Sources */,
 				334E24C824A6022800B30357 /* UsersList.swift in Sources */,
 				334E24DF24A602A300B30357 /* TeamUpdateMemberMutation.swift in Sources */,
 				334E24DD24A602A300B30357 /* UsersSearchQuery.swift in Sources */,
+				336DD17224B102D70061963C /* EmojiLabel.swift in Sources */,
 				33AC4D5F24AC076500508156 /* JobView.swift in Sources */,
 				334E24B124A59C3A00B30357 /* Formatters.swift in Sources */,
 				339FFFFD24AFBDB800E37FC9 /* ChangelogView.swift in Sources */,

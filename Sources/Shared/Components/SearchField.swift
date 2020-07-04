@@ -16,7 +16,7 @@ struct SearchField: View {
             TextField(placeholder, text: $text)
                 .padding(8)
                 .padding(.horizontal, 20)
-                .background(Color(.systemGray6))
+                .background(Color(.systemGray))
                 .cornerRadius(6)
                 .overlay(
                     HStack {

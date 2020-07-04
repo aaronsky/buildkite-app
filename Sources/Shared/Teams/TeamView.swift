@@ -36,7 +36,7 @@ struct TeamView: View {
         Form {
             Section {
                 Text(team.privacy.rawValue)
-                Text(team.description ?? "")
+                EmojiLabel(team.description ?? "")
             }
             Section(header: Text("MEMBERS")) {
                 ForEach(team.members.nodes) { member in

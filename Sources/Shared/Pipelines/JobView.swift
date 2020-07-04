@@ -31,7 +31,7 @@ struct JobView: View {
         
         var body: some View {
             HStack {
-                Text(command.name?.replacingEmojis(using: emojis) ?? "")
+                EmojiLabel(command.name ?? "")
                 if let agent = command.agent {
                     Text(agent.name)
                 }
@@ -53,7 +53,7 @@ struct JobView: View {
         var block: Job.Block
         
         var body: some View {
-            Text(block.label.replacingEmojis(using: emojis))
+            EmojiLabel(block.label)
         }
     }
     
@@ -63,7 +63,7 @@ struct JobView: View {
         var trigger: Job.Trigger
         
         var body: some View {
-            Text(trigger.name?.replacingEmojis(using: emojis) ?? "")
+            EmojiLabel(trigger.name ?? "")
         }
     }
 }
@@ -77,6 +77,6 @@ struct JobView_Previews: PreviewProvider {
                 JobView(job: job)
             }
         }
-        .environmentObject(Emojis())
+        .environmentObject(Emojis(cache: ImageMemoryCache()))
     }
 }
