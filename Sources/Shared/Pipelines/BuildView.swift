@@ -9,16 +9,12 @@ import SwiftUI
 import Buildkite
 
 struct BuildView: View {
-    struct Inputs {
-        var pipelineSlug: String
-        var buildNumber: Int
-    }
-    
     @EnvironmentObject var service: BuildkiteService
     
     @State var build: Build?
     
-    var inputs: Inputs
+    var pipelineSlug: String
+    var buildNumber: Int
     
     var body: some View {
         ScrollView {
@@ -41,16 +37,21 @@ struct BuildView: View {
     
     func loadBuild() {
         service
-            .sendPublisher(resource: Build.Resources.Get(organization: service.organization, pipeline: inputs.pipelineSlug, build: inputs.buildNumber))
+            .sendPublisher(resource: Build.Resources.Get(organization: service.organization, pipeline: pipelineSlug, build: buildNumber))
             .receive(on: DispatchQueue.main)
             .sink(into: service,
                   receiveValue: { build = $0 })
     }
 }
 
-//struct BuildView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        BuildView()
-//            .environmentObject(BuildkiteService())
-//    }
-//}
+struct BuildView_Previews: PreviewProvider {
+    static var build = Build(assetNamed: "v2.build")
+    
+    static var previews: some View {
+        BuildView(build: build,
+                  pipelineSlug: "",
+                  buildNumber: 0)
+            .environmentObject(BuildkiteService())
+            .environmentObject(Emojis())
+    }
+}

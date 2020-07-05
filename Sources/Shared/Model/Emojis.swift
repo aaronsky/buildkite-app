@@ -92,25 +92,25 @@ class Emojis: ObservableObject {
         case image(CrossPlatformImage)
     }
     
-    func emojiState(for name: String) -> EmojiState {
+    func emojiState(for name: String, session: URLSession = .shared) -> EmojiState {
         guard let url = emojis[name] else {
             return .none
         }
         if let image = cache[url] {
             return .image(image)
         }
-        loadEmoji(at: url)
+        loadEmoji(at: url, session: session)
         return .loading
     }
     
-    private func loadEmoji(at url: URL, session: URLSession = .shared) {
+    private func loadEmoji(at url: URL, session: URLSession) {
         session
             .dataTaskPublisher(for: url)
             .map { CrossPlatformImage(data: $0.data) }
             .replaceError(with: nil)
+            .handleEvents(receiveOutput: { self.cache[url] = $0 })
             .receive(on: DispatchQueue.main)
-            .sink(receiveValue: {
-                self.cache[url] = $0
+            .sink(receiveValue: { _ in
                 self.objectWillChange.send()
             })
             .store(in: &cancellables)

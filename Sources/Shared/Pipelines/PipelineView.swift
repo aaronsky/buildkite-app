@@ -34,14 +34,36 @@ struct PipelineView: View {
                     }
                 } else {
                     ForEach(builds) { build in
-                        NavigationLink(destination: BuildView(inputs: .init(pipelineSlug: pipeline.slug, buildNumber: build.number))) {
-                            Text("\(build.number)")
+                        NavigationLink(destination: BuildView(pipelineSlug: pipeline.slug, buildNumber: build.number)) {
+                            HStack {
+                                BuildState(state: build.state.rawValue)
+                                VStack(alignment: .leading) {
+                                    Text(build.message ?? "")
+                                        .font(.body)
+                                    caption(for: build)
+                                        .font(.caption)
+                                }
+                            }
                         }
                     }
                 }
             }
             .listStyle(InsetGroupedListStyle())
         }
+    }
+    
+    func caption(for build: PipelinesListQuery.Response.Build) -> Text {
+        var chunks: [Text] = []
+        if let createdByName = build.createdBy?.name {
+            chunks.append(Text(createdByName))
+        }
+        chunks.append(Text("Build #\(build.number)"))
+        chunks.append(Text(build.commit.prefix(7)))
+        if let createdAt = build.createdAt {
+            chunks.append(Text("\(createdAt, formatter: Formatters.friendlyRelativeDateFormatter)"))
+        }
+        
+        return chunks.joined(separator: " — ")
     }
 }
 
