@@ -20,7 +20,7 @@ enum NavigationItem: CaseIterable {
         case .agents:
             AgentsList()
         case .users:
-            TeamsList()
+            UsersOrTeamsView()
         case .more:
             SettingsList()
         }

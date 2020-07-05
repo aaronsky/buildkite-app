@@ -19,17 +19,16 @@ struct UsersList: View {
     @State var searchQuery: String = ""
     
     var body: some View {
-        VStack {
-            SearchField(text: $searchQuery)
-            List {
-                ForEach(users) { user in
-                    Text(user.user.name)
-                        .onTapGesture {
-                            onUserSelection?(user)
-                        }
-                }
+        List {
+            ForEach(users) { user in
+                Text(user.user.name)
+                    .onTapGesture {
+                        onUserSelection?(user)
+                    }
             }
         }
+        .onAppear(perform: loadUsers)
+        .navigationTitle("Users")
     }
     
     func loadUsers() {

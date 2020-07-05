@@ -43,7 +43,6 @@ extension Fragments {
                 self.privacy = privacy
                 self.members = members
         }
-
         
         init(team: Buildkite.Team) {
             self.init(id: "",

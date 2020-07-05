@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3313188B24B0DBB30002ED72 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 334E24AA24A59B8300B30357 /* Preview Assets.xcassets */; };
 		3313188C24B0DBB30002ED72 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 334E24AA24A59B8300B30357 /* Preview Assets.xcassets */; };
+		331DAE6A24B150DE00ABF4E5 /* UsersOrTeamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331DAE6924B150DE00ABF4E5 /* UsersOrTeamsView.swift */; };
+		331DAE6B24B150DE00ABF4E5 /* UsersOrTeamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331DAE6924B150DE00ABF4E5 /* UsersOrTeamsView.swift */; };
 		332F766624AD293500A0D61C /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332F766524AD293500A0D61C /* SearchField.swift */; };
 		332F766724AD293500A0D61C /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332F766524AD293500A0D61C /* SearchField.swift */; };
 		332F766B24AD58C500A0D61C /* PipelinesListQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332F766A24AD58C500A0D61C /* PipelinesListQuery.swift */; };
@@ -133,6 +135,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		331DAE6924B150DE00ABF4E5 /* UsersOrTeamsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersOrTeamsView.swift; sourceTree = "<group>"; };
 		332F766524AD293500A0D61C /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
 		332F766824AD513400A0D61C /* Packages.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Packages.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		332F766A24AD58C500A0D61C /* PipelinesListQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelinesListQuery.swift; sourceTree = "<group>"; };
@@ -328,6 +331,7 @@
 				334E247C24A5884200B30357 /* AppSidebarNavigation.swift */,
 				334E245524A5875C00B30357 /* ContentView.swift */,
 				339FFFF124AFBAD800E37FC9 /* NavigationItem.swift */,
+				331DAE6924B150DE00ABF4E5 /* UsersOrTeamsView.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -706,6 +710,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				334E24B624A5A32700B30357 /* AgentRow.swift in Sources */,
+				331DAE6A24B150DE00ABF4E5 /* UsersOrTeamsView.swift in Sources */,
 				33AC4D7224AC16E900508156 /* Job+Extensions.swift in Sources */,
 				332F766B24AD58C500A0D61C /* PipelinesListQuery.swift in Sources */,
 				339F000424AFBFB800E37FC9 /* Connection.swift in Sources */,
@@ -762,6 +767,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				334E24B724A5A32700B30357 /* AgentRow.swift in Sources */,
+				331DAE6B24B150DE00ABF4E5 /* UsersOrTeamsView.swift in Sources */,
 				33AC4D7124AC16E900508156 /* Job+Extensions.swift in Sources */,
 				332F766C24AD58C500A0D61C /* PipelinesListQuery.swift in Sources */,
 				339F000524AFBFB800E37FC9 /* Connection.swift in Sources */,
