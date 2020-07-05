@@ -11,6 +11,7 @@ import Buildkite
 
 struct TeamView: View {
     @EnvironmentObject var service: BuildkiteService
+    @EnvironmentObject var emojis: Emojis
     
     @State var team: Fragments.Team
     
@@ -20,8 +21,7 @@ struct TeamView: View {
     @ViewBuilder var body: some View {
         #if !os(macOS)
         content
-            .navigationBarTitle(team.name)
-            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarTitle(emojis.replacingEmojiIdentifiers(in: team.name), displayMode: .inline)
             .navigationBarItems(trailing: Button(action: {
                 presentingSearchUsersModal = true
             }, label: {
@@ -49,10 +49,14 @@ struct TeamView: View {
         }
         .onAppear(perform: reloadTeam)
         .sheet(isPresented: $presentingSearchUsersModal, onDismiss: onDismissSearchUserModal) {
-            UsersList(teamSlug: team.slug, onUserSelection: { user in
-                presentingSearchUsersModal = false
-                selectedUserIDFromSearching = user.user.id
-            })
+            VStack {
+                Text("// TODO: Search Field goes here")
+                UsersList(teamSlug: team.slug,
+                          onUserSelection: { user in
+                    presentingSearchUsersModal = false
+                    selectedUserIDFromSearching = user.user.id
+                })
+            }.environmentObject(service)
         }
     }
     
@@ -114,5 +118,6 @@ struct TeamView_Previews: PreviewProvider {
         .frame(height: 700)
         .previewLayout(.sizeThatFits)
         .environmentObject(BuildkiteService())
+        .environmentObject(Emojis(cache: ImageMemoryCache()))
     }
 }

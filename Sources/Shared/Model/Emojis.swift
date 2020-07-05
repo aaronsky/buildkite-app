@@ -22,17 +22,6 @@ class Emojis: ObservableObject {
         self.cache = cache
     }
     
-    func emoji(for name: String) -> EmojiState {
-        guard let url = emojis[name] else {
-            return .none
-        }
-        if let image = cache[url] {
-            return .image(image)
-        }
-        loadEmoji(at: url)
-        return .loading
-    }
-    
     func loadEmojis(service: BuildkiteService) {
         service
             .sendPublisher(resource: Emoji.Resources.List(organization: service.organization))
@@ -47,7 +36,74 @@ class Emojis: ObservableObject {
                   receiveValue: { self.emojis = $0 })
     }
     
-    func loadEmoji(at url: URL, session: URLSession = .shared) {
+    func formatEmojis(in text: String, idealHeight: CGFloat, capHeight: CGFloat) -> NSAttributedString {
+        let fullString = NSMutableAttributedString()
+        let components = text.split(separator: " ")
+        for (index, str) in components.enumerated() {
+            if str.hasPrefix(":") && str.hasSuffix(":") {
+                let name = str.dropFirst().dropLast().trimmingCharacters(in: .whitespaces)
+                
+                switch emojiState(for: name) {
+                case .none:
+                    fullString.append(NSAttributedString(string: String(str)))
+                case .loading:
+                    break
+                case let .image(image):
+                    let aspectRatio = image.size.width / image.size.height
+                    let icon = NSTextAttachment()
+                    icon.image = image
+                    icon.bounds = CGRect(x: 0,
+                                         y: capHeight - idealHeight / 2,
+                                         width: aspectRatio * idealHeight,
+                                         height: idealHeight)
+                    fullString.append(NSAttributedString(attachment: icon))
+                }
+            } else {
+                fullString.append(NSAttributedString(string: String(str)))
+            }
+            
+            if index != components.endIndex {
+                fullString.append(NSAttributedString(string: " "))
+            }
+        }
+        return fullString
+    }
+    
+    func replacingEmojiIdentifiers(in text: String, with replacement: String = "") -> String {
+        var text = text
+        let range = NSRange(text.startIndex..., in: text)
+        let matches = Emojis.regexp.matches(in: text, range: range).reversed()
+        for match in matches {
+            guard let matchRange = Range(match.range, in: text) else {
+                continue
+            }
+            let name = text[matchRange].trimmingCharacters(in: [":"])
+            guard let _ = emojis[name] else {
+                continue
+            }
+            text.replaceSubrange(matchRange, with: replacement)
+        }
+        return text.trimmingCharacters(in: .whitespaces)
+    }
+    
+    enum EmojiState {
+        case none
+        case loading
+        case image(CrossPlatformImage)
+    }
+    
+    func emojiState(for name: String) -> EmojiState {
+        guard let url = emojis[name] else {
+            return .none
+        }
+        if let image = cache[url] {
+            return .image(image)
+        }
+        loadEmoji(at: url)
+        return .loading
+    }
+    
+    private func loadEmoji(at url: URL, session: URLSession = .shared) {
         session
             .dataTaskPublisher(for: url)
             .map { CrossPlatformImage(data: $0.data) }
@@ -58,11 +114,5 @@ class Emojis: ObservableObject {
                 self.objectWillChange.send()
             })
             .store(in: &cancellables)
-    }
-    
-    enum EmojiState {
-        case none
-        case loading
-        case image(CrossPlatformImage)
     }
 }

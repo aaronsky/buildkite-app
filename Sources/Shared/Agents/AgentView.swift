@@ -20,18 +20,19 @@ struct AgentView: View {
     @ViewBuilder var body: some View {
         #if os(iOS)
         content
-            .navigationBarTitle(Text(agent.nameFormatted), displayMode: .inline)
+            .navigationBarTitle(agent.nameFormatted, displayMode: .inline)
             .navigationBarItems(trailing: Button(action: stopAgent) {
                 Text("Stop")
             })
         #else
-        content.toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button(action: stopAgent) {
-                    Text("Stop")
+        content
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: stopAgent) {
+                        Text("Stop")
+                    }
                 }
             }
-        }
         #endif
     }
     
@@ -93,8 +94,8 @@ struct AgentView: View {
     func stopAgent() {
         service
             .sendPublisher(resource: Agent.Resources.Stop(organization: service.organization,
-                                                           agentId: agent.id,
-                                                           body: Agent.Resources.Stop.Body()))
+                                                          agentId: agent.id,
+                                                          body: Agent.Resources.Stop.Body()))
             .receive(on: DispatchQueue.main)
             .handleEvents(receiveCompletion: { _ in })
             .catch { _ in Just(()) }

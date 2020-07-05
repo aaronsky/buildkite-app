@@ -18,42 +18,10 @@ struct EmojiLabel: View {
     }
     
     var body: some View {
-        Representable(attributed: emojified(text),
+        Representable(attributed: emojis.formatEmojis(in: text,
+                                                      idealHeight: font.lineHeight,
+                                                      capHeight: font.capHeight),
                       font: font)
-    }
-    
-    func emojified(_ text: String) -> NSAttributedString {
-        let fullString = NSMutableAttributedString()
-        let components = text.split(separator: " ")
-        for (index, str) in components.enumerated() {
-            if str.hasPrefix(":") && str.hasSuffix(":") {
-                let name = str.dropFirst().dropLast().trimmingCharacters(in: .whitespaces)
-                
-                switch emojis.emoji(for: name) {
-                case .none:
-                    fullString.append(NSAttributedString(string: String(str)))
-                case .loading:
-                    break
-                case let .image(image):
-                    let aspectRatio = image.size.width / image.size.height
-                    let newHeight = font.lineHeight
-                    let icon = NSTextAttachment()
-                    icon.image = image
-                    icon.bounds = CGRect(x: 0,
-                                         y: font.capHeight - newHeight / 2,
-                                         width: aspectRatio * newHeight,
-                                         height: newHeight)
-                    fullString.append(NSAttributedString(attachment: icon))
-                }
-            } else {
-                fullString.append(NSAttributedString(string: String(str)))
-            }
-            
-            if index != components.endIndex {
-                fullString.append(NSAttributedString(string: " "))
-            }
-        }
-        return fullString
     }
     
     struct Representable {
