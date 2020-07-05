@@ -11,7 +11,7 @@ struct EmojiLabel: View {
     @EnvironmentObject var emojis: Emojis
     
     var text: String
-    private var font = CrossPlatformFont.preferredFont(forTextStyle: .body)
+    var font: CrossPlatformFont = CrossPlatformFont.preferredFont(forTextStyle: .body)
     
     init<S: StringProtocol>(_ text: S) {
         self.text = String(text)
@@ -38,8 +38,6 @@ struct EmojiLabel: View {
 #if canImport(UIKit)
 import UIKit
 
-private typealias CrossPlatformFont = UIFont
-
 extension EmojiLabel.Representable: UIViewRepresentable {
     func makeUIView(context: Context) -> UILabel {
         let label = UILabel(frame: .zero)
@@ -54,8 +52,6 @@ extension EmojiLabel.Representable: UIViewRepresentable {
 }
 #elseif canImport(AppKit)
 import AppKit
-
-private typealias CrossPlatformFont = NSFont
 
 extension EmojiLabel.Representable: NSViewRepresentable {
     func makeNSView(context: Self.Context) -> NSTextField {
@@ -78,7 +74,7 @@ struct EmojiLabel_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             EmojiLabel("App Platforms :darwin: :android:")
-                .environmentObject(Emojis(cache: ImageMemoryCache()))
+                .environmentObject(Emojis())
         }
     }
 }

@@ -18,7 +18,7 @@ class Emojis: ObservableObject {
     private var cache: ImageCache
     private var cancellables: Set<AnyCancellable> = []
     
-    init(cache: ImageCache) {
+    init(cache: ImageCache = ImageMemoryCache()) {
         self.cache = cache
     }
     

@@ -14,7 +14,7 @@ import CoreLocation
 @main
 struct Application: App {
     @StateObject private var service = BuildkiteService()
-    @StateObject private var emojis = Emojis(cache: ImageMemoryCache())
+    @StateObject private var emojis = Emojis()
     
     var body: some Scene {
         WindowGroup {

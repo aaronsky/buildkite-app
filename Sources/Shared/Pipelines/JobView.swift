@@ -24,9 +24,7 @@ struct JobView: View {
         }
     }
     
-    struct CommandLayout: View {
-        @EnvironmentObject var emojis: Emojis
-        
+    struct CommandLayout: View {        
         var command: Job.Command
         
         var body: some View {
@@ -48,8 +46,6 @@ struct JobView: View {
     }
     
     struct BlockLayout: View {
-        @EnvironmentObject var emojis: Emojis
-        
         var block: Job.Block
         
         var body: some View {
@@ -58,8 +54,6 @@ struct JobView: View {
     }
     
     struct TriggerLayout: View {
-        @EnvironmentObject var emojis: Emojis
-        
         var trigger: Job.Trigger
         
         var body: some View {
@@ -77,6 +71,6 @@ struct JobView_Previews: PreviewProvider {
                 JobView(job: job)
             }
         }
-        .environmentObject(Emojis(cache: ImageMemoryCache()))
+        .environmentObject(Emojis())
     }
 }

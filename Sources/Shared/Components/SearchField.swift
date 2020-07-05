@@ -31,9 +31,8 @@ struct SearchField: View {
                                 self.text = ""
                                 
                             }) {
-                                Image(systemName: "multiply.circle.fill")
-                                    .foregroundColor(.gray)
-                                    .padding(.trailing, 8)
+                                Label("Cancel", systemImage: "multiply.circle.fill")
+                                    .labelStyle(IconOnlyLabelStyle())
                             }
                         }
                     }

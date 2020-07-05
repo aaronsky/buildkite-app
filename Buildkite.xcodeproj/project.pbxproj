@@ -109,6 +109,8 @@
 		33AC4D6224AC086D00508156 /* env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AC4D6024AC086D00508156 /* env.swift */; };
 		33AC4D7124AC16E900508156 /* Job+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AC4D7024AC16E900508156 /* Job+Extensions.swift */; };
 		33AC4D7224AC16E900508156 /* Job+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AC4D7024AC16E900508156 /* Job+Extensions.swift */; };
+		33EC5F3624B202F70032DD1C /* CrossPlatform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EC5F3524B202F70032DD1C /* CrossPlatform.swift */; };
+		33EC5F3724B202F70032DD1C /* CrossPlatform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EC5F3524B202F70032DD1C /* CrossPlatform.swift */; };
 		33F251C724A818D60049CB58 /* Emojis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F251C624A818D60049CB58 /* Emojis.swift */; };
 		33F251C824A818D60049CB58 /* Emojis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F251C624A818D60049CB58 /* Emojis.swift */; };
 		33F251CA24A833460049CB58 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F251C924A833460049CB58 /* ImageCache.swift */; };
@@ -211,6 +213,7 @@
 		33E479D624AFD65B0083A7CA /* macOSTests-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOSTests-Release.xcconfig"; sourceTree = "<group>"; };
 		33E479D724AFD65B0083A7CA /* iOSTests-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOSTests-Release.xcconfig"; sourceTree = "<group>"; };
 		33E479D824AFD65B0083A7CA /* iOSTests-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOSTests-Debug.xcconfig"; sourceTree = "<group>"; };
+		33EC5F3524B202F70032DD1C /* CrossPlatform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossPlatform.swift; sourceTree = "<group>"; };
 		33F251C624A818D60049CB58 /* Emojis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emojis.swift; sourceTree = "<group>"; };
 		33F251C924A833460049CB58 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		33F82FC424AE05E1006DF51C /* BuildGetQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildGetQuery.swift; sourceTree = "<group>"; };
@@ -348,6 +351,7 @@
 				334E24AF24A59C3A00B30357 /* Formatters.swift */,
 				33F251C624A818D60049CB58 /* Emojis.swift */,
 				339F000624AFBFE200E37FC9 /* HashableFromIdentifier.swift */,
+				33EC5F3524B202F70032DD1C /* CrossPlatform.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -729,6 +733,7 @@
 				334E24AB24A59B8400B30357 /* PreviewData.swift in Sources */,
 				334E24E024A602A300B30357 /* TeamDeleteMemberMutation.swift in Sources */,
 				33AC4D5B24AC075800508156 /* BuildView.swift in Sources */,
+				33EC5F3624B202F70032DD1C /* CrossPlatform.swift in Sources */,
 				33F251C724A818D60049CB58 /* Emojis.swift in Sources */,
 				339F000724AFBFE200E37FC9 /* HashableFromIdentifier.swift in Sources */,
 				334E248E24A58CFB00B30357 /* AgentsList.swift in Sources */,
@@ -786,6 +791,7 @@
 				334E24AC24A59B8400B30357 /* PreviewData.swift in Sources */,
 				334E24E124A602A300B30357 /* TeamDeleteMemberMutation.swift in Sources */,
 				33AC4D5C24AC075800508156 /* BuildView.swift in Sources */,
+				33EC5F3724B202F70032DD1C /* CrossPlatform.swift in Sources */,
 				33F251C824A818D60049CB58 /* Emojis.swift in Sources */,
 				339F000824AFBFE200E37FC9 /* HashableFromIdentifier.swift in Sources */,
 				334E248F24A58CFB00B30357 /* AgentsList.swift in Sources */,

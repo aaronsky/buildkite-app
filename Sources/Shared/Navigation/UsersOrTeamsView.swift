@@ -32,11 +32,11 @@ struct UsersOrTeamsView: View {
                 isShowingFilterMenu.toggle()                
             }
         }, label: {
-            if isShowingFilterMenu {
-                Image(systemName: "line.horizontal.3.decrease.circle.fill")
-            } else {
-                Image(systemName: "line.horizontal.3.decrease.circle")
-            }
+            Label("Filter",
+                  systemImage: isShowingFilterMenu ?
+                    "line.horizontal.3.decrease.circle.fill" :
+                    "line.horizontal.3.decrease.circle")
+                .labelStyle(IconOnlyLabelStyle())
         }))
     }
 }
@@ -61,7 +61,7 @@ struct UsersOrTeamsView_Previews: PreviewProvider {
         NavigationView {
             UsersOrTeamsView(isShowingFilterMenu: true, subviewSelection: .teams)
                 .environmentObject(BuildkiteService())
-                .environmentObject(Emojis(cache: ImageMemoryCache()))
+                .environmentObject(Emojis())
         }
     }
 }

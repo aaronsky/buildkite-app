@@ -38,6 +38,7 @@ struct TeamsList: View {
                 }
             }
         }
+        .listStyle(InsetGroupedListStyle())
         .onAppear(perform: loadTeams)
         .navigationTitle("Teams")
     }
@@ -60,6 +61,6 @@ struct TeamsList_Previews: PreviewProvider {
     static var previews: some View {
         TeamsList(teams: teams)
             .environmentObject(BuildkiteService())
-            .environmentObject(Emojis(cache: ImageMemoryCache()))
+            .environmentObject(Emojis())
     }
 }

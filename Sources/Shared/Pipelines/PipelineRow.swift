@@ -41,7 +41,7 @@ private struct BuildsGraph: View {
                     .frame(width: 5, height: minBarHeight)
                     .foregroundColor(BuildState.Colors.color(for: ""))
             }
-            ForEach(builds.prefix(30)) { build in
+            ForEach(builds.prefix(30).reversed()) { build in
                 Rectangle()
                     .frame(width: 5, height: maxBarHeight)
                     .foregroundColor(BuildState.Colors.color(for: build.state.rawValue))

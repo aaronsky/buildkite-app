@@ -31,6 +31,7 @@ struct PipelinesList: View {
                 }
             }
         }
+        .listStyle(InsetGroupedListStyle())
         .onAppear(perform: loadPipelines)
         .navigationTitle("Pipelines")
     }

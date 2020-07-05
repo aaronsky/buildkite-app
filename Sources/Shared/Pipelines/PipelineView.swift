@@ -40,6 +40,7 @@ struct PipelineView: View {
                     }
                 }
             }
+            .listStyle(InsetGroupedListStyle())
         }
     }
 }

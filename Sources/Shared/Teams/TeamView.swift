@@ -25,7 +25,8 @@ struct TeamView: View {
             .navigationBarItems(trailing: Button(action: {
                 presentingSearchUsersModal = true
             }, label: {
-                Image(systemName: "person.badge.plus")
+                Label("Add Person", systemImage: "person.badge.plus")
+                    .labelStyle(IconOnlyLabelStyle())
             }))
         #else
         content
@@ -118,6 +119,6 @@ struct TeamView_Previews: PreviewProvider {
         .frame(height: 700)
         .previewLayout(.sizeThatFits)
         .environmentObject(BuildkiteService())
-        .environmentObject(Emojis(cache: ImageMemoryCache()))
+        .environmentObject(Emojis())
     }
 }

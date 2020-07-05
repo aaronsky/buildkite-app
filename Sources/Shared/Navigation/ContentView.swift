@@ -13,16 +13,18 @@ struct ContentView: View {
     #endif
     
     @ViewBuilder var body: some View {
-        #if os(iOS)
-        if horizontalSizeClass == .compact {
-            AppTabNavigation()
-        } else {
+        ZStack {
+            #if os(iOS)
+            if horizontalSizeClass == .compact {
+                AppTabNavigation()
+            } else {
+                AppSidebarNavigation()
+            }
+            #else
             AppSidebarNavigation()
+                .frame(minWidth: 900, maxWidth: .infinity, minHeight: 500, maxHeight: .infinity)
+            #endif
         }
-        #else
-        AppSidebarNavigation()
-            .frame(minWidth: 900, maxWidth: .infinity, minHeight: 500, maxHeight: .infinity)
-        #endif
     }
 }
 

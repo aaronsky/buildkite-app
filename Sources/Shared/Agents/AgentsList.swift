@@ -30,6 +30,7 @@ struct AgentsList: View {
                 }
             }
         }
+        .listStyle(InsetGroupedListStyle())
         .onAppear(perform: loadAgents)
         .navigationTitle("Agents")
     }

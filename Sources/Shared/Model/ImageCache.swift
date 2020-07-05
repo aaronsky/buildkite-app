@@ -8,24 +8,6 @@
 import SwiftUI
 import Combine
 
-#if os(macOS)
-import AppKit
-public typealias CrossPlatformImage = NSImage
-#else
-import UIKit
-public typealias CrossPlatformImage = UIImage
-#endif
-
-extension Image {
-    init(crossPlatformImage: CrossPlatformImage) {
-        #if os(macOS)
-        self.init(nsImage: crossPlatformImage)
-        #else
-        self.init(uiImage: crossPlatformImage)
-        #endif
-    }
-}
-
 protocol ImageCache {
     subscript(_ url: URL) -> CrossPlatformImage? { get set }
 }
