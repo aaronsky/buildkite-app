@@ -35,6 +35,7 @@ query PipelinesListQuery($organization: ID!, $pipelinesCount: Int, $pipelinesAft
                 createdAt
                 createdBy {
                   ... on User {
+                    id
                     name
                     email
                     avatar {
@@ -112,7 +113,7 @@ query PipelinesListQuery($organization: ID!, $pipelinesCount: Int, $pipelinesAft
             var branch: String
             var commit: String
             var createdAt: Date?
-            var createdBy: User?
+            var createdBy: Fragments.User?
             
             enum State: String, Decodable {
                 /// The build was skipped
@@ -133,17 +134,6 @@ query PipelinesListQuery($organization: ID!, $pipelinesCount: Int, $pipelinesAft
                 case blocked = "BLOCKED"
                 /// The build wasn't run
                 case notRun = "NOT_RUN"
-                
-            }
-            
-            struct User: Decodable {
-                var name: String?
-                var email: String?
-                var avatar: Avatar
-                
-                struct Avatar: Decodable {
-                    var url: URL
-                }
             }
         }
     }

@@ -16,7 +16,7 @@ struct PipelineView: View {
     var body: some View {
         VStack {
             HStack {
-                Text(pipeline.name)
+                EmojiLabel(pipeline.name)
                 switch pipeline.visibility {
                 case .public:
                     Image(systemName: "eye")
@@ -38,7 +38,7 @@ struct PipelineView: View {
                             HStack {
                                 BuildState(state: build.state.rawValue)
                                 VStack(alignment: .leading) {
-                                    Text(build.message ?? "")
+                                    EmojiLabel(build.message ?? "")
                                         .font(.body)
                                     caption(for: build)
                                         .font(.caption)
@@ -71,7 +71,10 @@ struct PipelineView_Previews: PreviewProvider {
     static var query = try! GraphQL<PipelinesListQuery.Response>.Content(assetNamed: "gql.PipelinesList").get()
     
     static var previews: some View {
-        PipelineView(pipeline: query.organization.pipelines.nodes.first!)
-            .environmentObject(BuildkiteService())
+        NavigationView {
+            PipelineView(pipeline: query.organization.pipelines.nodes.first!)
+        }
+        .environmentObject(BuildkiteService())
+        .environmentObject(Emojis())
     }
 }

@@ -15,11 +15,10 @@ class Emojis: ObservableObject {
     static let regexp = try! NSRegularExpression(pattern: ":[^\\s:]+:(?::skin-tone-[2-6]:)?")
     
     private var emojis: [String: URL] = [:]
-    private var cache: ImageCache
-    private var cancellables: Set<AnyCancellable> = []
+    private var loader: ImageLoader
     
-    init(cache: ImageCache = ImageMemoryCache()) {
-        self.cache = cache
+    init(cache: ImageCache = ImageMemoryCache(), session: URLSession = .shared) {
+        self.loader = ImageLoader(cache: cache, session: session)
     }
     
     func loadEmojis(service: BuildkiteService) {
@@ -36,54 +35,56 @@ class Emojis: ObservableObject {
                   receiveValue: { self.emojis = $0 })
     }
     
-    func formatEmojis(in text: String, idealHeight: CGFloat, capHeight: CGFloat) -> NSAttributedString {
-        let fullString = NSMutableAttributedString()
-        let components = text.split(separator: " ")
-        for (index, str) in components.enumerated() {
-            if str.hasPrefix(":") && str.hasSuffix(":") {
-                let name = str.dropFirst().dropLast().trimmingCharacters(in: .whitespaces)
-                
-                switch emojiState(for: name) {
-                case .none:
-                    fullString.append(NSAttributedString(string: String(str)))
-                case .loading:
-                    break
-                case let .image(image):
-                    let aspectRatio = image.size.width / image.size.height
-                    let icon = NSTextAttachment()
-                    icon.image = image
-                    icon.bounds = CGRect(x: 0,
-                                         y: capHeight - idealHeight / 2,
-                                         width: aspectRatio * idealHeight,
-                                         height: idealHeight)
-                    fullString.append(NSAttributedString(attachment: icon))
-                }
-            } else {
-                fullString.append(NSAttributedString(string: String(str)))
-            }
+    func formatEmojis(in string: String, idealHeight: CGFloat, capHeight: CGFloat) -> NSAttributedString {
+        let fullAttributed = NSMutableAttributedString()
+        var lastEndIndex = string.startIndex
+        
+        let matches = Emojis.regexp
+            .matches(in: string, range: NSRange(string.startIndex..., in: string))
+            .compactMap { Range($0.range, in: string) }
+        
+        for range in matches {
+            fullAttributed.append(string: string[lastEndIndex..<range.lowerBound])
+            lastEndIndex = range.upperBound
             
-            if index != components.endIndex {
-                fullString.append(NSAttributedString(string: " "))
+            let match = string[range]
+            let name = match.trimmingCharacters(in: [":"])
+            switch emojiState(for: name) {
+            case .none:
+                fullAttributed.append(string: match)
+            case .loading:
+                break
+            case let .image(image):
+                let aspectRatio = image.size.width / image.size.height
+                let icon = NSTextAttachment()
+                icon.image = image
+                icon.bounds = CGRect(x: 0,
+                                     y: capHeight - idealHeight / 2,
+                                     width: aspectRatio * idealHeight,
+                                     height: idealHeight)
+                fullAttributed.append(NSAttributedString(attachment: icon))
             }
         }
-        return fullString
+        
+        fullAttributed.append(string: string[lastEndIndex...])
+        
+        return fullAttributed
     }
     
-    func replacingEmojiIdentifiers(in text: String, with replacement: String = "") -> String {
-        var text = text
-        let range = NSRange(text.startIndex..., in: text)
-        let matches = Emojis.regexp.matches(in: text, range: range).reversed()
-        for match in matches {
-            guard let matchRange = Range(match.range, in: text) else {
+    func replacingEmojiIdentifiers(in string: String, with replacement: String = "") -> String {
+        var string = string
+        let matches = Emojis.regexp.matches(in: string, range: NSRange(string.startIndex..., in: string))
+        for match in matches.reversed() {
+            guard let matchRange = Range(match.range, in: string) else {
                 continue
             }
-            let name = text[matchRange].trimmingCharacters(in: [":"])
+            let name = string[matchRange].trimmingCharacters(in: [":"])
             guard let _ = emojis[name] else {
                 continue
             }
-            text.replaceSubrange(matchRange, with: replacement)
+            string.replaceSubrange(matchRange, with: replacement)
         }
-        return text.trimmingCharacters(in: .whitespaces)
+        return string.trimmingCharacters(in: .whitespaces)
     }
     
     enum EmojiState {
@@ -92,27 +93,22 @@ class Emojis: ObservableObject {
         case image(CrossPlatformImage)
     }
     
-    func emojiState(for name: String, session: URLSession = .shared) -> EmojiState {
+    func emojiState(for name: String) -> EmojiState {
         guard let url = emojis[name] else {
             return .none
         }
-        if let image = cache[url] {
+        if let image = loader.loadFromCache(url: url) {
             return .image(image)
         }
-        loadEmoji(at: url, session: session)
+        loader.load(url: url) { [weak self] _ in
+            self?.objectWillChange.send()
+        }
         return .loading
     }
-    
-    private func loadEmoji(at url: URL, session: URLSession) {
-        session
-            .dataTaskPublisher(for: url)
-            .map { CrossPlatformImage(data: $0.data) }
-            .replaceError(with: nil)
-            .handleEvents(receiveOutput: { self.cache[url] = $0 })
-            .receive(on: DispatchQueue.main)
-            .sink(receiveValue: { _ in
-                self.objectWillChange.send()
-            })
-            .store(in: &cancellables)
+}
+
+private extension NSMutableAttributedString {
+    func append<S: StringProtocol>(string str: S) {
+        append(NSAttributedString(string: String(str)))
     }
 }

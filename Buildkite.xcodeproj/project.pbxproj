@@ -15,6 +15,8 @@
 		332F766724AD293500A0D61C /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332F766524AD293500A0D61C /* SearchField.swift */; };
 		332F766B24AD58C500A0D61C /* PipelinesListQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332F766A24AD58C500A0D61C /* PipelinesListQuery.swift */; };
 		332F766C24AD58C500A0D61C /* PipelinesListQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332F766A24AD58C500A0D61C /* PipelinesListQuery.swift */; };
+		3338414E24B242B7006DD00D /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3338414D24B242B7006DD00D /* RemoteImage.swift */; };
+		3338414F24B242B7006DD00D /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3338414D24B242B7006DD00D /* RemoteImage.swift */; };
 		334E246724A5875D00B30357 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E245424A5875C00B30357 /* Application.swift */; };
 		334E246824A5875D00B30357 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E245424A5875C00B30357 /* Application.swift */; };
 		334E246924A5875D00B30357 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E245524A5875C00B30357 /* ContentView.swift */; };
@@ -61,10 +63,6 @@
 		334E24C824A6022800B30357 /* UsersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E24C624A6022800B30357 /* UsersList.swift */; };
 		334E24CA24A6023100B30357 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E24C924A6023100B30357 /* UserView.swift */; };
 		334E24CB24A6023100B30357 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E24C924A6023100B30357 /* UserView.swift */; };
-		334E24D624A602A300B30357 /* Team+Fragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E24CD24A602A300B30357 /* Team+Fragment.swift */; };
-		334E24D724A602A300B30357 /* Team+Fragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E24CD24A602A300B30357 /* Team+Fragment.swift */; };
-		334E24D824A602A300B30357 /* Organization+Fragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E24CE24A602A300B30357 /* Organization+Fragment.swift */; };
-		334E24D924A602A300B30357 /* Organization+Fragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E24CE24A602A300B30357 /* Organization+Fragment.swift */; };
 		334E24DA24A602A300B30357 /* TeamGetQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E24D024A602A300B30357 /* TeamGetQuery.swift */; };
 		334E24DB24A602A300B30357 /* TeamGetQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E24D024A602A300B30357 /* TeamGetQuery.swift */; };
 		334E24DC24A602A300B30357 /* UsersSearchQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E24D124A602A300B30357 /* UsersSearchQuery.swift */; };
@@ -85,8 +83,8 @@
 		339F000524AFBFB800E37FC9 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339F000324AFBFB800E37FC9 /* Connection.swift */; };
 		339F000724AFBFE200E37FC9 /* HashableFromIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339F000624AFBFE200E37FC9 /* HashableFromIdentifier.swift */; };
 		339F000824AFBFE200E37FC9 /* HashableFromIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339F000624AFBFE200E37FC9 /* HashableFromIdentifier.swift */; };
-		339F000A24AFC01400E37FC9 /* Fragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339F000924AFC01400E37FC9 /* Fragment.swift */; };
-		339F000B24AFC01400E37FC9 /* Fragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339F000924AFC01400E37FC9 /* Fragment.swift */; };
+		339F000A24AFC01400E37FC9 /* Fragments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339F000924AFC01400E37FC9 /* Fragments.swift */; };
+		339F000B24AFC01400E37FC9 /* Fragments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339F000924AFC01400E37FC9 /* Fragments.swift */; };
 		339FFFF224AFBAD800E37FC9 /* NavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339FFFF124AFBAD800E37FC9 /* NavigationItem.swift */; };
 		339FFFF324AFBAD800E37FC9 /* NavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339FFFF124AFBAD800E37FC9 /* NavigationItem.swift */; };
 		339FFFF624AFBD8900E37FC9 /* SettingsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339FFFF524AFBD8900E37FC9 /* SettingsList.swift */; };
@@ -143,6 +141,7 @@
 		332F766524AD293500A0D61C /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
 		332F766824AD513400A0D61C /* Packages.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Packages.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		332F766A24AD58C500A0D61C /* PipelinesListQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelinesListQuery.swift; sourceTree = "<group>"; };
+		3338414D24B242B7006DD00D /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 		334E245424A5875C00B30357 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		334E245524A5875C00B30357 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		334E245624A5875D00B30357 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -171,8 +170,6 @@
 		334E24C224A5A5ED00B30357 /* Team+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Team+Extensions.swift"; sourceTree = "<group>"; };
 		334E24C624A6022800B30357 /* UsersList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersList.swift; sourceTree = "<group>"; };
 		334E24C924A6023100B30357 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
-		334E24CD24A602A300B30357 /* Team+Fragment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Team+Fragment.swift"; sourceTree = "<group>"; };
-		334E24CE24A602A300B30357 /* Organization+Fragment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Organization+Fragment.swift"; sourceTree = "<group>"; };
 		334E24D024A602A300B30357 /* TeamGetQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamGetQuery.swift; sourceTree = "<group>"; };
 		334E24D124A602A300B30357 /* UsersSearchQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersSearchQuery.swift; sourceTree = "<group>"; };
 		334E24D224A602A300B30357 /* TeamUpdateMemberMutation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamUpdateMemberMutation.swift; sourceTree = "<group>"; };
@@ -183,7 +180,7 @@
 		338A57D224A7D7DF00F80306 /* PipelineRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelineRow.swift; sourceTree = "<group>"; };
 		339F000324AFBFB800E37FC9 /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
 		339F000624AFBFE200E37FC9 /* HashableFromIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashableFromIdentifier.swift; sourceTree = "<group>"; };
-		339F000924AFC01400E37FC9 /* Fragment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fragment.swift; sourceTree = "<group>"; };
+		339F000924AFC01400E37FC9 /* Fragments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fragments.swift; sourceTree = "<group>"; };
 		339FFFF124AFBAD800E37FC9 /* NavigationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationItem.swift; sourceTree = "<group>"; };
 		339FFFF524AFBD8900E37FC9 /* SettingsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsList.swift; sourceTree = "<group>"; };
 		339FFFF824AFBDA700E37FC9 /* ChangelogList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangelogList.swift; sourceTree = "<group>"; };
@@ -399,6 +396,7 @@
 				33A1E96724AF737D00C3491D /* WebView.swift */,
 				336DD17024B102D60061963C /* EmojiLabel.swift */,
 				33D94F0B24B2244D00FC8282 /* Text+Extensions.swift */,
+				3338414D24B242B7006DD00D /* RemoteImage.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -457,23 +455,13 @@
 		339F000124AFBEC800E37FC9 /* GraphQL */ = {
 			isa = PBXGroup;
 			children = (
-				339F000224AFBEEC00E37FC9 /* Fragments */,
 				339FFFFF24AFBEBA00E37FC9 /* Queries */,
 				339F000024AFBEC300E37FC9 /* Mutations */,
 				334E24D524A602A300B30357 /* GraphQLQuery.swift */,
 				339F000324AFBFB800E37FC9 /* Connection.swift */,
-				339F000924AFC01400E37FC9 /* Fragment.swift */,
+				339F000924AFC01400E37FC9 /* Fragments.swift */,
 			);
 			path = GraphQL;
-			sourceTree = "<group>";
-		};
-		339F000224AFBEEC00E37FC9 /* Fragments */ = {
-			isa = PBXGroup;
-			children = (
-				334E24CE24A602A300B30357 /* Organization+Fragment.swift */,
-				334E24CD24A602A300B30357 /* Team+Fragment.swift */,
-			);
-			path = Fragments;
 			sourceTree = "<group>";
 		};
 		339FFFF424AFBD7E00E37FC9 /* Settings */ = {
@@ -732,12 +720,10 @@
 				33D94F0C24B2244D00FC8282 /* Text+Extensions.swift in Sources */,
 				339F000424AFBFB800E37FC9 /* Connection.swift in Sources */,
 				334E24BE24A5A37D00B30357 /* Agent+Extensions.swift in Sources */,
-				334E24D824A602A300B30357 /* Organization+Fragment.swift in Sources */,
 				334E249424A58D0F00B30357 /* TeamsList.swift in Sources */,
 				332F766624AD293500A0D61C /* SearchField.swift in Sources */,
 				334E24B924A5A34300B30357 /* AgentView.swift in Sources */,
 				338A57D324A7D7DF00F80306 /* PipelineRow.swift in Sources */,
-				334E24D624A602A300B30357 /* Team+Fragment.swift in Sources */,
 				334E246924A5875D00B30357 /* ContentView.swift in Sources */,
 				334E24B324A59C4D00B30357 /* TeamView.swift in Sources */,
 				339FFFF224AFBAD800E37FC9 /* NavigationItem.swift in Sources */,
@@ -758,6 +744,7 @@
 				334E24DC24A602A300B30357 /* UsersSearchQuery.swift in Sources */,
 				336DD17124B102D70061963C /* EmojiLabel.swift in Sources */,
 				33AC4D5E24AC076500508156 /* JobView.swift in Sources */,
+				3338414E24B242B7006DD00D /* RemoteImage.swift in Sources */,
 				334E24B024A59C3A00B30357 /* Formatters.swift in Sources */,
 				339FFFFC24AFBDB800E37FC9 /* ChangelogView.swift in Sources */,
 				334E249124A58D0500B30357 /* PipelinesList.swift in Sources */,
@@ -774,7 +761,7 @@
 				339FFFF624AFBD8900E37FC9 /* SettingsList.swift in Sources */,
 				334E249A24A58D4C00B30357 /* BuildState.swift in Sources */,
 				334E248B24A58BE600B30357 /* AppTabNavigation.swift in Sources */,
-				339F000A24AFC01400E37FC9 /* Fragment.swift in Sources */,
+				339F000A24AFC01400E37FC9 /* Fragments.swift in Sources */,
 				339FFFF924AFBDA700E37FC9 /* ChangelogList.swift in Sources */,
 				334E24DA24A602A300B30357 /* TeamGetQuery.swift in Sources */,
 			);
@@ -791,12 +778,10 @@
 				33D94F0D24B2244D00FC8282 /* Text+Extensions.swift in Sources */,
 				339F000524AFBFB800E37FC9 /* Connection.swift in Sources */,
 				334E24BF24A5A37D00B30357 /* Agent+Extensions.swift in Sources */,
-				334E24D924A602A300B30357 /* Organization+Fragment.swift in Sources */,
 				334E249524A58D0F00B30357 /* TeamsList.swift in Sources */,
 				332F766724AD293500A0D61C /* SearchField.swift in Sources */,
 				334E24BA24A5A34300B30357 /* AgentView.swift in Sources */,
 				338A57D424A7D7DF00F80306 /* PipelineRow.swift in Sources */,
-				334E24D724A602A300B30357 /* Team+Fragment.swift in Sources */,
 				334E246A24A5875D00B30357 /* ContentView.swift in Sources */,
 				334E24B424A59C4D00B30357 /* TeamView.swift in Sources */,
 				339FFFF324AFBAD800E37FC9 /* NavigationItem.swift in Sources */,
@@ -817,6 +802,7 @@
 				334E24DD24A602A300B30357 /* UsersSearchQuery.swift in Sources */,
 				336DD17224B102D70061963C /* EmojiLabel.swift in Sources */,
 				33AC4D5F24AC076500508156 /* JobView.swift in Sources */,
+				3338414F24B242B7006DD00D /* RemoteImage.swift in Sources */,
 				334E24B124A59C3A00B30357 /* Formatters.swift in Sources */,
 				339FFFFD24AFBDB800E37FC9 /* ChangelogView.swift in Sources */,
 				334E249224A58D0500B30357 /* PipelinesList.swift in Sources */,
@@ -833,7 +819,7 @@
 				339FFFF724AFBD8900E37FC9 /* SettingsList.swift in Sources */,
 				334E249B24A58D4C00B30357 /* BuildState.swift in Sources */,
 				334E248C24A58BE600B30357 /* AppTabNavigation.swift in Sources */,
-				339F000B24AFC01400E37FC9 /* Fragment.swift in Sources */,
+				339F000B24AFC01400E37FC9 /* Fragments.swift in Sources */,
 				339FFFFA24AFBDA700E37FC9 /* ChangelogList.swift in Sources */,
 				334E24DB24A602A300B30357 /* TeamGetQuery.swift in Sources */,
 			);

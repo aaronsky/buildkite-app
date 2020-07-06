@@ -25,7 +25,7 @@ struct EmojiLabel: View {
     }
     
     struct Representable {
-        var attributedText: NSAttributedString?
+        private var attributedText: NSAttributedString?
         private var font: CrossPlatformFont
         
         fileprivate init(attributed text: NSAttributedString, font: CrossPlatformFont) {
@@ -65,7 +65,7 @@ extension EmojiLabel.Representable: NSViewRepresentable {
     }
     
     func updateNSView(_ nsView: NSTextField, context: Self.Context) {
-//        nsView.attributedText = attributedText
+        // nsView.attributedText = attributedText
     }
 }
 #endif

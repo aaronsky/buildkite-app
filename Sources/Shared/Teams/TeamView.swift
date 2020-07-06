@@ -42,7 +42,7 @@ struct TeamView: View {
             Section(header: Text("MEMBERS")) {
                 ForEach(team.members.nodes) { member in
                     NavigationLink(destination: UserView(userID: member.id)) {
-                        Text(member.user.name)
+                        Text(member.user.name ?? "")
                     }
                 }
                 .onDelete(perform: deleteMembers)

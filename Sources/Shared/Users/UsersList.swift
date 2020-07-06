@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Buildkite
 
 struct UsersList: View {
     typealias User = Fragments.Organization.Member
@@ -21,10 +22,19 @@ struct UsersList: View {
     var body: some View {
         List {
             ForEach(users) { user in
-                Text(user.user.name)
-                    .onTapGesture {
-                        onUserSelection?(user)
-                    }
+                HStack {
+                    RemoteImage(url: user.user.avatar.url)
+                        .frame(width: 48, height: 48)
+                        .clipShape(Circle())
+                VStack(alignment: .leading) {
+                    Text(user.user.name ?? "")
+                    Text(user.user.email ?? "")
+                        .font(.caption)
+                }
+                }
+                .onTapGesture {
+                    onUserSelection?(user)
+                }
             }
         }
         .listStyle(InsetGroupedListStyle())
@@ -43,7 +53,10 @@ struct UsersList: View {
 }
 
 struct UsersList_Previews: PreviewProvider {
+    static var query = try! GraphQL<UsersSearchQuery.Response>.Content(assetNamed: "gql.UsersSearch").get()
+    
     static var previews: some View {
-        UsersList()
+        UsersList(users: query.organization.members.nodes)
+            .environmentObject(BuildkiteService())
     }
 }

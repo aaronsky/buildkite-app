@@ -22,6 +22,9 @@ query UsersSearch($organization: ID!, $first: Int!, $search: String, $selector: 
             id
             name
             email
+            avatar {
+              url
+            }
           }
         }
       }
