@@ -17,7 +17,7 @@ struct SettingsList: View {
 //                }
             }
         }
-        .listStyle(InsetGroupedListStyle())
+        .listStyle(InsetListStyle())
     }
 }
 

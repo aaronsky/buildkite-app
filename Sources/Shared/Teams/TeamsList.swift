@@ -38,7 +38,7 @@ struct TeamsList: View {
                 }
             }
         }
-        .listStyle(InsetGroupedListStyle())
+        .listStyle(InsetListStyle())
         .onAppear(perform: loadTeams)
         .navigationTitle("Teams")
     }

@@ -19,18 +19,18 @@ struct TeamView: View {
     @State private var presentingSearchUsersModal = false
     
     @ViewBuilder var body: some View {
-        #if !os(macOS)
         content
-            .navigationBarTitle(emojis.replacingEmojiIdentifiers(in: team.name), displayMode: .inline)
-            .navigationBarItems(trailing: Button(action: {
-                presentingSearchUsersModal = true
-            }, label: {
-                Label("Add Person", systemImage: "person.badge.plus")
-                    .labelStyle(IconOnlyLabelStyle())
-            }))
-        #else
-        content
-        #endif
+            .navigationTitle(emojis.replacingEmojiIdentifiers(in: team.name))
+            .toolbar {
+                ToolbarItem {
+                    Button(action: {
+                        presentingSearchUsersModal = true
+                    }, label: {
+                        Label("Add Person", systemImage: "person.badge.plus")
+                            .labelStyle(IconOnlyLabelStyle())
+                    })
+                }
+            }
     }
     
     var content: some View {
@@ -54,9 +54,9 @@ struct TeamView: View {
                 Text("// TODO: Search Field goes here")
                 UsersList(teamSlug: team.slug,
                           onUserSelection: { user in
-                    presentingSearchUsersModal = false
-                    selectedUserIDFromSearching = user.user.id
-                })
+                            presentingSearchUsersModal = false
+                            selectedUserIDFromSearching = user.user.id
+                          })
             }.environmentObject(service)
         }
     }

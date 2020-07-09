@@ -30,15 +30,15 @@ struct AgentsList: View {
                 }
             }
         }
-        .listStyle(InsetGroupedListStyle())
+        .listStyle(InsetListStyle())
         .onAppear(perform: loadAgents)
         .navigationTitle("Agents")
     }
     
     func loadAgents() {
-        let resource = Agent.Resources.List(organization: service.organization)
         service
-            .allPagesPublisher(resource: resource, perPage: 100)
+            .allPagesPublisher(resource: Agent.Resources.List(organization: service.organization),
+                               perPage: 100)
             .collect()
             .map { $0.flatMap { $0 } }
             .receive(on: DispatchQueue.main)

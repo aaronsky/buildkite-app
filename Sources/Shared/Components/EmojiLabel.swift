@@ -68,6 +68,12 @@ extension EmojiLabel.Representable: NSViewRepresentable {
         // nsView.attributedText = attributedText
     }
 }
+
+extension NSFont {
+    var lineHeight: CGFloat {
+        NSLayoutManager().defaultLineHeight(for: self)
+    }
+}
 #endif
 
 struct EmojiLabel_Previews: PreviewProvider {

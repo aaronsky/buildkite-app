@@ -37,7 +37,7 @@ struct UsersList: View {
                 }
             }
         }
-        .listStyle(InsetGroupedListStyle())
+        .listStyle(InsetListStyle())
         .onAppear(perform: loadUsers)
         .navigationTitle("Users")
     }

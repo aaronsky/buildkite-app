@@ -21,15 +21,13 @@ struct RemoteImage: View {
             .onDisappear(perform: store.cancel)
     }
     
-    private var image: some View {
-        Group {
-            if let image = store.image {
-                Image(uiImage: image)
-                    .resizable()
-            } else {
-                Image("AvatarDefault")
-                    .resizable()
-            }
+    @ViewBuilder private var image: some View {
+        if let image = store.image {
+            Image(crossPlatformImage: image)
+                .resizable()
+        } else {
+            Image("AvatarDefault")
+                .resizable()
         }
     }
     

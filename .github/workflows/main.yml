@@ -7,9 +7,18 @@ on:
     branches:
       - master
 jobs:
-  # lints:
   tests:
     runs-on: macOS-latest
+    strategy:
+      matrix:
+        scheme:
+          - iOS
+          - macOS
+        include:
+          - scheme: iOS
+            destination: platform=iOS Simulator,OS=latest,name=iPhone 11
+          - scheme: macOS
+            destination: platform=macOS,arch=x86_64
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -23,8 +32,8 @@ jobs:
         run: |-
           xcodebuild \
             -project Buildkite.xcodeproj \
-            -scheme 'iOS' \
+            -scheme ${{ matrix.scheme }} \
             -configuration 'Debug' \
-            -destination 'platform=iOS Simulator,OS=latest,name=iPhone 11' \
+            -destination ${{ matrix.destination }} \
             -quiet \
-            build test
+            build

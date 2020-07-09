@@ -8,11 +8,11 @@
 import Foundation
 import Buildkite
 
-protocol Fragment {
-    
+protocol Fragment: Decodable {
+    static var fragment: String { get }
 }
 
-enum Fragments {
+enum Fragments {    
     struct User: Decodable {
         var id: String?
         var name: String?

@@ -17,6 +17,8 @@
 		332F766C24AD58C500A0D61C /* PipelinesListQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332F766A24AD58C500A0D61C /* PipelinesListQuery.swift */; };
 		3338414E24B242B7006DD00D /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3338414D24B242B7006DD00D /* RemoteImage.swift */; };
 		3338414F24B242B7006DD00D /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3338414D24B242B7006DD00D /* RemoteImage.swift */; };
+		333B242C24B3FD070080E684 /* StopAgentMutation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333B242B24B3FD070080E684 /* StopAgentMutation.swift */; };
+		333B242D24B3FD070080E684 /* StopAgentMutation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333B242B24B3FD070080E684 /* StopAgentMutation.swift */; };
 		334E246724A5875D00B30357 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E245424A5875C00B30357 /* Application.swift */; };
 		334E246824A5875D00B30357 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E245424A5875C00B30357 /* Application.swift */; };
 		334E246924A5875D00B30357 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E245524A5875C00B30357 /* ContentView.swift */; };
@@ -142,6 +144,8 @@
 		332F766824AD513400A0D61C /* Packages.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Packages.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		332F766A24AD58C500A0D61C /* PipelinesListQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelinesListQuery.swift; sourceTree = "<group>"; };
 		3338414D24B242B7006DD00D /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
+		333B242B24B3FD070080E684 /* StopAgentMutation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopAgentMutation.swift; sourceTree = "<group>"; };
+		333B242E24B401E10080E684 /* Schema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schema.swift; sourceTree = "<group>"; };
 		334E245424A5875C00B30357 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		334E245524A5875C00B30357 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		334E245624A5875D00B30357 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -448,6 +452,7 @@
 				334E24D224A602A300B30357 /* TeamUpdateMemberMutation.swift */,
 				334E24D324A602A300B30357 /* TeamDeleteMemberMutation.swift */,
 				334E24D424A602A300B30357 /* TeamCreateMemberMutation.swift */,
+				333B242B24B3FD070080E684 /* StopAgentMutation.swift */,
 			);
 			path = Mutations;
 			sourceTree = "<group>";
@@ -460,6 +465,7 @@
 				334E24D524A602A300B30357 /* GraphQLQuery.swift */,
 				339F000324AFBFB800E37FC9 /* Connection.swift */,
 				339F000924AFC01400E37FC9 /* Fragments.swift */,
+				333B242E24B401E10080E684 /* Schema.swift */,
 			);
 			path = GraphQL;
 			sourceTree = "<group>";
@@ -757,6 +763,7 @@
 				334E24E424A602A300B30357 /* GraphQLQuery.swift in Sources */,
 				33A1E96824AF737D00C3491D /* WebView.swift in Sources */,
 				334E247D24A5884200B30357 /* AppSidebarNavigation.swift in Sources */,
+				333B242C24B3FD070080E684 /* StopAgentMutation.swift in Sources */,
 				33AC4D6124AC086D00508156 /* env.swift in Sources */,
 				339FFFF624AFBD8900E37FC9 /* SettingsList.swift in Sources */,
 				334E249A24A58D4C00B30357 /* BuildState.swift in Sources */,
@@ -815,6 +822,7 @@
 				334E24E524A602A300B30357 /* GraphQLQuery.swift in Sources */,
 				33A1E96924AF737D00C3491D /* WebView.swift in Sources */,
 				334E247E24A5884200B30357 /* AppSidebarNavigation.swift in Sources */,
+				333B242D24B3FD070080E684 /* StopAgentMutation.swift in Sources */,
 				33AC4D6224AC086D00508156 /* env.swift in Sources */,
 				339FFFF724AFBD8900E37FC9 /* SettingsList.swift in Sources */,
 				334E249B24A58D4C00B30357 /* BuildState.swift in Sources */,

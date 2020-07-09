@@ -27,17 +27,21 @@ struct UsersOrTeamsView: View {
             case .teams:
                 TeamsList()
             }
-        }.navigationBarItems(trailing: Button(action: {
-            withAnimation {
-                isShowingFilterMenu.toggle()                
+        }.toolbar {
+            ToolbarItem {
+                Button(action: {
+                    withAnimation {
+                        isShowingFilterMenu.toggle()
+                    }
+                }, label: {
+                    Label("Filter",
+                          systemImage: isShowingFilterMenu ?
+                            "line.horizontal.3.decrease.circle.fill" :
+                            "line.horizontal.3.decrease.circle")
+                        .labelStyle(IconOnlyLabelStyle())
+                })
             }
-        }, label: {
-            Label("Filter",
-                  systemImage: isShowingFilterMenu ?
-                    "line.horizontal.3.decrease.circle.fill" :
-                    "line.horizontal.3.decrease.circle")
-                .labelStyle(IconOnlyLabelStyle())
-        }))
+        }
     }
 }
 

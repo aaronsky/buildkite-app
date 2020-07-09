@@ -10,30 +10,28 @@ import Combine
 import Buildkite
 
 struct AgentView: View {
-    @State var agent: Agent
-    
     @EnvironmentObject var service: BuildkiteService
-    @Environment(\.presentationMode) var presentationMode
     
-    var stopAgentPublisher = PassthroughSubject<Void, Never>()
+    @State var agent: Agent
+    @State private var isStoppingAgent: Bool = false
+    
+    private var stopAgentPublisher = PassthroughSubject<Void, Never>()
+    private var cancellables: Set<AnyCancellable> = []
+    
+    init(agent: Agent) {
+        _agent = State(initialValue: agent)
+    }
     
     @ViewBuilder var body: some View {
-        #if os(iOS)
         content
-            .navigationBarTitle(agent.nameFormatted, displayMode: .inline)
-            .navigationBarItems(trailing: Button(action: stopAgent) {
-                Text("Stop")
-            })
-        #else
-        content
+            .navigationTitle(agent.nameFormatted)
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .destructiveAction) {
                     Button(action: stopAgent) {
                         Text("Stop")
-                    }
+                    }.disabled(isStoppingAgent || agent.connectionState != "connected")
                 }
             }
-        #endif
     }
     
     var content: some View {
@@ -77,15 +75,20 @@ struct AgentView: View {
                 Text(agent.metaData.joined())
             }
         }
-        .onAppear(perform: reloadAgent)
+        .onAppear(perform: loadAgent)
         .onReceive(stopAgentPublisher) { _ in
-            presentationMode.wrappedValue.dismiss()
+            isStoppingAgent = true
         }
     }
     
-    func reloadAgent() {
-        service
-            .sendPublisher(resource: Agent.Resources.Get(organization: service.organization, agentId: agent.id))
+    func loadAgent() {
+        Timer.publish(every: 3, on: .main, in: .default)
+            .autoconnect()
+            .flatMap { _ in
+                service
+                    .sendPublisher(resource: Agent.Resources.Get(organization: service.organization,
+                                                                 agentId: agent.id))
+            }
             .receive(on: DispatchQueue.main)
             .sink(into: service,
                   receiveValue: { self.agent = $0 })

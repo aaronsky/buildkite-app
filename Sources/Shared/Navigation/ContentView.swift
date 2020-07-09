@@ -12,7 +12,7 @@ struct ContentView: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     #endif
     
-    @ViewBuilder var body: some View {
+    var body: some View {
         ZStack {
             #if os(iOS)
             if horizontalSizeClass == .compact {
