@@ -71,7 +71,9 @@ extension EmojiLabel.Representable: NSViewRepresentable {
 
 extension NSFont {
     var lineHeight: CGFloat {
-        NSLayoutManager().defaultLineHeight(for: self)
+        let height = round(ascender) - round(descender)
+        let lineGap = round(max(0, leading))
+        return lineGap > 0 ? height + lineGap : round(height * 1.2)
     }
 }
 #endif
