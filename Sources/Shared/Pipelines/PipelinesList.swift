@@ -32,20 +32,22 @@ struct PipelinesList: View {
             }
         }
         .listStyle(InsetListStyle())
-        .onAppear(perform: loadPipelines)
+        .task {
+            await loadPipelines()
+        }
         .navigationTitle("Pipelines")
     }
-    
-    func loadPipelines() {
-        service
-            .sendQueryPublisher(PipelinesListQuery(organization: service.organization,
-                                                   pipelinesCount: 50,
-                                                   pipelinesSearch: searchQuery,
-                                                   buildsCount: 50))
-            .tryMap { try $0.get() }
-            .receive(on: DispatchQueue.main)
-            .sink(into: service,
-                  receiveValue: { self.pipelines = $0.organization.pipelines.nodes })
+
+    func loadPipelines() async {
+        let query = PipelinesListQuery(organization: service.organization,
+                                       pipelinesCount: 50,
+                                       pipelinesSearch: searchQuery,
+                                       buildsCount: 50)
+        guard let response = try? await service.sendQuery(query),
+              let data = try? response.get() else {
+                  return
+              }
+        self.pipelines = data.organization.pipelines.nodes
     }
 }
 

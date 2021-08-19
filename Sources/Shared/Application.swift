@@ -19,7 +19,9 @@ struct Application: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .onAppear { emojis.loadEmojis(service: service) }
+                .task {
+                    await emojis.loadEmojis(service: service)
+                }
                 .environmentObject(service)
                 .environmentObject(emojis)
         }

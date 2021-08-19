@@ -31,19 +31,16 @@ struct AgentsList: View {
             }
         }
         .listStyle(InsetListStyle())
-        .onAppear(perform: loadAgents)
+        .task {
+            await loadAgents()
+        }
         .navigationTitle("Agents")
     }
     
-    func loadAgents() {
-        service
-            .allPagesPublisher(resource: Agent.Resources.List(organization: service.organization),
-                               perPage: 100)
-            .collect()
-            .map { $0.flatMap { $0 } }
-            .receive(on: DispatchQueue.main)
-            .sink(into: service,
-                  receiveValue: { self.agents = $0 })
+    func loadAgents() async {
+        let resource = Agent.Resources.List(organization: service.organization)
+        let response = try? await service.allPages(resource: resource, perPage: 100)
+        self.agents = response?.flatMap { $0 } ?? []
     }
 }
 

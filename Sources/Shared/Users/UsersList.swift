@@ -38,17 +38,21 @@ struct UsersList: View {
             }
         }
         .listStyle(InsetListStyle())
-        .onAppear(perform: loadUsers)
+        .task {
+            await loadUsers()
+        }
         .navigationTitle("Users")
     }
     
-    func loadUsers() {
-        service
-            .sendQueryPublisher(UsersSearchQuery(organization: service.organization, search: searchQuery, notInTeam: teamSlug))
-            .tryMap { try $0.get() }
-            .receive(on: DispatchQueue.main)
-            .sink(into: service,
-                  receiveValue: { self.users = $0.organization.members.nodes })
+    func loadUsers() async {
+        let query = UsersSearchQuery(organization: service.organization,
+                                     search: searchQuery,
+                                     notInTeam: teamSlug)
+        guard let response = try? await service.sendQuery(query),
+              let data = try? response.get() else {
+                  return
+              }
+        self.users = data.organization.members.nodes
     }
 }
 

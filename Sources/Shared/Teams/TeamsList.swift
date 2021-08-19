@@ -39,19 +39,18 @@ struct TeamsList: View {
             }
         }
         .listStyle(InsetListStyle())
-        .onAppear(perform: loadTeams)
+        .task {
+            await loadTeams()
+        }
         .navigationTitle("Teams")
     }
     
-    func loadTeams() {
+    func loadTeams() async {
         let resource = Team.Resources.List(organization: service.organization)
-        service
-            .allPagesPublisher(resource: resource, perPage: 50)
-            .collect()
-            .map { $0.flatMap { $0 } }
-            .receive(on: DispatchQueue.main)
-            .sink(into: service,
-                  receiveValue: { self.teams = $0 })
+        guard let response = try? await service.allPages(resource: resource, perPage: 50) else {
+            return
+        }
+        self.teams = response.flatMap { $0 }
     }
 }
 

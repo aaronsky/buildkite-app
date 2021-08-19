@@ -32,15 +32,16 @@ struct BuildView: View {
                 }
             }
         }
-        .onAppear(perform: loadBuild)
+        .task {
+            await loadBuild()
+        }
     }
     
-    func loadBuild() {
-        service
-            .sendPublisher(resource: Build.Resources.Get(organization: service.organization, pipeline: pipelineSlug, build: buildNumber))
-            .receive(on: DispatchQueue.main)
-            .sink(into: service,
-                  receiveValue: { build = $0 })
+    func loadBuild() async {
+        let resource = Build.Resources.Get(organization: service.organization,
+                                        pipeline: pipelineSlug,
+                                        build: buildNumber)
+        self.build = try? await service.send(resource: resource)
     }
 }
 

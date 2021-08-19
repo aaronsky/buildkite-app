@@ -45,10 +45,16 @@ struct TeamView: View {
                         Text(member.user.name ?? "")
                     }
                 }
-                .onDelete(perform: deleteMembers)
+                .onDelete { offsets in
+                    Task {
+                        await deleteMembers(at: offsets)
+                    }
+                }
             }
         }
-        .onAppear(perform: reloadTeam)
+        .task {
+            await reloadTeam()
+        }
         .sheet(isPresented: $presentingSearchUsersModal, onDismiss: onDismissSearchUserModal) {
             VStack {
                 Text("// TODO: Search Field goes here")
@@ -61,51 +67,45 @@ struct TeamView: View {
         }
     }
     
-    var teamGraphQLPublisher: AnyPublisher<TeamGetQuery.Response, Error> {
-        service
-            .sendQueryPublisher(TeamGetQuery(organization: service.organization, team: team.slug))
-            .tryMap { try $0.get() }
-            .eraseToAnyPublisher()
-    }
-    
     func onDismissSearchUserModal() {
         guard let userID = selectedUserIDFromSearching else {
             return
         }
-        addMember(with: userID)
-    }
-    
-    func reloadTeam() {
-        teamGraphQLPublisher
-            .receive(on: DispatchQueue.main)
-            .sink(into: service,
-                  receiveValue: { self.team = $0.team })
-    }
-    
-    func addMember(with userID: String) {
-        service
-            .sendQueryPublisher(TeamCreateMemberMutation(teamID: team.id, userID: userID))
-            .tryMap { try $0.get() }
-            .zip(teamGraphQLPublisher)
-            .receive(on: DispatchQueue.main)
-            .sink(into: service,
-                  receiveValue: { self.team = $0.1.team })
-    }
-    
-    func deleteMembers(at offsets: IndexSet) {
-        let ids = offsets.compactMap { team.members.edges?[$0].node.id }
-        let deletions = ids.map {
-            service
-                .sendQueryPublisher(TeamDeleteMemberMutation(id: $0))
-                .tryMap { try $0.get() }
-        }
         
-        Publishers.MergeMany(deletions)
-            .receive(on: DispatchQueue.main)
-            .sink(into: service,
-                  receiveValue: { data in
-                    self.team.members.edges?.removeAll(where: { $0.node.id == data.teamMemberDelete.deletedTeamMemberID })
-                  })
+        Task {
+            await addMember(with: userID)
+        }
+    }
+    
+    func reloadTeam() async {
+        guard let response = try? await service.sendQuery(TeamGetQuery(organization: service.organization, team: team.slug)),
+              let data = try? response.get() else {
+                  return
+              }
+        self.team = data.team
+    }
+    
+    func addMember(with userID: String) async {
+        guard let response = try? await service.sendQuery(TeamCreateMemberMutation(teamID: team.id, userID: userID)),
+              case .some(_) = try? response.get() else {
+                  return
+              }
+        await reloadTeam()
+    }
+    
+    func deleteMembers(at offsets: IndexSet) async {
+        let ids = offsets.compactMap { team.members.edges?[$0].node.id }
+        try? await withThrowingTaskGroup(of: TeamDeleteMemberMutation.Response.self) { group in
+            for id in ids {
+                group.addTask {
+                    let response = try await service.sendQuery(TeamDeleteMemberMutation(id: id))
+                    return try response.get()
+                }
+            }
+            for try await deletedMember in group {
+                self.team.members.edges?.removeAll(where: { $0.node.id == deletedMember.teamMemberDelete.deletedTeamMemberID })
+            }
+        }
     }
 }
 

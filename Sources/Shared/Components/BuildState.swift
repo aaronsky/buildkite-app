@@ -93,7 +93,7 @@ struct BuildState: View {
             .size(width: 14, height: 14)
             .fill(Color.black)
             .rotationEffect(.degrees(rotation))
-            .animation(animation)
+            .animation(animation, value: enabled)
             .onAppear {
                 self.rotation = 360
             }

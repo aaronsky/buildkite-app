@@ -14,9 +14,7 @@ struct AgentView: View {
     
     @State var agent: Agent
     @State private var isStoppingAgent: Bool = false
-    
-    private var stopAgentPublisher = PassthroughSubject<Void, Never>()
-    private var cancellables: Set<AnyCancellable> = []
+    let agentStatusTimer = Timer.publish(every: 3, on: .main, in: .default).autoconnect()
     
     init(agent: Agent) {
         _agent = State(initialValue: agent)
@@ -27,7 +25,11 @@ struct AgentView: View {
             .navigationTitle(agent.nameFormatted)
             .toolbar {
                 ToolbarItem(placement: .destructiveAction) {
-                    Button(action: stopAgent) {
+                    Button(action: {
+                        Task {
+                            await stopAgent()
+                        }
+                    }) {
                         Text("Stop")
                     }.disabled(isStoppingAgent || agent.connectionState != "connected")
                 }
@@ -75,35 +77,30 @@ struct AgentView: View {
                 Text(agent.metaData.joined())
             }
         }
-        .onAppear(perform: loadAgent)
-        .onReceive(stopAgentPublisher) { _ in
-            isStoppingAgent = true
+        .onReceive(agentStatusTimer) { _ in
+            Task {
+                await loadAgent()
+            }
+        }
+        .task {
+            await loadAgent()
         }
     }
     
-    func loadAgent() {
-        Timer.publish(every: 3, on: .main, in: .default)
-            .autoconnect()
-            .flatMap { _ in
-                service
-                    .sendPublisher(resource: Agent.Resources.Get(organization: service.organization,
-                                                                 agentId: agent.id))
-            }
-            .receive(on: DispatchQueue.main)
-            .sink(into: service,
-                  receiveValue: { self.agent = $0 })
+    func loadAgent() async {
+        let resource = Agent.Resources.Get(organization: service.organization,
+                                           agentId: agent.id)
+        guard let agent = try? await service.send(resource: resource) else {
+            return
+        }
+        self.agent = agent
     }
     
-    func stopAgent() {
-        service
-            .sendPublisher(resource: Agent.Resources.Stop(organization: service.organization,
-                                                          agentId: agent.id,
-                                                          body: Agent.Resources.Stop.Body()))
-            .receive(on: DispatchQueue.main)
-            .handleEvents(receiveCompletion: { _ in })
-            .catch { _ in Just(()) }
-            .subscribe(stopAgentPublisher)
-            .store(in: service)
+    func stopAgent() async {
+        isStoppingAgent = true
+        try? await service.send(resource: Agent.Resources.Stop(organization: service.organization,
+                                                    agentId: agent.id,
+                                                    body: Agent.Resources.Stop.Body()))
     }
 }
 

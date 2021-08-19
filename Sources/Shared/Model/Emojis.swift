@@ -21,18 +21,15 @@ class Emojis: ObservableObject {
         self.loader = ImageLoader(cache: cache, session: session)
     }
     
-    func loadEmojis(service: BuildkiteService) {
-        service
-            .sendPublisher(resource: Emoji.Resources.List(organization: service.organization))
-            .map { emojis in
-                emojis.reduce(into: [String: URL]()) { acc, emoji in
-                    acc[emoji.name] = emoji.url
-                    emoji.aliases?.forEach { acc[$0] = emoji.url }
-                }
-            }
-            .receive(on: DispatchQueue.main)
-            .sink(into: service,
-                  receiveValue: { self.emojis = $0 })
+    func loadEmojis(service: BuildkiteService) async {
+        guard let emojis = try? await service.send(resource: Emoji.Resources.List(organization: service.organization)) else {
+            return
+        }
+        
+        self.emojis = emojis.reduce(into: [String: URL]()) { acc, emoji in
+            acc[emoji.name] = emoji.url
+            emoji.aliases?.forEach { acc[$0] = emoji.url }
+        }
     }
     
     func formatEmojis(in string: String, idealHeight: CGFloat, capHeight: CGFloat) -> NSAttributedString {
