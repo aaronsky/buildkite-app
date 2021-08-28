@@ -8,22 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
-    #if os(iOS)
+#if os(iOS)
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
-    #endif
-    
+#endif
+
     var body: some View {
         ZStack {
-            #if os(iOS)
+#if os(iOS)
             if horizontalSizeClass == .compact {
                 AppTabNavigation()
             } else {
                 AppSidebarNavigation()
             }
-            #else
+#else
             AppSidebarNavigation()
                 .frame(minWidth: 900, maxWidth: .infinity, minHeight: 500, maxHeight: .infinity)
-            #endif
+#endif
         }
     }
 }

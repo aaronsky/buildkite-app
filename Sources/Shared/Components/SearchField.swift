@@ -10,7 +10,7 @@ import SwiftUI
 struct SearchField: View {
     @Binding var text: String
     var placeholder: LocalizedStringKey = "Search"
-    
+
     var body: some View {
         HStack {
             TextField(placeholder, text: $text)
@@ -29,7 +29,7 @@ struct SearchField: View {
                         if !text.isEmpty {
                             Button(action: {
                                 self.text = ""
-                                
+
                             }) {
                                 Label("Cancel", systemImage: "multiply.circle.fill")
                                     .labelStyle(IconOnlyLabelStyle())

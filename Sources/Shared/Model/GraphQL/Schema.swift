@@ -76,7 +76,7 @@ enum Schema {
         var version: String?
         /// Whether this agent's version has known issues and should be upgraded
         var versionHasKnownIssues: Bool
-        
+
         struct Permissions: Decodable {
             /// Whether the user can manually delete this agent (only available to legacy agents)
             var agentDelete: Permission?
@@ -84,19 +84,19 @@ enum Schema {
             var agentStop: Permission?
         }
     }
-    
+
     struct AgentToken: Decodable {
-        
+
     }
-    
+
     struct APIAccessTokenCode: Decodable {
-        
+
     }
-    
+
     struct Artifact: Decodable {
-        
+
     }
-        
+
     struct AuditEvent: Decodable {
         /// The actor who caused this event
         var actor: Actor
@@ -113,7 +113,7 @@ enum Schema {
         var type: EventType
         /// The public UUID for the event
         var uuid: UUID
-        
+
         struct Actor: Decodable {
             /// The GraphQL ID for this actor
             var id: String
@@ -125,17 +125,17 @@ enum Schema {
             var type: ActorType?
             /// The public UUID of this actor
             var uuid: UUID
-            
+
             enum ActorType: String, Decodable {
                 case user = "USER"
             }
         }
-        
+
         struct Context: Decodable {
-//            AuditWebContext
-//            AuditAPIContext
+            //            AuditWebContext
+            //            AuditAPIContext
         }
-        
+
         struct Subject: Decodable {
             /// The GraphQL ID for the subject
             var id: String
@@ -147,39 +147,39 @@ enum Schema {
             var type: SubjectType?
             /// The public UUID of this subject
             var uuid: UUID
-            
+
             struct Node: Decodable {
-//                Team
-//                TeamMember
-//                TeamPipeline
-//                SCMService
-//                SCMPipelineSettings
-//                Portal
-//                PortalEndpoint
-//                Email
-//                OrganizationInvitation
-//                TOTP
-//                SSOProviderGoogleGSuite
-//                SSOProviderGitHubApp
-//                SSOProviderSAML
-//                ClusterToken
-//                AuthorizationBitbucket
-//                AuthorizationGitHubEnterprise
-//                AuthorizationGitHub
-//                ClusterPermission
-//                OrganizationMember
-//                Pipeline
-//                AgentToken
-//                APIAccessToken
-//                Organization
-//                Cluster
-//                ClusterQueue
-//                User
-//                NotificationServiceSlack
-//                NotificationServiceWebhook
-//                PipelineSchedule
+                //                Team
+                //                TeamMember
+                //                TeamPipeline
+                //                SCMService
+                //                SCMPipelineSettings
+                //                Portal
+                //                PortalEndpoint
+                //                Email
+                //                OrganizationInvitation
+                //                TOTP
+                //                SSOProviderGoogleGSuite
+                //                SSOProviderGitHubApp
+                //                SSOProviderSAML
+                //                ClusterToken
+                //                AuthorizationBitbucket
+                //                AuthorizationGitHubEnterprise
+                //                AuthorizationGitHub
+                //                ClusterPermission
+                //                OrganizationMember
+                //                Pipeline
+                //                AgentToken
+                //                APIAccessToken
+                //                Organization
+                //                Cluster
+                //                ClusterQueue
+                //                User
+                //                NotificationServiceSlack
+                //                NotificationServiceWebhook
+                //                PipelineSchedule
             }
-            
+
             enum SubjectType: String, Decodable {
                 case team = "TEAM"
                 case teamMember = "TEAM_MEMBER"
@@ -293,12 +293,12 @@ enum Schema {
             case userUpdated = "USER_UPDATED"
         }
     }
-    
+
     struct Avatar: Decodable {
         /// The URL of the avavtar
         var url: URL
     }
-    
+
     class Build: Decodable {
         // annotations(first: Intafter: Stringlast: Intbefore: String): AnnotationConnection
         /// The branch for the build
@@ -347,7 +347,7 @@ enum Schema {
         enum Creator: Decodable {
             case user(User)
             case unregisteredUser(UnregisteredUser)
-            
+
             init(from decoder: Decoder) throws {
                 if let user: User = try decodeVariant(from: decoder) {
                     self = .user(user)
@@ -365,7 +365,7 @@ enum Schema {
             case schedule(Schedule)
             case triggerJob(TriggerJob)
             case webhook(Webhook)
-            
+
             init(from decoder: Decoder) throws {
                 if let api: API = try decodeVariant(from: decoder) {
                     self = .api(api)
@@ -381,7 +381,7 @@ enum Schema {
                     throw DecodingError.dataCorrupted(DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "No matching variant found"))
                 }
             }
-            
+
             struct API: Decodable {
                 var name: String
             }
@@ -431,7 +431,7 @@ enum Schema {
             case notRun = "NOT_RUN"
         }
     }
-    
+
     struct ClusterQueue: Decodable {
         var cluster: Cluster?
         var createdBy: User?
@@ -441,7 +441,7 @@ enum Schema {
         /// The public UUID for this cluster queue
         var uuid: UUID
     }
-    
+
     struct Cluster: Decodable {
         /// Returns agent tokens for the Cluster
         // agentTokens(first: Intlast: Int): ClusterAgentTokenConnection
@@ -454,13 +454,13 @@ enum Schema {
         /// The public UUID for this cluster
         var uuid: UUID
     }
-    
+
     indirect enum Job: Decodable {
         case command(Command)
         case block(Block)
         case wait(Wait)
         case trigger(Trigger)
-        
+
         init(from decoder: Decoder) throws {
             if let command: Command = try decodeVariant(from: decoder) {
                 self = .command(command)
@@ -474,7 +474,7 @@ enum Schema {
                 throw DecodingError.dataCorrupted(DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "No matching variant found"))
             }
         }
-        
+
         struct Command: Decodable {
             /// The agent that is running the job
             var agent: Agent?
@@ -532,7 +532,7 @@ enum Schema {
             /// The UUID for this job
             var uuid: UUID
         }
-        
+
         struct Block: Decodable {
             /// The build that this job is a part of
             var build: Build?
@@ -550,7 +550,7 @@ enum Schema {
             /// The UUID for this job
             var uuid: UUID
         }
-        
+
         struct Wait: Decodable {
             /// The build that this job is a part of
             var build: Build?
@@ -560,7 +560,7 @@ enum Schema {
             /// The UUID for this job
             var uuid: UUID
         }
-        
+
         struct Trigger: Decodable {
             /// The build that this job is a part of
             var build: Build?
@@ -572,24 +572,24 @@ enum Schema {
             /// The UUID for this job
             var uuid: String
         }
-        
+
         struct Concurrency: Decodable {
             /// The concurrency group
             var group: String
             /// The maximum amount of jobs in the concurrency that are allowed to run at any given time
             var limit: Int
         }
-        
+
         struct RetryRules: Decodable {
             var automatic: [Automatic?]?
             var manual: Bool?
-            
+
             struct Automatic: Decodable {
                 var exitStatus: String?
                 var limit: String?
             }
         }
-        
+
         enum State: String, Decodable {
             /// The job has just been created and doesn't have a state yet
             case pending = "PENDING"
@@ -633,15 +633,15 @@ enum Schema {
             case broken = "BROKEN"
         }
     }
-    
+
     struct NotificationService: Decodable {
-        
+
     }
-    
+
     struct OperatingSystem: Decodable {
         var name: String
     }
-    
+
     struct Organization: Decodable {
         /// Returns agent access tokens for an Organization. By default returns all tokens, whether revoked or non-revoked.
         // agentTokens(first: Intlast: Intrevoked: Boolean): AgentTokenConnection
@@ -675,7 +675,7 @@ enum Schema {
         // teams(first: Intafter: Stringlast: Intbefore: Stringsearch: Stringpipeline: PipelineSelectoruser: UserSelectorprivacy: [TeamPrivacy!]order: TeamOrder = NAME): TeamConnection
         /// The public UUID for this organization
         var uuid: String
-        
+
         struct Permissions: Decodable {
             /// Whether the user can create agent tokens
             var agentTokenCreate: Permission?
@@ -720,33 +720,33 @@ enum Schema {
             /// Whether the user can see teams in the organization
             var teamView: Permission?
         }
-        
+
         struct SSO: Decodable {
             /// Whether this account is configured for single sign-on
             var isEnabled: Bool
             /// The single sign-on provider for this organization
             var provider: Provider?
-            
+
             struct Provider: Decodable {
                 var name: String
             }
         }
     }
-    
+
     struct OrganizationInvitation: Decodable {
-        
+
     }
-    
+
     struct OrganizationMember: Decodable {
-        
+
     }
-    
+
     struct Permission: Decodable {
         var allowed: Bool
         var code: String?
         var message: String?
     }
-    
+
     struct Pipeline: Decodable {
         /// Returns the builds for this pipeline
         // builds(first: Intafter: Stringlast: Intbefore: Stringstate: [BuildStates!]branch: [String!]commit: [String!]metaData: [String!]createdAtFrom: DateTimecreatedAtTo: DateTime): BuildConnection
@@ -794,7 +794,7 @@ enum Schema {
         var visibility: Visibility
         /// The URL to use in your repository settings for commit webhooks
         var webhookURL: URL
-        
+
         struct Permissions: Decodable {
             /// Whether the user can create builds on this pipeline
             var buildCreate: Permission
@@ -807,12 +807,12 @@ enum Schema {
             /// Whether the user can edit the settings of this pipeline
             var pipelineUpdate: Permission
         }
-        
+
         struct Steps: Decodable {
             /// A YAML representation of the pipeline steps
             var yaml: String?
         }
-        
+
         enum Visibility: String, Decodable {
             /// The pipeline is public
             case `public` = "PUBLIC"
@@ -820,7 +820,7 @@ enum Schema {
             case `private` = "PRIVATE"
         }
     }
-    
+
     struct PipelineSchedule: Decodable {
         /// The branch to use for builds that this schedule triggers. Defaults to to the default branch in the Pipeline
         var branch: String?
@@ -855,17 +855,17 @@ enum Schema {
         /// The UUID of the Pipeline schedule
         var uuid: UUID
     }
-    
+
     struct PullRequest: Decodable {
         var id: String
     }
-    
+
     struct Repository: Decodable {
         /// The repository’s provider
         var provider: Provider?
         /// The git URL for this repository
         var url: URL
-        
+
         struct Provider: Decodable {
             /// The name of the provider
             var name: String
@@ -875,7 +875,7 @@ enum Schema {
             var webhookUrl: URL?
         }
     }
-    
+
     enum Step {
         struct Command: Decodable {
             /// The conditional evaluated for this step
@@ -888,11 +888,11 @@ enum Schema {
             var uuid: UUID
         }
     }
-    
+
     struct Team: Decodable {
-        
+
     }
-    
+
     struct UnregisteredUser: Decodable {
         var avatar: Avatar
         /// The email for the user
@@ -900,7 +900,7 @@ enum Schema {
         /// The name of the user
         var name: String?
     }
-    
+
     struct User: Decodable {
         var avatar: Avatar
         /// If this user account is an official bot managed by Buildkite
@@ -917,7 +917,7 @@ enum Schema {
         /// The public UUID of the user
         var uuid: UUID
     }
-    
+
     struct Viewer: Decodable {
         // authorizations(first: Intafter: Stringlast: Intbefore: Stringtype: [AuthorizationType!]): AuthorizationConnection
         // builds(first: Intlast: Intstate: BuildStatesbranch: StringmetaData: [String!]): BuildConnection
@@ -935,7 +935,7 @@ enum Schema {
         // totp(id: ID): TOTP
         /// The current user
         var user: User?
-        
+
         struct Permissions: Decodable {
             /// Whether the viewer can configure two-factor authentication
             var totpConfigure: Permission

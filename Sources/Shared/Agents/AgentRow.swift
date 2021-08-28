@@ -10,7 +10,7 @@ import Buildkite
 
 struct AgentRow: View {
     var agent: Agent
-    
+
     var body: some View {
         HStack(alignment: .top) {
             ConnectionState(state: agent.connectionState, isRunningJob: agent.isRunningJob)
@@ -30,7 +30,7 @@ struct AgentRow: View {
 
 struct AgentRow_Previews: PreviewProvider {
     static let agent = Agent(assetNamed: "v2.agent")
-    
+
     static var previews: some View {
         AgentRow(agent: agent)
     }

@@ -20,7 +20,7 @@ extension Array where Element == Text {
         }
         return result
     }
-    
+
     func joined<S: StringProtocol>(separator: S) -> Text {
         joined(separator: Text(separator))
     }

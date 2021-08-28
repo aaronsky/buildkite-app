@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 #if canImport(UIKit)
 import UIKit
 #elseif canImport(AppKit)
@@ -25,9 +26,14 @@ extension Decodable {
         guard let asset = NSDataAsset(name: name, bundle: bundle) else {
             fatalError("MISSING ASSET \(name) in bundle \(bundle.bundlePath)")
         }
-        guard let instance = try? decoder.decode(Self.self, from: asset.data) else {
-            fatalError("DECODING ERROR for asset \(asset.name)")
+
+        let instance: Self
+        do {
+            instance = try decoder.decode(Self.self, from: asset.data)
+        } catch {
+            fatalError("DECODING ERROR for asset \(asset.name): \(error)")
         }
+        
         self = instance
     }
 }

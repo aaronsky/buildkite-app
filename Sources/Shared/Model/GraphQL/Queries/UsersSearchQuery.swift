@@ -32,29 +32,29 @@ query UsersSearch($organization: ID!, $first: Int!, $search: String, $selector: 
   }
 }
 """
-    
+
     var organizationSlug: String
     var search: String?
     var teamSlug: String?
-    
+
     var variables: [String: JSONValue] {
         var vars: [String: JSONValue] = [
             "organization": .string(organizationSlug),
             "first": 50
         ]
-        
+
         if let search = self.search { vars["search"] = .string(search) }
         if let teamSlug = self.teamSlug { vars["teamSlug"] = .string(teamSlug) }
-        
+
         return vars
     }
-    
+
     init(organization: String, search: String?, notInTeam team: String?) {
         self.organizationSlug = organization
         self.search = search
         self.teamSlug = team
     }
-    
+
     struct Response: Decodable {
         var organization: Fragments.Organization
     }

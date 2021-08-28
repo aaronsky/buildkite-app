@@ -59,35 +59,35 @@ query PipelinesListQuery($organization: ID!, $pipelinesCount: Int, $pipelinesAft
   }
 }
 """
-    
+
     var organization: String
     var pipelinesCount: Int = 10
     var pipelinesAfter: String?
     var pipelinesSearch: String?
     var buildsCount: Int = 10
     var buildsAfter: String?
-    
+
     var variables: [String: JSONValue] {
         var vars: [String: JSONValue] = [
             "organization": .string(organization),
             "pipelinesCount": .number(Double(pipelinesCount)),
-            "buildsCount": .number(Double(buildsCount)),
+            "buildsCount": .number(Double(buildsCount))
         ]
-        
+
         if let pipelinesAfter = pipelinesAfter { vars["pipelinesAfter"] = .string(pipelinesAfter) }
         if let pipelinesSearch = pipelinesSearch { vars["pipelinesSearch"] = .string(pipelinesSearch) }
         if let buildsAfter = buildsAfter { vars["buildsAfter"] = .string(buildsAfter) }
-        
+
         return vars
     }
-    
+
     struct Response: Decodable {
         var organization: Organization
-        
+
         struct Organization: Decodable {
             var pipelines: Connection<Pipeline>
         }
-        
+
         struct Pipeline: HashableFromIdentifier, Decodable {
             var id: String
             var uuid: UUID
@@ -96,13 +96,13 @@ query PipelinesListQuery($organization: ID!, $pipelinesCount: Int, $pipelinesAft
             var slug: String
             var visibility: Visibility
             var builds: Connection<Build>
-            
+
             enum Visibility: String, Decodable {
                 case `public` = "PUBLIC"
                 case `private` = "PRIVATE"
             }
         }
-        
+
         struct Build: HashableFromIdentifier, Decodable {
             var id: String
             var uuid: UUID
@@ -114,7 +114,7 @@ query PipelinesListQuery($organization: ID!, $pipelinesCount: Int, $pipelinesAft
             var commit: String
             var createdAt: Date?
             var createdBy: Fragments.User?
-            
+
             enum State: String, Decodable {
                 /// The build was skipped
                 case skipped = "SKIPPED"

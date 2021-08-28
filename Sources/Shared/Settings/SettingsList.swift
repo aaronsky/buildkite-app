@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct SettingsList: View {
+    @EnvironmentObject var service: BuildkiteService
+
     var body: some View {
         List {
             NavigationLink(destination: ChangelogList()) {
                 Text("Changelog")
-//                if viewer.hasUnreadChangelogs {
-//                    Text("< NEW")
-//                }
+                // if viewer.hasUnreadChangelogs {
+                //     Text("< NEW")
+                // }
             }
         }
         .listStyle(InsetListStyle())

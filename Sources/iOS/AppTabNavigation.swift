@@ -17,7 +17,7 @@ struct AppTabNavigation: View {
             }
         }
     }
-    
+
     func tab(for item: NavigationItem) -> some View {
         NavigationView {
             item.destination
@@ -25,7 +25,7 @@ struct AppTabNavigation: View {
             item.label
                 .accessibility(label: item.accessibilityLabel)
         }.tag(item)
-        
+
     }
 }
 

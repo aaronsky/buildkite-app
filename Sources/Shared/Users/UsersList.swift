@@ -10,27 +10,27 @@ import Buildkite
 
 struct UsersList: View {
     typealias User = Fragments.Organization.Member
-    
+
     @EnvironmentObject var service: BuildkiteService
-    
+
     var teamSlug: String?
-    var onUserSelection: ((User) -> ())?
-    
+    var onUserSelection: ((User) -> Void)?
+
     @State var users: [User] = []
     @State var searchQuery: String = ""
-    
+
     var body: some View {
         List {
             ForEach(users) { user in
                 HStack {
-                    RemoteImage(url: user.user.avatar.url)
+                    AsyncImage(url: user.user.avatar.url)
                         .frame(width: 48, height: 48)
                         .clipShape(Circle())
-                VStack(alignment: .leading) {
-                    Text(user.user.name ?? "")
-                    Text(user.user.email ?? "")
-                        .font(.caption)
-                }
+                    VStack(alignment: .leading) {
+                        Text(user.user.name ?? "")
+                        Text(user.user.email ?? "")
+                            .font(.caption)
+                    }
                 }
                 .onTapGesture {
                     onUserSelection?(user)
@@ -41,24 +41,27 @@ struct UsersList: View {
         .task {
             await loadUsers()
         }
+        .refreshable {
+            await loadUsers()
+        }
         .navigationTitle("Users")
     }
-    
+
     func loadUsers() async {
-        let query = UsersSearchQuery(organization: service.organization,
-                                     search: searchQuery,
-                                     notInTeam: teamSlug)
-        guard let response = try? await service.sendQuery(query),
-              let data = try? response.get() else {
-                  return
-              }
-        self.users = data.organization.members.nodes
+        do {
+            let data = try await service.sendQuery(UsersSearchQuery(organization: service.organization,
+                                                                    search: searchQuery,
+                                                                    notInTeam: teamSlug))
+            self.users = data.organization.members.nodes
+        } catch {
+            print(error)
+        }
     }
 }
 
 struct UsersList_Previews: PreviewProvider {
     static var query = try! GraphQL<UsersSearchQuery.Response>.Content(assetNamed: "gql.UsersSearch").get()
-    
+
     static var previews: some View {
         UsersList(users: query.organization.members.nodes)
             .environmentObject(BuildkiteService())

@@ -10,13 +10,14 @@ import Buildkite
 
 struct PipelineView: View {
     @EnvironmentObject var service: BuildkiteService
-    
+    @EnvironmentObject var emojis: Emojis
+
     var pipeline: PipelinesListQuery.Response.Pipeline
-    
+
     var body: some View {
         VStack {
             HStack {
-                EmojiLabel(pipeline.name)
+                Text(pipeline.name, emojis: emojis)
                 switch pipeline.visibility {
                 case .public:
                     Image(systemName: "eye")
@@ -27,18 +28,15 @@ struct PipelineView: View {
             List {
                 let builds = pipeline.builds.nodes
                 if builds.isEmpty {
-                    HStack {
-                        Spacer()
-                        ProgressView()
-                        Spacer()
-                    }
+                    Text("No builds found")
+                        .italic()
                 } else {
                     ForEach(builds) { build in
                         NavigationLink(destination: BuildView(pipelineSlug: pipeline.slug, buildNumber: build.number)) {
                             HStack {
                                 BuildState(state: build.state.rawValue)
                                 VStack(alignment: .leading) {
-                                    EmojiLabel(build.message ?? "")
+                                    Text(build.message ?? "", emojis: emojis)
                                         .font(.body)
                                     caption(for: build)
                                         .font(.caption)
@@ -51,7 +49,7 @@ struct PipelineView: View {
             .listStyle(InsetListStyle())
         }
     }
-    
+
     func caption(for build: PipelinesListQuery.Response.Build) -> Text {
         var chunks: [Text] = []
         if let createdByName = build.createdBy?.name {
@@ -62,14 +60,14 @@ struct PipelineView: View {
         if let createdAt = build.createdAt {
             chunks.append(Text("\(createdAt, formatter: Formatters.friendlyRelativeDateFormatter)"))
         }
-        
+
         return chunks.joined(separator: " — ")
     }
 }
 
 struct PipelineView_Previews: PreviewProvider {
     static var query = try! GraphQL<PipelinesListQuery.Response>.Content(assetNamed: "gql.PipelinesList").get()
-    
+
     static var previews: some View {
         NavigationView {
             PipelineView(pipeline: query.organization.pipelines.nodes.first!)

@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct AppSidebarNavigation: View {    
+struct AppSidebarNavigation: View {
     @EnvironmentObject private var service: BuildkiteService
     @State private var selection: Set<NavigationItem> = [.pipelines]
-    
+
     var sidebar: some View {
         List(selection: $selection) {
             ForEach(NavigationItem.allCases) { item in
@@ -19,30 +19,30 @@ struct AppSidebarNavigation: View {
         }
         .listStyle(SidebarListStyle())
     }
-    
+
     var body: some View {
         NavigationView {
-            #if os(macOS)
+#if os(macOS)
             sidebar
                 .frame(minWidth: 100, idealWidth: 150, maxWidth: 200, maxHeight: .infinity)
-            #else
+#else
             sidebar
-            #endif
-            
+#endif
+
             Text("No Content")
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-            
-            #if os(macOS)
+
+#if os(macOS)
             Text("No Content Selected")
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .toolbar { Spacer() }
-            #else
+#else
             Text("No Content Selected")
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-            #endif
+#endif
         }
     }
-    
+
     func sidebarItem(for item: NavigationItem) -> some View {
         NavigationLink(destination: item.destination) {
             item.label

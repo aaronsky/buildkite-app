@@ -17,28 +17,26 @@ mutation TeamMemberDelete($input: TeamMemberDeleteInput!) {
   }
 }
 """
-    
+
     var id: String
-    
-    var variables: [String : JSONValue] {
+
+    var variables: [String: JSONValue] {
         [
             "input": [
-                "id": .string(id),
+                "id": .string(id)
             ]
         ]
     }
-    
-    
+
     init(id: String) {
         self.id = id
     }
-    
+
     struct Response: Decodable {
         var teamMemberDelete: TeamMemberDelete
-        
+
         struct TeamMemberDelete: Decodable {
             var deletedTeamMemberID: String
         }
     }
 }
-

@@ -12,10 +12,10 @@ struct UsersOrTeamsView: View {
         case users
         case teams
     }
-    
+
     @State var isShowingFilterMenu: Bool = false
     @State var subviewSelection: Subview = .users
-    
+
     var body: some View {
         VStack {
             if isShowingFilterMenu {
@@ -36,7 +36,7 @@ struct UsersOrTeamsView: View {
                 }, label: {
                     Label("Filter",
                           systemImage: isShowingFilterMenu ?
-                            "line.horizontal.3.decrease.circle.fill" :
+                          "line.horizontal.3.decrease.circle.fill" :
                             "line.horizontal.3.decrease.circle")
                         .labelStyle(IconOnlyLabelStyle())
                 })
@@ -47,7 +47,7 @@ struct UsersOrTeamsView: View {
 
 struct FilterMenu: View {
     @Binding var subviewSelection: UsersOrTeamsView.Subview
-    
+
     var body: some View {
         VStack {
             Picker("View", selection: $subviewSelection) {

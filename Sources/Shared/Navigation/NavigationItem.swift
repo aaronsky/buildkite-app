@@ -12,7 +12,7 @@ enum NavigationItem: CaseIterable {
     case agents
     case users
     case more
-    
+
     @ViewBuilder var destination: some View {
         switch self {
         case .pipelines:
@@ -25,7 +25,7 @@ enum NavigationItem: CaseIterable {
             SettingsList()
         }
     }
-    
+
     @ViewBuilder var label: some View {
         switch self {
         case .pipelines:
@@ -38,7 +38,7 @@ enum NavigationItem: CaseIterable {
             Label("More", systemImage: "ellipsis")
         }
     }
-    
+
     var accessibilityLabel: Text {
         switch self {
         case .pipelines:

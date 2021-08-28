@@ -10,7 +10,7 @@ import Buildkite
 
 struct JobView: View {
     var job: Job
-    
+
     @ViewBuilder var body: some View {
         switch job {
         case let .script(command):
@@ -23,48 +23,54 @@ struct JobView: View {
             TriggerLayout(trigger: trigger)
         }
     }
-    
-    struct CommandLayout: View {        
+
+    struct CommandLayout: View {
+        @EnvironmentObject var emojis: Emojis
+
         var command: Job.Command
-        
+
         var body: some View {
             HStack {
-                EmojiLabel(command.name ?? "")
+                Text(command.name ?? "", emojis: emojis)
                 if let agent = command.agent {
                     Text(agent.name)
                 }
             }
         }
     }
-    
+
     struct WaitLayout: View {
         var wait: Job.Wait
-        
+
         var body: some View {
             Image(systemName: "chevron.down")
         }
     }
-    
+
     struct BlockLayout: View {
+        @EnvironmentObject var emojis: Emojis
+
         var block: Job.Block
-        
+
         var body: some View {
-            EmojiLabel(block.label)
+            Text(block.label, emojis: emojis)
         }
     }
-    
+
     struct TriggerLayout: View {
+        @EnvironmentObject var emojis: Emojis
+
         var trigger: Job.Trigger
-        
+
         var body: some View {
-            EmojiLabel(trigger.name ?? "")
+            Text(trigger.name ?? "", emojis: emojis)
         }
     }
 }
 
 struct JobView_Previews: PreviewProvider {
     static var build = Build(assetNamed: "v2.build")
-    
+
     static var previews: some View {
         VStack {
             ForEach(build.jobs) { job in

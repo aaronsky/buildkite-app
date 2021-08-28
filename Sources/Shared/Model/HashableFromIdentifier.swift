@@ -13,7 +13,7 @@ extension HashableFromIdentifier {
     static func == (lhs: Self, rhs: Self) -> Bool {
         lhs.id == rhs.id
     }
-    
+
     public func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
@@ -21,7 +21,7 @@ extension HashableFromIdentifier {
 
 struct EmptyIdentifiable: Identifiable {
     var id: UUID
-    
+
     init() {
         self.id = .init()
     }

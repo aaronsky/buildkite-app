@@ -34,20 +34,20 @@ query TeamGet($slug: ID!, $first: Int!) {
   }
 }
 """
-    
+
     var slug: String
-    
-    var variables: [String : JSONValue] {
+
+    var variables: [String: JSONValue] {
         [
             "slug": .string(slug),
-            "first": 100,
+            "first": 100
         ]
     }
-    
+
     init(organization: String, team: String) {
         self.slug = "\(organization)/\(team)"
     }
-    
+
     struct Response: Decodable {
         var team: Fragments.Team
     }

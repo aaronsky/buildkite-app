@@ -12,7 +12,7 @@ import DeveloperToolsSupport
 struct BuildkiteIcon: View {
     static let brightGreen = Color(red: 0.1882352941, green: 0.9490196078, blue: 0.6352941176)
     static let deepGreen = Color(red: 0.07843137255, green: 0.8, blue: 0.5019607843)
-    
+
     var body: some View {
         ZStack {
             Shape1()
@@ -23,7 +23,7 @@ struct BuildkiteIcon: View {
         }
         .aspectRatio(contentMode: .fit)
     }
-        
+
     struct Shape1: Shape {
         func path(in rect: CGRect) -> Path {
             let xUnit = rect.width / 6
@@ -39,7 +39,7 @@ struct BuildkiteIcon: View {
             }
         }
     }
-    
+
     struct Shape2: Shape {
         func path(in rect: CGRect) -> Path {
             let xUnit = rect.width / 6

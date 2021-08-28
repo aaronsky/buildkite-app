@@ -25,28 +25,27 @@ mutation TeamMemberUpdate($input: TeamMemberUpdateInput!) {
   }
 }
 """
-    
+
     var id: String
     var role: Fragments.Team.Member.Role
-    
-    var variables: [String : JSONValue] {
+
+    var variables: [String: JSONValue] {
         [
             "input": [
                 "id": .string(id),
-                "role": .string(role.rawValue),
+                "role": .string(role.rawValue)
             ]
         ]
     }
-    
-    
+
     init(id: String, role: Fragments.Team.Member.Role) {
         self.id = id
         self.role = role
     }
-    
+
     struct Response: Decodable {
         var teamMemberUpdate: TeamMemberUpdate
-        
+
         struct TeamMemberUpdate: Decodable {
             var teamMember: Fragments.Team.Member
         }

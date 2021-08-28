@@ -16,14 +16,14 @@ extension Agent {
         // head
         // last bit of the tail
         // dev or prod
-        
+
         let components = name.split(separator: Character("."))
-        
+
         guard let head = components.first,
-            let tail = components.last?.split(separator: "-").last else {
-                return ""
-        }
-        
+              let tail = components.last?.split(separator: "-").last else {
+                  return ""
+              }
+
         let env: String
         if components.contains(where: { $0.contains("dev") }) {
             env = ".dev"
@@ -32,10 +32,10 @@ extension Agent {
         } else {
             env = ""
         }
-        
+
         return "\(head)\(env)-\(tail)"
     }
-    
+
     var isRunningJob: Bool {
         guard let job = job else {
             return false

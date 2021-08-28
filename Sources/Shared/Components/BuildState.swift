@@ -11,13 +11,13 @@ import SwiftUI
 struct BuildState: View {
     var state: String
     var strokeWidth: CGFloat = 2
-    
+
     var isRunningState: Bool {
         state == "scheduled"
-            || state == "running"
-            || state == "canceling"
+        || state == "running"
+        || state == "canceling"
     }
-    
+
     var body: some View {
         ZStack {
             Circle()
@@ -31,10 +31,10 @@ struct BuildState: View {
         .frame(width: 32, height: 32)
         .fixedSize()
     }
-    
+
     private struct Icon: Shape {
         var state: String
-        
+
         func path(in rect: CGRect) -> Path {
             var path = Path()
             switch state.lowercased() {
@@ -49,7 +49,7 @@ struct BuildState: View {
                 path.addLines([
                     .init(x: 10, y: 17.61),
                     .init(x: 14.38, y: 20.81),
-                    .init(x: 21, y: 11.41),
+                    .init(x: 21, y: 11.41)
                 ])
             case "blocked":
                 path.move(to: .init(x: 13, y: 21))
@@ -65,17 +65,17 @@ struct BuildState: View {
             return path
         }
     }
-    
+
     private struct SpinnerMask: ViewModifier {
         var enabled: Bool
         @State var rotation: Double = 0
-        
+
         private var animation: Animation {
             Animation
                 .linear(duration: 1.05)
                 .repeatForever(autoreverses: false)
         }
-        
+
         var mask: some View {
             Path { path in
                 path.addLines([
@@ -87,7 +87,7 @@ struct BuildState: View {
                     .init(x: 23, y: 16),
                     .init(x: 23, y: 23),
                     .init(x: 16, y: 23),
-                    .init(x: 16, y: 16),
+                    .init(x: 16, y: 16)
                 ])
             }
             .size(width: 14, height: 14)
@@ -98,7 +98,7 @@ struct BuildState: View {
                 self.rotation = 360
             }
         }
-        
+
         func body(content: Content) -> some View {
             Group {
                 if enabled {
@@ -109,7 +109,7 @@ struct BuildState: View {
             }
         }
     }
-    
+
     enum Colors {
         static let `default` = Color(red: 0.8039215686, green: 0.8, blue: 0.8)
         static let scheduled = Color(red: 0.7333333333, green: 0.7333333333, blue: 0.7333333333)
@@ -117,7 +117,7 @@ struct BuildState: View {
         static let passed = Color(red: 0.5647058824, green: 0.7803921569, blue: 0.2431372549)
         static let failed = Color(red: 0.9725490196, green: 0.2470588235, blue: 0.137254902)
         static let notRun = Color(red: 0.5137254902, green: 0.6901960784, blue: 0.8941176471)
-        
+
         static func color(for string: String) -> Color {
             switch string.lowercased() {
             case "skipped", "not_run":

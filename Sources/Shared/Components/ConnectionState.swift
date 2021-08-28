@@ -11,7 +11,7 @@ import SwiftUI
 struct ConnectionState: View {
     var state: String
     var isRunningJob: Bool
-    
+
     var stateLabel: String {
         switch state.lowercased() {
         case "connected":
@@ -30,7 +30,7 @@ struct ConnectionState: View {
             return ""
         }
     }
-    
+
     var body: some View {
         Group {
             if isRunningJob {
@@ -43,12 +43,12 @@ struct ConnectionState: View {
             }
         }.accessibility(label: Text(stateLabel))
     }
-    
+
     private enum Colors {
         static let connected = Color(red: 0.07843137255, green: 0.8, blue: 0.5019607843)
         static let disconnected = Color(red: 0.8666666667, green: 0.8666666667, blue: 0.8666666667)
         static let stopping = Color(red: 1, green: 0.7294117647, blue: 0.06666666667)
-        
+
         static func color(for state: String) -> Color {
             switch state.lowercased() {
             case "connected":

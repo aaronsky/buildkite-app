@@ -21,10 +21,10 @@ public typealias CrossPlatformImage = UIImage
 
 extension Image {
     init(crossPlatformImage: CrossPlatformImage) {
-        #if os(macOS)
+#if os(macOS)
         self.init(nsImage: crossPlatformImage)
-        #else
+#else
         self.init(uiImage: crossPlatformImage)
-        #endif
+#endif
     }
 }

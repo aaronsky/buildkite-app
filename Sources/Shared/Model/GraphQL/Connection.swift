@@ -11,16 +11,16 @@ struct Connection<T: Decodable>: Decodable {
     var count: Int?
     var edges: [Edge]?
     var pageInfo: PageInfo?
-    
+
     var nodes: [T] {
         edges?.map(\.node) ?? []
     }
-    
+
     struct Edge: Decodable {
         var node: T
         var cursor: String?
     }
-    
+
     struct PageInfo: Decodable {
         /// When paginating forwards, the cursor to continue.
         var endCursor: String?
@@ -31,15 +31,15 @@ struct Connection<T: Decodable>: Decodable {
         /// When paginating backwards, the cursor to continue.
         var startCursor: String?
     }
-    
+
     init(edges: [Connection<T>.Edge]) {
         self.edges = edges
     }
-    
+
     init(nodes: [T]) {
         self.init(edges: nodes.map { Edge(node: $0, cursor: nil) })
     }
-    
+
 }
 
 extension Connection: ExpressibleByArrayLiteral {

@@ -19,4 +19,3 @@ protocol GraphQLQuery {
 extension GraphQLQuery {
     static var fragments: [Fragment.Type] { [] }
 }
-

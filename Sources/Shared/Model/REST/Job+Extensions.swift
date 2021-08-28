@@ -31,4 +31,3 @@ extension Job.Trigger: HashableFromIdentifier {
         self.triggeredBuild?.id ?? UUID()
     }
 }
-

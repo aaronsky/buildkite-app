@@ -8,17 +8,19 @@
 import SwiftUI
 import Buildkite
 
-struct TeamRow: View {    
+struct TeamRow: View {
+    @EnvironmentObject var emojis: Emojis
+
     var team: Team
-    
+
     var body: some View {
-        EmojiLabel(team.name)
+        Text(team.name, emojis: emojis)
     }
 }
 
 struct TeamRow_Previews: PreviewProvider {
     static let teams = [Team](assetNamed: "v2.teams")
-    
+
     static var previews: some View {
         List {
             TeamRow(team: teams[0])
