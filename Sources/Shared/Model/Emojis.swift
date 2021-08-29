@@ -10,17 +10,23 @@ import Buildkite
 import Combine
 import SwiftUI
 
-class Emojis: ObservableObject {
+// MARK: - Emojis
+
+class Emojis {
     fileprivate static let regexp = try! NSRegularExpression(pattern: ":([\\w+-]+):")
 
     private var emojis: [String: URL] = [:]
 
     init() {}
 
+    subscript(_ name: String) -> URL? {
+        emojis[name]
+    }
+
     func load(service: BuildkiteService) async {
         do {
             let emojis = try await service.send(resource: .emojis(in: service.organization))
-            self.emojis = emojis.reduce(into: [String: URL]()) { acc, emoji in
+            self.emojis = emojis.reduce(into: [:]) { acc, emoji in
                 acc[emoji.name] = emoji.url
                 emoji.aliases?.forEach { acc[$0] = emoji.url }
             }
@@ -28,36 +34,23 @@ class Emojis: ObservableObject {
             print(error)
         }
     }
-
-    subscript(_ name: String) -> URL? {
-        emojis[name]
-    }
 }
 
-extension Text {
-    init<S>(_ content: S, emojis: Emojis) where S: StringProtocol {
-        self.init(String(content).attributed(emojis: emojis))
-    }
-}
+// MARK: - String
 
 extension String {
     func attributed(emojis: Emojis) -> AttributedString {
-        let matches = Emojis.regexp
-            .matches(in: self, range: NSRange(startIndex..., in: self))
-            .compactMap { Range($0.range, in: self) }
-
         var lastEndIndex = startIndex
         var attr = AttributedString()
 
-        for range in matches {
-            attr.append(AttributedString(self[lastEndIndex..<range.lowerBound]))
-            lastEndIndex = range.upperBound
+        for match in emojiMatches() {
+            attr.append(AttributedString(self[lastEndIndex..<match.lowerBound]))
+            lastEndIndex = match.upperBound
 
-            let match = self[range]
-            let name = match.trimmingCharacters(in: [":"])
+            let name = self[match].trimmingCharacters(in: [":"])
 
             guard let url = emojis[name], let emojiAttr = try? AttributedString(markdown: "![\(name)](\(url.absoluteString))") else {
-                attr.append(AttributedString(match))
+                attr.append(AttributedString(self[match]))
                 continue
             }
 
@@ -70,11 +63,7 @@ extension String {
     }
 
     mutating func replacingEmojis(_ emojis: Emojis, with replacement: String = "") -> Self {
-        let matches = Emojis.regexp
-            .matches(in: self, range: NSRange(startIndex..., in: self))
-            .compactMap { Range($0.range, in: self) }
-
-        for match in matches.reversed() {
+        for match in emojiMatches().reversed() {
             let name = self[match].trimmingCharacters(in: [":"])
             guard emojis[name] != nil else {
                 continue
@@ -84,4 +73,30 @@ extension String {
 
         return trimmingCharacters(in: .whitespaces)
     }
+
+    private func emojiMatches() -> [Range<Index>] {
+        Emojis.regexp
+            .matches(in: self, range: NSRange(startIndex..., in: self))
+            .compactMap { Range($0.range, in: self) }
+    }
 }
+
+// MARK: - SwiftUI
+
+private struct EmojisKey: EnvironmentKey {
+    static let defaultValue: Emojis = Emojis()
+}
+
+extension EnvironmentValues {
+    var emojis: Emojis {
+        get { self[EmojisKey.self] }
+        set { self[EmojisKey.self] = newValue }
+    }
+}
+
+extension Text {
+    init<S>(_ content: S, emojis: Emojis) where S: StringProtocol {
+        self.init(String(content).attributed(emojis: emojis))
+    }
+}
+

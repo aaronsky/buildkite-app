@@ -9,7 +9,7 @@ import SwiftUI
 import Buildkite
 
 struct TeamRow: View {
-    @EnvironmentObject var emojis: Emojis
+    @Environment(\.emojis) var emojis
 
     var team: Team
 
@@ -28,6 +28,5 @@ struct TeamRow_Previews: PreviewProvider {
         }
         .frame(height: 150)
         .previewLayout(.sizeThatFits)
-        .environmentObject(Emojis())
     }
 }

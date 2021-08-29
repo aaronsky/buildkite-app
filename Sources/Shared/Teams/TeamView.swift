@@ -10,8 +10,8 @@ import Combine
 import Buildkite
 
 struct TeamView: View {
+    @Environment(\.emojis) var emojis
     @EnvironmentObject var service: BuildkiteService
-    @EnvironmentObject var emojis: Emojis
 
     @State var team: Fragments.Team
 
@@ -126,6 +126,5 @@ struct TeamView_Previews: PreviewProvider {
         .frame(height: 700)
         .previewLayout(.sizeThatFits)
         .environmentObject(BuildkiteService())
-        .environmentObject(Emojis())
     }
 }

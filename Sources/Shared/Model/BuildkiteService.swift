@@ -19,7 +19,7 @@ class BuildkiteService: ObservableObject {
         case paginationFailure
     }
 
-    @Published private(set) var organization: String = "wayfair"
+    @Published private(set) var organization: String = Env.organization
 }
 
 extension BuildkiteService {
@@ -74,26 +74,7 @@ extension BuildkiteService {
         return pages
     }
 
-    func followURL<T: Decodable>(_ url: URL) async throws -> T {
-        return try await send(resource: AnyResource(url))
-    }
-
     func sendQuery<T: GraphQLQuery>(_ query: T) async throws -> T.Response {
         return try await client.sendQuery(GraphQL<T.Response>(rawQuery: T.query, variables: query.variables))
-    }
-}
-
-private struct AnyResource<T: Decodable>: Resource {
-    typealias Content = T
-    let path = ""
-
-    var url: URL
-
-    init(_ url: URL) {
-        self.url = url
-    }
-
-    func transformRequest(_ request: inout URLRequest) {
-        request.url = self.url
     }
 }

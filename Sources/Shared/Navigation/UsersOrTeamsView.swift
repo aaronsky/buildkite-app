@@ -65,7 +65,6 @@ struct UsersOrTeamsView_Previews: PreviewProvider {
         NavigationView {
             UsersOrTeamsView(isShowingFilterMenu: true, subviewSelection: .teams)
                 .environmentObject(BuildkiteService())
-                .environmentObject(Emojis())
         }
     }
 }

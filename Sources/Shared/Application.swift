@@ -9,8 +9,8 @@ import SwiftUI
 
 @main
 struct Application: App {
+    @Environment(\.emojis) var emojis
     @StateObject private var service = BuildkiteService()
-    @StateObject private var emojis = Emojis()
 
     var body: some Scene {
         WindowGroup {
@@ -19,7 +19,6 @@ struct Application: App {
                     await emojis.load(service: service)
                 }
                 .environmentObject(service)
-                .environmentObject(emojis)
         }
     }
 }

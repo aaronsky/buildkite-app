@@ -70,6 +70,5 @@ struct TeamsList_Previews: PreviewProvider {
     static var previews: some View {
         TeamsList(teams: teams)
             .environmentObject(BuildkiteService())
-            .environmentObject(Emojis())
     }
 }

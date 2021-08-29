@@ -33,6 +33,5 @@ struct AppTabNavigation_Previews: PreviewProvider {
     static var previews: some View {
         AppTabNavigation()
             .environmentObject(BuildkiteService())
-            .environmentObject(Emojis())
     }
 }

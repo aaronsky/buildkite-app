@@ -9,8 +9,8 @@ import SwiftUI
 import Buildkite
 
 struct PipelineView: View {
+    @Environment(\.emojis) var emojis
     @EnvironmentObject var service: BuildkiteService
-    @EnvironmentObject var emojis: Emojis
 
     var pipeline: PipelinesListQuery.Response.Pipeline
 
@@ -73,6 +73,5 @@ struct PipelineView_Previews: PreviewProvider {
             PipelineView(pipeline: query.organization.pipelines.nodes.first!)
         }
         .environmentObject(BuildkiteService())
-        .environmentObject(Emojis())
     }
 }

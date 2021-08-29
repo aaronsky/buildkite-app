@@ -63,6 +63,5 @@ struct BuildView_Previews: PreviewProvider {
                   pipelineSlug: "",
                   buildNumber: 0)
             .environmentObject(BuildkiteService())
-            .environmentObject(Emojis())
     }
 }
