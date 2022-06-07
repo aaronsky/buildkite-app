@@ -23,7 +23,11 @@ struct UsersList: View {
         List {
             ForEach(users) { user in
                 HStack {
-                    AsyncImage(url: user.user.avatar.url)
+                    AsyncImage(url: user.user.avatar.url, content: { image in
+                        image.resizable()
+                    }, placeholder: {
+                        ProgressView()
+                    })
                         .frame(width: 48, height: 48)
                         .clipShape(Circle())
                     VStack(alignment: .leading) {

@@ -20,6 +20,7 @@ struct SettingsList: View {
             }
         }
         .listStyle(InsetListStyle())
+        .navigationTitle("Settings")
     }
 }
 

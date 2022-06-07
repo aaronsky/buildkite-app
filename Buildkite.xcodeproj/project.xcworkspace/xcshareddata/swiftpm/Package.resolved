@@ -1,16 +1,14 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "Buildkite",
-        "repositoryURL": "https://github.com/aaronsky/buildkite-swift.git",
-        "state": {
-          "branch": "master",
-          "revision": "c2916a18770c93b9986fbebc5c7bec59cb63eac2",
-          "version": null
-        }
+  "pins" : [
+    {
+      "identity" : "buildkite-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/aaronsky/buildkite-swift.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "5aebac981f467e8d89a29b86fd9013abfc6db332"
       }
-    ]
-  },
-  "version": 1
+    }
+  ],
+  "version" : 2
 }

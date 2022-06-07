@@ -22,6 +22,24 @@ enum Fragments {
 
     struct Avatar: Decodable {
         var url: URL
+
+        init(url: URL) {
+            self.url = url
+        }
+
+        init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            let str = try container.decode(String.self, forKey: .url)
+            guard let strEncoded = str.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+                  let url = URL(string: strEncoded) else {
+                      throw DecodingError.dataCorruptedError(forKey: .url, in: container, debugDescription: "URL contains unescapable characters and cannot be decoded.")
+                  }
+            self.init(url: url)
+        }
+
+        private enum CodingKeys: String, CodingKey {
+            case url
+        }
     }
 
     struct Organization: Decodable {

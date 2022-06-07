@@ -43,6 +43,7 @@ enum Formatters {
         return nil
     }
 
+    @Sendable
     static func decodeISO8601(decoder: Decoder) throws -> Date {
         let container = try decoder.singleValueContainer()
         let dateString = try container.decode(String.self)

@@ -10,10 +10,7 @@ import Combine
 import Buildkite
 
 class BuildkiteService: ObservableObject {
-    let client: BuildkiteClient = {
-        $0.token = Env.buildkiteToken
-        return $0
-    }(BuildkiteClient())
+    let client = BuildkiteClient(token: Env.buildkiteToken)
 
     enum Error: Swift.Error {
         case paginationFailure
