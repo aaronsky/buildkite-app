@@ -12,22 +12,24 @@ FORMAT_PATHS := $(GIT_REPO_TOPLEVEL)/App $(GIT_REPO_TOPLEVEL)/Package.swift $(GI
 
 # Tasks
 
-.PHONY: test test-iOS test-macOS
-test: test-iOS test-macOS
+.PHONY: test-all test-iOS test-macOS
+test-all: test-iOS test-macOS
 test-iOS:
 	@xcodebuild test \
 		-project App/Buildkite.xcodeproj \
 		-scheme Buildkite \
+		-configuration Debug \
 		-destination "$(DESTINATION_PLATFORM_IOS_SIMULATOR)" \
 		-quiet
 test-macOS:
 	@xcodebuild test \
 		-project App/Buildkite.xcodeproj \
 		-scheme Buildkite \
+		-configuration Debug \
 		-destination "$(DESTINATION_PLATFORM_MACOS)" \
 		-quiet
 
-.PHONY: format
+.PHONY: format lint
 format:
 	$(SWIFT_FORMAT_BIN) \
 		--configuration $(SWIFT_FORMAT_CONFIG_FILE) \
@@ -35,8 +37,6 @@ format:
 		--in-place \
 		--recursive \
 		$(FORMAT_PATHS)
-
-.PHONY: lint
 lint:
 	$(SWIFT_FORMAT_BIN) lint \
 		--configuration $(SWIFT_FORMAT_CONFIG_FILE) \

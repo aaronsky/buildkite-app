@@ -12,7 +12,7 @@ jobs:
       matrix:
         xcode:
           - '14.0.1'
-        scheme:
+        os:
           - iOS
           - macOS
     env:
@@ -20,4 +20,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run tests
-        run: make test-iOS
+        run:
+          - xcodebuild \
+		          -project App/Buildkite.xcodeproj \
+              -resolvePackageDependencies
+          - make test-${{ matrix.os }}
