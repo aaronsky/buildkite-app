@@ -14,7 +14,7 @@ jobs:
           - '14.0'
         os:
           - iOS
-          - macOS
+          # - macOS
     env:
       DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode }}.app/Contents/Developer
     steps:
