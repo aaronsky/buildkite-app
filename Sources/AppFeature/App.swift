@@ -8,7 +8,9 @@ public struct AppReducer: ReducerProtocol {
         case login(LoginReducer.State)
         case home(HomeReducer.State)
 
-        public init() { self = .login(.init()) }
+        public init() {
+            self = .login(.restoreSession(.init()))
+        }
     }
 
     public enum Action: Equatable {
@@ -23,7 +25,7 @@ public struct AppReducer: ReducerProtocol {
     public var body: some ReducerProtocol<State, Action> {
         Reduce { state, action in
             switch action {
-            case .login(.validateTokenResponse(.success(let response))) where response.isValid:
+            case .login(.authenticated):
                 state = .home(.init())
                 return .none
             case .login:

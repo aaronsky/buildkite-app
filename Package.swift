@@ -44,13 +44,26 @@ let package = Package(
                 "GraphQLHelpers",
                 .product(name: "Buildkite", package: "buildkite-swift"),
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
-            ],
-            exclude: ["Secrets.swift.example"]
+            ]
         ),
         .testTarget(
             name: "APIClientTests",
             dependencies: [
                 "APIClient",
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+            ]
+        ),
+        .target(
+            name: "AuthenticationClient",
+            dependencies: [
+                .product(name: "Buildkite", package: "buildkite-swift"),
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+            ]
+        ),
+        .testTarget(
+            name: "AuthenticationClientTests",
+            dependencies: [
+                "AuthenticationClient",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
@@ -144,6 +157,7 @@ let package = Package(
             name: "LoginFeature",
             dependencies: [
                 "APIClient",
+                "AuthenticationClient",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
@@ -175,6 +189,7 @@ let package = Package(
             name: "ProfileFeature",
             dependencies: [
                 "APIClient",
+                "AuthenticationClient",
                 "ChangelogFeature",
                 "GraphQLHelpers",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),

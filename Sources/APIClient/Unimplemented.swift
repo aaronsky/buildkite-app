@@ -1,7 +1,7 @@
 import XCTestDynamicOverlay
 
 extension APIClient {
-    static let unimplemented = Self(
+    public static let unimplemented = Self(
         setToken: XCTUnimplemented("\(Self.self).setToken"),
         graphQLClient: XCTUnimplemented("\(Self.self).graphQLClient"),
         getAccessToken: XCTUnimplemented("\(Self.self).getAccessToken"),
