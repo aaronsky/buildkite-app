@@ -11,7 +11,7 @@ jobs:
     strategy:
       matrix:
         xcode:
-          - '14.0.1'
+          - '14.0'
         os:
           - iOS
           - macOS
@@ -21,7 +21,4 @@ jobs:
       - uses: actions/checkout@v2
       - name: Run tests
         run: |
-            xcodebuild \
-              -project App/Buildkite.xcodeproj \
-              -resolvePackageDependencies
             make test-${{ matrix.os }}
