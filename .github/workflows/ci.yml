@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  tests:
+    runs-on: macOS-12
+    strategy:
+      matrix:
+        xcode:
+          - '14.0.1'
+        scheme:
+          - iOS
+          - macOS
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode }}.app/Contents/Developer
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run tests
+        run: make test-iOS

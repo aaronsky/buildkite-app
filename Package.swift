@@ -34,7 +34,8 @@ let package = Package(
         .testTarget(
             name: "AgentsFeatureTests",
             dependencies: [
-                "AgentsFeature"
+                "AgentsFeature",
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
         .target(
@@ -49,7 +50,8 @@ let package = Package(
         .testTarget(
             name: "APIClientTests",
             dependencies: [
-                "APIClient"
+                "APIClient",
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
         .target(
@@ -68,7 +70,8 @@ let package = Package(
         .testTarget(
             name: "AppFeatureTests",
             dependencies: [
-                "AppFeature"
+                "AppFeature",
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
         .target(
@@ -82,7 +85,8 @@ let package = Package(
         .testTarget(
             name: "BuildsFeatureTests",
             dependencies: [
-                "BuildsFeature"
+                "BuildsFeature",
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
         .target(
@@ -96,7 +100,8 @@ let package = Package(
         .testTarget(
             name: "ChangelogFeatureTests",
             dependencies: [
-                "ChangelogFeature"
+                "ChangelogFeature",
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
         .target(
@@ -110,14 +115,16 @@ let package = Package(
         .testTarget(
             name: "EmojiClientTests",
             dependencies: [
-                "EmojiClient"
+                "EmojiClient",
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
         .target(name: "Formatters"),
         .testTarget(
             name: "FormattersTests",
             dependencies: [
-                "Formatters"
+                "Formatters",
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
         .target(
@@ -129,7 +136,8 @@ let package = Package(
         .testTarget(
             name: "GraphQLHelpersTests",
             dependencies: [
-                "GraphQLHelpers"
+                "GraphQLHelpers",
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
         .target(
@@ -142,7 +150,8 @@ let package = Package(
         .testTarget(
             name: "LoginFeatureTests",
             dependencies: [
-                "LoginFeature"
+                "LoginFeature",
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
         .target(
@@ -158,7 +167,8 @@ let package = Package(
         .testTarget(
             name: "PipelinesFeatureTests",
             dependencies: [
-                "PipelinesFeature"
+                "PipelinesFeature",
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
         .target(
@@ -173,7 +183,8 @@ let package = Package(
         .testTarget(
             name: "ProfileFeatureTests",
             dependencies: [
-                "ProfileFeature"
+                "ProfileFeature",
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
         .target(
@@ -188,7 +199,8 @@ let package = Package(
         .testTarget(
             name: "TeamsFeatureTests",
             dependencies: [
-                "TeamsFeature"
+                "TeamsFeature",
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
         .target(
@@ -201,7 +213,8 @@ let package = Package(
         .testTarget(
             name: "UsersFeatureTests",
             dependencies: [
-                "UsersFeature"
+                "UsersFeature",
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
     ]
