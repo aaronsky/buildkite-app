@@ -1,0 +1,228 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		330664D52859FC8E00C34770 /* BuildkitePackage in Frameworks */ = {isa = PBXBuildFile; productRef = 330664D42859FC8E00C34770 /* BuildkitePackage */; };
+		33D67F582858AA8600CED60E /* BuildkiteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D67F522858AA8600CED60E /* BuildkiteApp.swift */; };
+		33D67F592858AA8600CED60E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33D67F532858AA8600CED60E /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		330664D32859FB2000C34770 /* Buildkite */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Buildkite; path = ..; sourceTree = "<group>"; };
+		337FB3F52858A38900E43FD4 /* Buildkite-Common.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Buildkite-Common.xcconfig"; sourceTree = "<group>"; };
+		337FB3F62858A38900E43FD4 /* Buildkite-Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Buildkite-Debug.xcconfig"; sourceTree = "<group>"; };
+		337FB3F72858A38900E43FD4 /* Project-Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Project-Release.xcconfig"; sourceTree = "<group>"; };
+		337FB3F82858A38900E43FD4 /* Project-Common.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Project-Common.xcconfig"; sourceTree = "<group>"; };
+		337FB3F92858A38900E43FD4 /* Project-Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Project-Debug.xcconfig"; sourceTree = "<group>"; };
+		337FB3FA2858A38900E43FD4 /* Buildkite-Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Buildkite-Release.xcconfig"; sourceTree = "<group>"; };
+		33D67F522858AA8600CED60E /* BuildkiteApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildkiteApp.swift; sourceTree = "<group>"; };
+		33D67F532858AA8600CED60E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		33D67F542858AA8600CED60E /* Buildkite.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Buildkite.entitlements; sourceTree = "<group>"; };
+		33D834EF2858A022006D0EF7 /* BuildkiteApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuildkiteApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		33D834EC2858A022006D0EF7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				330664D52859FC8E00C34770 /* BuildkitePackage in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		33285EAC2858AD13001139CB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		337FB3F42858A38900E43FD4 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				337FB3F52858A38900E43FD4 /* Buildkite-Common.xcconfig */,
+				337FB3F62858A38900E43FD4 /* Buildkite-Debug.xcconfig */,
+				337FB3FA2858A38900E43FD4 /* Buildkite-Release.xcconfig */,
+				337FB3F82858A38900E43FD4 /* Project-Common.xcconfig */,
+				337FB3F92858A38900E43FD4 /* Project-Debug.xcconfig */,
+				337FB3F72858A38900E43FD4 /* Project-Release.xcconfig */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		33D67F512858AA8600CED60E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				33D67F522858AA8600CED60E /* BuildkiteApp.swift */,
+				33D67F532858AA8600CED60E /* Assets.xcassets */,
+				33D67F542858AA8600CED60E /* Buildkite.entitlements */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		33D834E62858A022006D0EF7 = {
+			isa = PBXGroup;
+			children = (
+				330664D32859FB2000C34770 /* Buildkite */,
+				33D67F512858AA8600CED60E /* App */,
+				337FB3F42858A38900E43FD4 /* Config */,
+				33285EAC2858AD13001139CB /* Frameworks */,
+				33D834F02858A022006D0EF7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		33D834F02858A022006D0EF7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				33D834EF2858A022006D0EF7 /* BuildkiteApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		33D834EE2858A022006D0EF7 /* Buildkite */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33D834FE2858A022006D0EF7 /* Build configuration list for PBXNativeTarget "Buildkite" */;
+			buildPhases = (
+				33D834EB2858A022006D0EF7 /* Sources */,
+				33D834EC2858A022006D0EF7 /* Frameworks */,
+				33D834ED2858A022006D0EF7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Buildkite;
+			packageProductDependencies = (
+				330664D42859FC8E00C34770 /* BuildkitePackage */,
+			);
+			productName = Buildkite;
+			productReference = 33D834EF2858A022006D0EF7 /* BuildkiteApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		33D834E72858A022006D0EF7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					33D834EE2858A022006D0EF7 = {
+						CreatedOnToolsVersion = 14.0;
+					};
+				};
+			};
+			buildConfigurationList = 33D834EA2858A022006D0EF7 /* Build configuration list for PBXProject "Buildkite" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 33D834E62858A022006D0EF7;
+			productRefGroup = 33D834F02858A022006D0EF7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				33D834EE2858A022006D0EF7 /* Buildkite */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		33D834ED2858A022006D0EF7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33D67F592858AA8600CED60E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		33D834EB2858A022006D0EF7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33D67F582858AA8600CED60E /* BuildkiteApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		33D834FC2858A022006D0EF7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 337FB3F92858A38900E43FD4 /* Project-Debug.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		33D834FD2858A022006D0EF7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 337FB3F72858A38900E43FD4 /* Project-Release.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		33D834FF2858A022006D0EF7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 337FB3F62858A38900E43FD4 /* Buildkite-Debug.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		33D835002858A022006D0EF7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 337FB3FA2858A38900E43FD4 /* Buildkite-Release.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		33D834EA2858A022006D0EF7 /* Build configuration list for PBXProject "Buildkite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33D834FC2858A022006D0EF7 /* Debug */,
+				33D834FD2858A022006D0EF7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		33D834FE2858A022006D0EF7 /* Build configuration list for PBXNativeTarget "Buildkite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33D834FF2858A022006D0EF7 /* Debug */,
+				33D835002858A022006D0EF7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		330664D42859FC8E00C34770 /* BuildkitePackage */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = BuildkitePackage;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 33D834E72858A022006D0EF7 /* Project object */;
+}

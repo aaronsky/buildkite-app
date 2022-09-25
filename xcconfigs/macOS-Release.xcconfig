@@ -1,5 +1,0 @@
-//
-// macOS-Release.xcconfig
-//
-
-#include "macOS-Shared.xcconfig"

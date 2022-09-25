@@ -1,7 +1,0 @@
-//
-// iOS-Release.xcconfig
-//
-
-#include "iOS-Shared.xcconfig"
-
-VALIDATE_PRODUCT = YES

@@ -2,13 +2,13 @@ name: Build and Test
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
 jobs:
   tests:
-    runs-on: macOS-11
+    runs-on: macOS-12
     strategy:
       matrix:
         scheme:
@@ -16,24 +16,21 @@ jobs:
           - macOS
         include:
           - scheme: iOS
-            destination: platform=iOS Simulator,OS=latest,name=iPhone 12 Pro
+            destination: platform=iOS Simulator,OS=latest,name=iPhone 14 Pro
           - scheme: macOS
             destination: platform=macOS,arch=x86_64
     env:
-      DEVELOPER_DIR: /Applications/Xcode_13.0.app/Contents/Developer
+      DEVELOPER_DIR: /Applications/Xcode_14.1.app/Contents/Developer
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      - name: Bootstrap environment
-        env:
-          SECRET_BUILDKITE_TOKEN: ${{ secrets.BuildkiteToken }}
-        run: ./Scripts/bootstrap.sh
       - name: xcodebuild test
         run: |-
           xcodebuild \
-            -project Buildkite.xcodeproj \
+            -project App/Buildkite.xcodeproj \
             -scheme '${{ matrix.scheme }}' \
-            -configuration 'Debug' \
+            -configuration Debug \
             -destination '${{ matrix.destination }}' \
             -quiet \
-            build
+            build \
+            test
