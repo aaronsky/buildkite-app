@@ -20,8 +20,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run tests
-        run:
-          - xcodebuild \
+        run: |
+            xcodebuild \
 		          -project App/Buildkite.xcodeproj \
               -resolvePackageDependencies
-          - make test-${{ matrix.os }}
+            make test-${{ matrix.os }}
