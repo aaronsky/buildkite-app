@@ -56,6 +56,7 @@ let package = Package(
         .target(
             name: "AuthenticationClient",
             dependencies: [
+                "APIClient",
                 .product(name: "Buildkite", package: "buildkite-swift"),
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]

@@ -18,13 +18,13 @@ test-iOS:
 	@xcodebuild test \
 		-project App/Buildkite.xcodeproj \
 		-scheme Buildkite \
-		-destination "$(DESTINATION_PLATFORM_IOS_SIMULATOR)"
+		-destination "$(DESTINATION_PLATFORM_IOS_SIMULATOR)" \
 		-quiet
 test-macOS:
 	@xcodebuild test \
 		-project App/Buildkite.xcodeproj \
 		-scheme Buildkite \
-		-destination "$(DESTINATION_PLATFORM_MACOS)"
+		-destination "$(DESTINATION_PLATFORM_MACOS)" \
 		-quiet
 
 .PHONY: format
