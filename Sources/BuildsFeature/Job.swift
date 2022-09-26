@@ -56,7 +56,7 @@ struct JobView: View {
 }
 
 extension Job: Identifiable {
-    public var id: UUID {
+    public var id: UUID? {
         switch self {
         case .script(let job):
             return job.id
@@ -65,18 +65,55 @@ extension Job: Identifiable {
         case .manual(let job):
             return job.id
         case .trigger(let job):
-            // FIXME:
-            return job.triggeredBuild?.id ?? UUID()
+            return job.triggeredBuild?.id
         }
     }
 }
 
-// FIXME: upstream public initializers
-//struct JobView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        JobView(job: .script(.init()))
-//        JobView(job: .waiter(.init()))
-//        JobView(job: .manual(.init()))
-//        JobView(job: .trigger(.init()))
-//    }
-//}
+struct JobView_Previews: PreviewProvider {
+    static var previews: some View {
+        JobView(
+            job: .script(
+                .init(
+                    id: .init(),
+                    graphqlId: "0",
+                    buildURL: URL(string: "https://api.buildkite.com/v3/my-org/my-pipeline/builds/100")!,
+                    webURL: URL(string: "https://buildkite.com/my-org/my-pipeline/builds/100")!,
+                    logURL: .init(url: URL(string: "https://buildkite.com/my-org/my-pipeline/builds/100/logs")!),
+                    rawLogURL: .init(
+                        url: URL(string: "https://buildkite.com/my-org/my-pipeline/builds/logs?format=raw")!
+                    ),
+                    artifactsURL: URL(string: "https://buildkite.com/my-org/my-pipeline/builds/100/artifacts")!,
+                    softFailed: false,
+                    agentQueryRules: ["queue=default"],
+                    createdAt: .now,
+                    retried: false
+                )
+            )
+        )
+        JobView(job: .waiter(.init(id: .init(), graphqlId: "0")))
+        JobView(
+            job: .manual(
+                .init(
+                    id: .init(),
+                    graphqlId: "0",
+                    label: "blocked build",
+                    state: "blocked",
+                    unblockable: true,
+                    unblockURL: URL(
+                        string: "https://api.buildkite.com/v3/my-org/my-pipeline/builds/100/000000/unblock"
+                    )!
+                )
+            )
+        )
+        JobView(
+            job: .trigger(
+                .init(
+                    buildURL: URL(string: "https://api.buildkite.com/v3/my-org/my-pipeline/builds/100")!,
+                    webURL: URL(string: "https://buildkite.com/my-org/my-pipeline/builds/100")!,
+                    createdAt: .now
+                )
+            )
+        )
+    }
+}

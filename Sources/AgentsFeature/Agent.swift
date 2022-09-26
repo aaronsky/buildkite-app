@@ -137,16 +137,29 @@ struct AgentView: View {
     }
 }
 
-// FIXME: upstream public initializers
-//struct AgentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AgentView(
-//            store: .init(
-//                initialState: .init(
-//                    agent: .init()
-//                ),
-//                reducer: AgentReducer()
-//            )
-//        )
-//    }
-//}
+struct AgentView_Previews: PreviewProvider {
+    static var previews: some View {
+        AgentView(
+            store: .init(
+                initialState: .init(
+                    agent: .init(
+                        id: .init(),
+                        graphqlId: "0",
+                        url: .init(url: URL(string: "https://api.buildkite.com/v3/agents/0")!),
+                        webURL: URL(string: "https://buildkite.com/agents/0")!,
+                        name: "my-agent-1",
+                        connectionState: "connected",
+                        hostname: "my-agent-1.internal",
+                        ipAddress: "0.0.0.1",
+                        userAgent: "Mozilla",
+                        version:
+                            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36",
+                        createdAt: .now,
+                        metaData: []
+                    )
+                ),
+                reducer: AgentReducer()
+            )
+        )
+    }
+}
