@@ -1,0 +1,32 @@
+/* Title text describing the connection state for a Buildkite agent. E.g. "connected" */
+"State" = "状態";
+
+/* Title text describing the version of the buildkite-agent software the Buildkite agent is using. */
+"Version" = "バージョン";
+
+/* Section header describing information about the host server the Buildkite agent is running on. In languages with capitalization, render in all-caps. */
+"HOST" = "ホスト";
+
+/* Title text describing when the name of the host server the Buildkite agent is running on. */
+"Hostname" = "ホストネーム";
+
+/* Title text describing the IP address of the host server the Buildkite agent is running on. See also: https://developer.mozilla.org/en-US/docs/Glossary/IP_Address */
+"IP Address" = "ＩＰアドレス";
+
+/* Title text describing the "User Agent" the Buildkite agent is providing with its network communication. See also: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent */
+"User Agent" = "ユーザエージェント";
+
+/* Title text describing when the Buildkite agent first connected to Buildkite. */
+"Connected" = "接続時間";
+
+/* Section header describing tags that are assigned to the Buildkite agent. These tags are plain text identifiers that will not be localized, and are used to associate builds with agents that can run their workloads. In languages with capitalization, render in all-caps. */
+"TAGS" = "タグ";
+
+/* Button text the user can use to forcefully disconnect an agent from Buildkite. */
+"Stop" = "止め";
+
+/* Informs the user that no Buildkite agents are connected to their Buildkite organization. */
+"No agents connected" = "エージェントは接続がありません";
+
+/* Navigation bar header. */
+"Agents" = "エージェント";

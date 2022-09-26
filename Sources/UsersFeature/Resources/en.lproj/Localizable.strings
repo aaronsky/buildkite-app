@@ -1,0 +1,5 @@
+/* Greeting to the user. */
+"Hello, %@" = "Hello, %@";
+
+/* Navigation bar header. */
+"Users" = "Users";

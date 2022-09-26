@@ -1,0 +1,2 @@
+/* Generic error message displayed when build information could not be loaded. */
+"Something went wrong!" = "Something went wrong!";

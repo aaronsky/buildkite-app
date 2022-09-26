@@ -105,9 +105,11 @@ struct TeamView: View {
             Form {
                 Section {
                     Text(viewStore.team.privacy.rawValue)
-                    Text(viewStore.team.description ?? "")  // emojis
+                    if let description = viewStore.team.description {
+                        Text(description)  // emojis
+                    }
                 }
-                Section(header: Text("MEMBERS")) {
+                Section(header: Text("MEMBERS", bundle: .module)) {
                     ForEach(viewStore.team.members) { member in
                         NavigationLink(member.user.name, state: UserReducer.State(memberID: member.uuid))
                     }
@@ -121,8 +123,12 @@ struct TeamView: View {
                     Button {
                         viewStore.send(.usersList(.present(.init(teamSlug: viewStore.team.slug))))
                     } label: {
-                        Label("Add Person", systemImage: "person.badge.plus")
-                            .labelStyle(.iconOnly)
+                        Label {
+                            Text("Add Member", bundle: .module)
+                        } icon: {
+                            Image(systemName: "person.badge.plus")
+                        }
+                        .labelStyle(.iconOnly)
                     }
                 }
             }
@@ -138,5 +144,24 @@ struct TeamView: View {
                 destination: UserView.init(store:)
             )
         }
+    }
+}
+
+struct TeamView_Previews: PreviewProvider {
+    static var previews: some View {
+        TeamView(
+            store: .init(
+                initialState: .init(
+                    team: .init(
+                        id: "0",
+                        name: "My Team",
+                        slug: "my-team",
+                        privacy: .visible,
+                        members: []
+                    )
+                ),
+                reducer: TeamReducer()
+            )
+        )
     }
 }

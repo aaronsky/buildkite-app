@@ -1,7 +1,6 @@
 import APIClient
 import Buildkite
 import ComposableArchitecture
-import Formatters
 import SwiftUI
 
 struct AgentReducer: ReducerProtocol {
@@ -74,7 +73,7 @@ struct AgentView: View {
             Form {
                 Section {
                     HStack {
-                        Text("State")
+                        Text("State", bundle: .module)
                         Spacer()
                         ConnectionState(
                             state: viewStore.agent.connectionState,
@@ -83,34 +82,34 @@ struct AgentView: View {
                         Text(viewStore.agent.connectionState)
                     }
                     HStack {
-                        Text("Version")
+                        Text("Version", bundle: .module)
                         Spacer()
                         Text(viewStore.agent.version)
                     }
                 }
-                Section(header: Text("HOST")) {
+                Section(header: Text("HOST", bundle: .module)) {
                     HStack {
-                        Text("Hostname")
+                        Text("Hostname", bundle: .module)
                         Spacer()
                         Text(viewStore.agent.hostname)
                     }
                     HStack {
-                        Text("IP Address")
+                        Text("IP Address", bundle: .module)
                         Spacer()
                         Text(viewStore.agent.ipAddress)
                     }
                     HStack {
-                        Text("User Agent")
+                        Text("User Agent", bundle: .module)
                         Spacer()
                         Text(viewStore.agent.userAgent)
                     }
                     HStack {
-                        Text("Connected")
+                        Text("Connected", bundle: .module)
                         Spacer()
-                        Text("\(viewStore.agent.createdAt, formatter: friendlyRelativeDateFormatter)")
+                        Text(viewStore.agent.createdAt.formatted(.relative(presentation: .numeric, unitsStyle: .wide)))
                     }
                 }
-                Section(header: Text("TAGS")) {
+                Section(header: Text("TAGS", bundle: .module)) {
                     Text(viewStore.agent.metaData.joined())
                 }
             }
@@ -126,7 +125,7 @@ struct AgentView: View {
                             viewStore.send(.stopAgent)
                         },
                         label: {
-                            Text("Stop")
+                            Text("Stop", bundle: .module)
                         }
                     )
                     .disabled(
@@ -137,3 +136,17 @@ struct AgentView: View {
         }
     }
 }
+
+// FIXME: upstream public initializers
+//struct AgentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AgentView(
+//            store: .init(
+//                initialState: .init(
+//                    agent: .init()
+//                ),
+//                reducer: AgentReducer()
+//            )
+//        )
+//    }
+//}

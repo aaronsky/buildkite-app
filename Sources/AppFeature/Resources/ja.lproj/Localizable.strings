@@ -1,0 +1,12 @@
+/* Tab item to view visible Buildkite pipelines. */
+"Pipelines" = "パイプライン";
+
+/* Tab item to view connected Buildkite agents. */
+"Agents" = "エージェント";
+
+/* Tab item to view other users in the current Buildkite organization. */
+"Users" = "ユーザー";
+
+/* Tab item to view more features. */
+"More" = "More";
+

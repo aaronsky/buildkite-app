@@ -70,3 +70,13 @@ extension Job: Identifiable {
         }
     }
 }
+
+// FIXME: upstream public initializers
+//struct JobView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        JobView(job: .script(.init()))
+//        JobView(job: .waiter(.init()))
+//        JobView(job: .manual(.init()))
+//        JobView(job: .trigger(.init()))
+//    }
+//}

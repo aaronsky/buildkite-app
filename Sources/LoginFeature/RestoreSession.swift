@@ -51,3 +51,14 @@ public struct RestoreSessionView: View {
         }
     }
 }
+
+struct RestoreSessionView_Previews: PreviewProvider {
+    static var previews: some View {
+        RestoreSessionView(
+            store: .init(
+                initialState: .init(),
+                reducer: RestoreSessionReducer()
+            )
+        )
+    }
+}

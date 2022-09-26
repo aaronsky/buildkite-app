@@ -6,7 +6,9 @@ extension AuthenticationClient {
         login: performLogin,
         restoreSession: { client in
             let attrs = try Keychain().credential(class: .internetPassword)
-            guard let accessToken = String(data: attrs.data, encoding: .utf8) else { throw Keychain.Error.unexpectedCredentialData }
+            guard let accessToken = String(data: attrs.data, encoding: .utf8) else {
+                throw Keychain.Error.unexpectedCredentialData
+            }
             return try await performLogin(
                 request: .init(
                     accessToken: accessToken,
@@ -22,8 +24,13 @@ extension AuthenticationClient {
 }
 
 @Sendable
-private func performLogin(request: AuthenticationClient.Request, client: APIClient) async throws -> AuthenticationClient.Status {
-    guard let tokenData = request.accessToken.data(using: .utf8) else { throw AuthenticationClient.Error.badCredentials }
+private func performLogin(
+    request: AuthenticationClient.Request,
+    client: APIClient
+) async throws -> AuthenticationClient.Status {
+    guard let tokenData = request.accessToken.data(using: .utf8) else {
+        throw AuthenticationClient.Error.badCredentials
+    }
 
     await client.setToken(request.accessToken)
     let tokenInfo = try await client.getAccessToken()
@@ -34,9 +41,12 @@ private func performLogin(request: AuthenticationClient.Request, client: APIClie
     }
 
     if request.storeInKeychainOnSuccess {
+        #if targetEnvironment(simulator)
+        print("FIXME: Skipping keychain writing")
+        #else
         try Keychain().add(tokenData, for: tokenInfo.uuid.uuidString, class: .internetPassword)
+        #endif
     }
 
     return .authenticated
 }
-

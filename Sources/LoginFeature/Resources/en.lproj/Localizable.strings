@@ -1,0 +1,11 @@
+/* Instructions for users on how to create an access token and why one is necessary. */
+"Access Token Instructions" = "This app requires elevated access in order to offer the same functionality as the Buildkite
+website. It will never use this access to modify your organization without consent, nor will it be used for tracking.
+
+Please create a token and copy it into the text field below.";
+
+/* Button text to log in with the given credentials. */
+"Log In" = "Log In";
+
+/* Navigation bar header. */
+"Create Access Token" = "Create Access Token";

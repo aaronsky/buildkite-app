@@ -3,7 +3,7 @@ import AppFeature
 import ComposableArchitecture
 import SwiftUI
 
-@main struct BuildkiteApp: SwiftUI.App {
+@main struct BuildkiteApp: App {
     var body: some Scene {
         WindowGroup {
             AppView(

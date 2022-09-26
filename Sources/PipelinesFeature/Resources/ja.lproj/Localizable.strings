@@ -1,0 +1,12 @@
+/* Displayed when no builds were found for the given Buildkite pipeline. */
+"No builds found" = "ビルドがありません";
+
+/* The build number and human readable identifier for the build. */
+"Build #%d" = "ビルド %d番";
+
+/* Displayed when no pipelines were found on Buildkite. */
+"No pipelines found" = "パイプラインがありません";
+
+/* Navigation bar header. */
+"Pipelines" = "パイプライン";
+

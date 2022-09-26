@@ -89,7 +89,7 @@ public struct PipelinesListView: View {
                         Spacer()
                     }
                 } else if viewStore.pipelines.isEmpty {
-                    Text("No pipelines found")
+                    Text("No pipelines found", bundle: .module)
                         .italic()
                 } else {
                     ForEach(viewStore.pipelines) { pipeline in
@@ -131,11 +131,22 @@ public struct PipelinesListView: View {
             .listStyle(.inset)
             .refreshable { await viewStore.send(.refresh, while: \.isLoading) }
             .onAppear { viewStore.send(.refresh) }
-            .navigationTitle("Pipelines")
+            .navigationTitle(Text("Pipelines", bundle: .module))
             .navigationDestination(
                 store: store.scope(state: \.$pipeline, action: PipelinesListReducer.Action.pipeline),
                 destination: PipelineView.init(store:)
             )
         }
+    }
+}
+
+struct PipelinesListView_Previews: PreviewProvider {
+    static var previews: some View {
+        PipelinesListView(
+            store: .init(
+                initialState: .init(),
+                reducer: PipelinesListReducer()
+            )
+        )
     }
 }

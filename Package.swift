@@ -4,6 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "BuildkitePackage",
+    defaultLocalization: "en",
     platforms: [
         .iOS(.v16),
         .macOS(.v12),
@@ -26,7 +27,6 @@ let package = Package(
             dependencies: [
                 "APIClient",
                 "BuildsFeature",
-                "Formatters",
                 .product(name: "Buildkite", package: "buildkite-swift"),
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
@@ -133,14 +133,6 @@ let package = Package(
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
-        .target(name: "Formatters"),
-        .testTarget(
-            name: "FormattersTests",
-            dependencies: [
-                "Formatters",
-                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
-            ]
-        ),
         .target(
             name: "GraphQLHelpers",
             dependencies: [
@@ -174,7 +166,6 @@ let package = Package(
             dependencies: [
                 "APIClient",
                 "BuildsFeature",
-                "Formatters",
                 "GraphQLHelpers",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]

@@ -30,3 +30,23 @@ public struct ChangelogView: View {
         }
     }
 }
+
+struct ChangelogView_Previews: PreviewProvider {
+    static var previews: some View {
+        ChangelogView(
+            changelog: .init(
+                id: "0",
+                title: "Change",
+                body: "A change occurred on this day",
+                publishedAt: .now,
+                tag: "work",
+                author: .init(
+                    name: "Preview Man",
+                    avatar: .init(
+                        url: URL(string: "https://buildkite.com")!
+                    )
+                )
+            )
+        )
+    }
+}

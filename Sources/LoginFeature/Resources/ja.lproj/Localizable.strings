@@ -1,0 +1,11 @@
+/* Instructions for users on how to create an access token and why one is necessary. FIXME: Machine translation */
+"Access Token Instructions" = "このアプリは、Buildkite と同じ機能を提供するために昇格されたアクセスを必要とします
+Webサイト。 このアクセスを使用して同意なしに組織を変更したり、追跡に使用したりすることはありません。
+
+トークンを作成し、それを下のテキスト フィールドにコピーしてください。";
+
+/* Button text to log in with the given credentials. */
+"Log In" = "ログイン";
+
+/* Navigation bar header. */
+"Create Access Token" = "トークンを作り";

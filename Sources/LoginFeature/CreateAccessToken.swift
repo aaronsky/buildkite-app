@@ -79,15 +79,7 @@ public struct CreateAccessTokenView: View {
     public var body: some View {
         WithViewStore(store) { viewStore in
             VStack(spacing: 16) {
-                Text(
-                    """
-                    This app requires elevated access in order to offer the same functionality as the Buildkite
-                    website. It will never use this access to modify your organization without consent, nor will
-                    it be used for tracking.
-
-                    Please create a token and copy it into the text field below.
-                    """
-                )
+                Text("Access Token Instructions", bundle: .module)
                 HStack {
                     if viewStore.showAccessTokenField {
                         TextField(
@@ -107,8 +99,12 @@ public struct CreateAccessTokenView: View {
                     Toggle(
                         isOn: viewStore.binding(\.$showAccessTokenField)
                     ) {
-                        Label("Show Access Token", systemImage: "eye")
-                            .labelStyle(.iconOnly)
+                        Label {
+                            Text("Show Access Token", bundle: .module)
+                        } icon: {
+                            Image(systemName: "eye")
+                        }
+                        .labelStyle(.iconOnly)
                     }
                     .toggleStyle(.button)
                 }
@@ -118,7 +114,7 @@ public struct CreateAccessTokenView: View {
                         viewStore.send(.loginButtonTapped)
                     },
                     label: {
-                        Text("Log In")
+                        Text("Log In", bundle: .module)
 
                         if viewStore.isRequestInFlight {
                             ProgressView()
@@ -151,5 +147,16 @@ extension View {
         self
             .onChange(of: first.wrappedValue) { second.wrappedValue = $0 }
             .onChange(of: second.wrappedValue) { first.wrappedValue = $0 }
+    }
+}
+
+struct CreateAccessTokenView_Previews: PreviewProvider {
+    static var previews: some View {
+        CreateAccessTokenView(
+            store: .init(
+                initialState: .init(),
+                reducer: CreateAccessTokenReducer()
+            )
+        )
     }
 }

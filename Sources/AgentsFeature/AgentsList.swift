@@ -73,7 +73,7 @@ public struct AgentsListView: View {
                         Spacer()
                     }
                 } else if viewStore.agents.isEmpty {
-                    Text("No agents connected")
+                    Text("No agents connected", bundle: .module)
                         .italic()
                 } else {
                     ForEach(viewStore.agents) { agent in
@@ -99,7 +99,18 @@ public struct AgentsListView: View {
             .listStyle(.inset)
             .refreshable { await viewStore.send(.refresh, while: \.isLoading) }
             .onAppear { viewStore.send(.refresh) }
-            .navigationTitle("Agents")
+            .navigationTitle(Text("Agents", bundle: .module))
         }
+    }
+}
+
+struct AgentsListView_Previews: PreviewProvider {
+    static var previews: some View {
+        AgentsListView(
+            store: .init(
+                initialState: .init(),
+                reducer: AgentsListReducer()
+            )
+        )
     }
 }

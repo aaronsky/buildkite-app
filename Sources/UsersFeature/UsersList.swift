@@ -111,7 +111,18 @@ public struct UsersListView: View {
             .searchable(text: viewStore.binding(\.$search))
             .refreshable { await viewStore.send(.refresh, while: \.isLoading) }
             .onAppear { viewStore.send(.refresh) }
-            .navigationTitle("Users")
+            .navigationTitle(Text("Users", bundle: .module))
         }
+    }
+}
+
+struct UsersListView_Previews: PreviewProvider {
+    static var previews: some View {
+        UsersListView(
+            store: .init(
+                initialState: .init(),
+                reducer: UsersListReducer()
+            )
+        )
     }
 }

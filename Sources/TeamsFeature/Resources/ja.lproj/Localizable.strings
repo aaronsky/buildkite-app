@@ -1,0 +1,8 @@
+/* Section header describing the list of members in the current team. In languages with capitalization, retain all-caps. */
+"MEMBERS" = "員";
+
+/* Button to add a member to the current team. */
+"Add Member" = "員に加え";
+
+/* Navigation bar header. */
+"Teams" = "設定";

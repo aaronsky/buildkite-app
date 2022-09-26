@@ -19,14 +19,15 @@ public struct LoginReducer: ReducerProtocol {
     @Dependency(\.authentication) var authentication
 
     public init() {}
-    
+
     public var body: some ReducerProtocol<State, Action> {
         Reduce { state, action in
             switch action {
             case .restoreSession(.authenticateResponse(.success(.authenticated))),
-                    .createAccessToken(.authenticateResponse(.success(.authenticated))):
+                .createAccessToken(.authenticateResponse(.success(.authenticated))):
                 return .task { .authenticated }
-            case .restoreSession(.authenticateResponse(.success(.noSession))), .restoreSession(.authenticateResponse(.failure)):
+            case .restoreSession(.authenticateResponse(.success(.noSession))),
+                .restoreSession(.authenticateResponse(.failure)):
                 state = .createAccessToken(.init())
                 return .none
             case .restoreSession, .createAccessToken:
@@ -59,10 +60,23 @@ public struct LoginView: View {
                 RestoreSessionView(store: store)
                     .navigationTitle("")
             }
-            CaseLet(state: /LoginReducer.State.createAccessToken, action: LoginReducer.Action.createAccessToken) { store in
+            CaseLet(state: /LoginReducer.State.createAccessToken, action: LoginReducer.Action.createAccessToken) {
+                store in
                 CreateAccessTokenView(store: store)
-                    .navigationTitle("Create Access Token")
+                    .navigationTitle(Text("Create Access Token", bundle: .module))
             }
         }
+    }
+}
+
+struct LoginView_Previews: PreviewProvider {
+    static var previews: some View {
+        LoginView(
+            store: .init(
+                initialState: .restoreSession(.init()),
+                reducer: LoginReducer()
+            )
+        )
+        .environment(\.locale, .init(identifier: "ja"))
     }
 }

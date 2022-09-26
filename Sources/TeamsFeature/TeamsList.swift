@@ -53,7 +53,18 @@ struct TeamsListView: View {
             .listStyle(.inset)
             .refreshable { await viewStore.send(.refresh, while: \.isLoading) }
             .onAppear { viewStore.send(.refresh) }
-            .navigationTitle("Teams")
+            .navigationTitle(Text("Teams", bundle: .module))
         }
+    }
+}
+
+struct TeamsListView_Previews: PreviewProvider {
+    static var previews: some View {
+        TeamsListView(
+            store: .init(
+                initialState: .init(),
+                reducer: TeamsListReducer()
+            )
+        )
     }
 }

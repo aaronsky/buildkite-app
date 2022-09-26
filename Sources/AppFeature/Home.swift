@@ -57,8 +57,11 @@ public struct HomeView: View {
                 )
             }
             .tabItem {
-                Label("Pipelines", systemImage: "hammer.fill")
-                    .accessibility(label: Text("Pipelines"))
+                Label {
+                    Text("Pipelines", bundle: .module)
+                } icon: {
+                    Image(systemName: "hammer.fill")
+                }
             }
 
             NavigationStack {
@@ -70,8 +73,11 @@ public struct HomeView: View {
                 )
             }
             .tabItem {
-                Label("Agents", systemImage: "ant.fill")
-                    .accessibility(label: Text("Agents"))
+                Label {
+                    Text("Agents", bundle: .module)
+                } icon: {
+                    Image(systemName: "ant.fill")
+                }
             }
 
             NavigationStack {
@@ -83,8 +89,11 @@ public struct HomeView: View {
                 )
             }
             .tabItem {
-                Label("Users", systemImage: "person.3.fill")
-                    .accessibility(label: Text("Users"))
+                Label {
+                    Text("Users", bundle: .module)
+                } icon: {
+                    Image(systemName: "person.3.fill")
+                }
             }
 
             NavigationStack {
@@ -96,9 +105,23 @@ public struct HomeView: View {
                 )
             }
             .tabItem {
-                Label("More", systemImage: "ellipsis")
-                    .accessibility(label: Text("More"))
+                Label {
+                    Text("More", bundle: .module)
+                } icon: {
+                    Image(systemName: "ellipsis")
+                }
             }
         }
+    }
+}
+
+struct HomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeView(
+            store: .init(
+                initialState: .init(),
+                reducer: HomeReducer()
+            )
+        )
     }
 }

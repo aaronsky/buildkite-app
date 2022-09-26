@@ -10,7 +10,6 @@ public struct BuildReducer: ReducerProtocol {
 
         var build: Build?
         var isLoading = false
-        var errorMessage: String?
 
         public init(
             pipelineSlug: String,
@@ -57,7 +56,6 @@ public struct BuildReducer: ReducerProtocol {
             case .getBuildResponse(.failure(let error)):
                 print(error)
                 state.isLoading = false
-                state.errorMessage = "\(organization())/\(state.pipelineSlug) #\(state.buildNumber) could not be loaded"
                 return .none
             }
         }
@@ -88,16 +86,24 @@ public struct BuildView: View {
                             JobView(job: job)
                         }
                     }
-                } else if let errorMessage = viewStore.errorMessage {
-                    Text(errorMessage)
-                        .italic()
                 } else {
-                    Text("Something went wrong!")
+                    Text("Something went wrong!", bundle: .module)
                         .italic()
                 }
             }
             .refreshable { await viewStore.send(.refresh, while: \.isLoading) }
             .onAppear { viewStore.send(.refresh) }
         }
+    }
+}
+
+struct BuildView_Previews: PreviewProvider {
+    static var previews: some View {
+        BuildView(
+            store: .init(
+                initialState: .init(pipelineSlug: "my-pipeline", buildNumber: 100),
+                reducer: BuildReducer()
+            )
+        )
     }
 }

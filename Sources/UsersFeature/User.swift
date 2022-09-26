@@ -66,7 +66,18 @@ public struct UserView: View {
 
     public var body: some View {
         WithViewStore(store) { viewStore in
-            Text("Hello, \(viewStore.memberID)")
+            Text("Hello, \(viewStore.memberID)", bundle: .module)
         }
+    }
+}
+
+struct UserView_Previews: PreviewProvider {
+    static var previews: some View {
+        UserView(
+            store: .init(
+                initialState: .init(memberID: "0"),
+                reducer: UserReducer()
+            )
+        )
     }
 }

@@ -1,7 +1,6 @@
 import APIClient
 import BuildsFeature
 import ComposableArchitecture
-import Formatters
 import SwiftUI
 
 public struct PipelineReducer: ReducerProtocol {
@@ -45,7 +44,7 @@ public struct PipelineView: View {
             List {
                 let builds = viewStore.pipeline.builds
                 if builds.isEmpty {
-                    Text("No builds found")
+                    Text("No builds found", bundle: .module)
                         .italic()
                 } else {
                     ForEach(builds) { build in
@@ -61,7 +60,6 @@ public struct PipelineView: View {
                                     Text(build.message ?? "")  // emojis
                                         .font(.body)
                                     caption(for: build)
-                                        .font(.caption)
                                 }
                             }
                         }
@@ -76,40 +74,48 @@ public struct PipelineView: View {
         }
     }
 
-    private func caption(for build: ListQuery.Response.Build) -> Text {
-        var chunks: [Text] = []
-        if let createdByName = build.createdBy?.name {
-            chunks.append(Text(createdByName))
+    @ViewBuilder
+    private func caption(for build: ListQuery.Response.Build) -> some View {
+        HStack {
+            if let createdByName = build.createdBy?.name {
+                Text(createdByName)
+                    .font(.caption)
+                Text(" – ")
+                    .font(.caption)
+            }
+            Text("Build #\(build.number)", bundle: .module)
+                .font(.caption)
+            Text(" – ")
+                .font(.caption)
+            Text(build.commit.prefix(7))
+                .font(.caption)
+            if let createdAt = build.createdAt {
+                Text(" – ")
+                    .font(.caption)
+                Text(createdAt.formatted(.relative(presentation: .numeric, unitsStyle: .wide)))
+                    .font(.caption)
+            }
         }
-        chunks.append(Text("Build #\(build.number)"))
-        chunks.append(Text(build.commit.prefix(7)))
-        if let createdAt = build.createdAt {
-            chunks.append(
-                Text(
-                    "\(createdAt, formatter: friendlyRelativeDateFormatter)"
-                )
-            )
-        }
-
-        return chunks.joined(separator: " — ")
     }
 }
 
-extension Array where Element == Text {
-    func joined(separator: Text) -> Text {
-        var result = Text("")
-        var iter = makeIterator()
-        if let first = iter.next() {
-            result = result + first
-            while let next = iter.next() {
-                result = result + separator
-                result = result + next
-            }
-        }
-        return result
-    }
-
-    func joined<S: StringProtocol>(separator: S) -> Text {
-        joined(separator: Text(separator))
+struct PipelineView_Previews: PreviewProvider {
+    static var previews: some View {
+        PipelineView(
+            store: .init(
+                initialState: .init(
+                    pipeline: .init(
+                        id: "0",
+                        uuid: .init(),
+                        name: "My Pipeline",
+                        url: URL(string: "https://buildkite.com/my-org/my-pipeline")!,
+                        slug: "my-pipeline",
+                        visibility: .public,
+                        builds: []
+                    )
+                ),
+                reducer: PipelineReducer()
+            )
+        )
     }
 }

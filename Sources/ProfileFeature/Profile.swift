@@ -93,7 +93,7 @@ public struct ProfileView: View {
                         state: ProfileReducer.Destinations.State.changelogs(.init())
                     ) {
                         HStack {
-                            Text("Changelog")
+                            Text("Changelog", bundle: .module)
                             if unreadChangelogsCount.state > 0 {
                                 Spacer()
                                     .frame(width: 5)
@@ -109,7 +109,7 @@ public struct ProfileView: View {
                     }
                 }
                 .listStyle(.inset)
-                .navigationTitle("Settings")
+                .navigationTitle(Text("Settings", bundle: .module))
                 .navigationDestination(
                     store: store.scope(state: \.$path, action: ProfileReducer.Action.path)
                 ) { store in
@@ -123,5 +123,16 @@ public struct ProfileView: View {
                 }
             }
         }
+    }
+}
+
+struct ProfileView_Previews: PreviewProvider {
+    static var previews: some View {
+        ProfileView(
+            store: .init(
+                initialState: .init(),
+                reducer: ProfileReducer()
+            )
+        )
     }
 }

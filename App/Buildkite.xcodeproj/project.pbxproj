@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		330664D52859FC8E00C34770 /* BuildkitePackage in Frameworks */ = {isa = PBXBuildFile; productRef = 330664D42859FC8E00C34770 /* BuildkitePackage */; };
+		336E2F7C28E21CDA00052FBE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 336E2F7E28E21CDA00052FBE /* Localizable.strings */; };
 		33D67F582858AA8600CED60E /* BuildkiteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D67F522858AA8600CED60E /* BuildkiteApp.swift */; };
 		33D67F592858AA8600CED60E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33D67F532858AA8600CED60E /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		330664D32859FB2000C34770 /* Buildkite */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Buildkite; path = ..; sourceTree = "<group>"; };
+		336E2F7D28E21CDA00052FBE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		336E2F7F28E21CDE00052FBE /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		337FB3F52858A38900E43FD4 /* Buildkite-Common.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Buildkite-Common.xcconfig"; sourceTree = "<group>"; };
 		337FB3F62858A38900E43FD4 /* Buildkite-Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Buildkite-Debug.xcconfig"; sourceTree = "<group>"; };
 		337FB3F72858A38900E43FD4 /* Project-Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Project-Release.xcconfig"; sourceTree = "<group>"; };
@@ -64,6 +67,7 @@
 				33D67F522858AA8600CED60E /* BuildkiteApp.swift */,
 				33D67F532858AA8600CED60E /* Assets.xcassets */,
 				33D67F542858AA8600CED60E /* Buildkite.entitlements */,
+				336E2F7E28E21CDA00052FBE /* Localizable.strings */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -131,6 +135,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ja,
 				Base,
 			);
 			mainGroup = 33D834E62858A022006D0EF7;
@@ -149,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				33D67F592858AA8600CED60E /* Assets.xcassets in Resources */,
+				336E2F7C28E21CDA00052FBE /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +170,18 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		336E2F7E28E21CDA00052FBE /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				336E2F7D28E21CDA00052FBE /* en */,
+				336E2F7F28E21CDE00052FBE /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		33D834FC2858A022006D0EF7 /* Debug */ = {

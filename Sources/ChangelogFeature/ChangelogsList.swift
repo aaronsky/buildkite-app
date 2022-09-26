@@ -74,7 +74,18 @@ public struct ChangelogsListView: View {
             .listStyle(.inset)
             .refreshable { await viewStore.send(.refresh, while: \.isLoading) }
             .onAppear { viewStore.send(.refresh) }
-            .navigationTitle("Changelogs")
+            .navigationTitle(Text("Changelogs", bundle: .module))
         }
+    }
+}
+
+struct ChangelogsListView_Previews: PreviewProvider {
+    static var previews: some View {
+        ChangelogsListView(
+            store: .init(
+                initialState: .init(),
+                reducer: ChangelogsListReducer()
+            )
+        )
     }
 }

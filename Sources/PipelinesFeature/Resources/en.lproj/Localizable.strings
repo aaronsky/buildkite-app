@@ -1,0 +1,11 @@
+/* Displayed when no builds were found for the given Buildkite pipeline. */
+"No builds found" = "No builds found";
+
+/* The build number and human readable identifier for the build. */
+"Build #%d" = "Build #%d";
+
+/* Displayed when no pipelines were found on Buildkite. */
+"No pipelines found" = "No pipelines found";
+
+/* Navigation bar header. */
+"Pipelines" = "Pipelines";

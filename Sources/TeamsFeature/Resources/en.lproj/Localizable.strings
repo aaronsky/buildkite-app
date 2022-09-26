@@ -1,0 +1,9 @@
+/* Section header describing the list of members in the current team. In languages with capitalization, retain all-caps. */
+"MEMBERS" = "MEMBERS";
+
+/* Button to add a member to the current team. */
+"Add Member" = "Add Member";
+
+/* Navigation bar header. */
+"Teams" = "Teams";
+
