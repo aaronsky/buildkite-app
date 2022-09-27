@@ -1,0 +1,134 @@
+{
+  "configurations" : [
+    {
+      "id" : "3735D4FB-534F-4083-9ECE-D93534587A84",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Buildkite.xcodeproj",
+      "identifier" : "33D834EE2858A022006D0EF7",
+      "name" : "Buildkite"
+    },
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:..",
+        "identifier" : "AgentsFeatureTests",
+        "name" : "AgentsFeatureTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:..",
+        "identifier" : "APIClientTests",
+        "name" : "APIClientTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:..",
+        "identifier" : "AppFeatureTests",
+        "name" : "AppFeatureTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:..",
+        "identifier" : "AuthenticationClientTests",
+        "name" : "AuthenticationClientTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:..",
+        "identifier" : "BuildsFeatureTests",
+        "name" : "BuildsFeatureTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:..",
+        "identifier" : "ChangelogFeatureTests",
+        "name" : "ChangelogFeatureTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:..",
+        "identifier" : "EmojiClientTests",
+        "name" : "EmojiClientTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:..",
+        "identifier" : "GraphQLHelpersTests",
+        "name" : "GraphQLHelpersTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:..",
+        "identifier" : "LoginFeatureTests",
+        "name" : "LoginFeatureTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:..",
+        "identifier" : "PipelinesFeatureTests",
+        "name" : "PipelinesFeatureTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:..",
+        "identifier" : "ProfileFeatureTests",
+        "name" : "ProfileFeatureTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:..",
+        "identifier" : "StylingTests",
+        "name" : "StylingTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:..",
+        "identifier" : "TeamsFeatureTests",
+        "name" : "TeamsFeatureTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:..",
+        "identifier" : "UsersFeatureTests",
+        "name" : "UsersFeatureTests"
+      }
+    }
+  ],
+  "version" : 1
+}

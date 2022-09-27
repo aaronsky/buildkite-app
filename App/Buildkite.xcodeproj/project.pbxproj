@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		330664D52859FC8E00C34770 /* BuildkitePackage in Frameworks */ = {isa = PBXBuildFile; productRef = 330664D42859FC8E00C34770 /* BuildkitePackage */; };
+		33049D7528E3385700759B82 /* AppFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 33049D7428E3385700759B82 /* AppFeature */; };
+		33049D7828E3915000759B82 /* Buildkite.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = 33049D7728E3915000759B82 /* Buildkite.xctestplan */; };
 		336E2F7C28E21CDA00052FBE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 336E2F7E28E21CDA00052FBE /* Localizable.strings */; };
 		33D67F582858AA8600CED60E /* BuildkiteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D67F522858AA8600CED60E /* BuildkiteApp.swift */; };
 		33D67F592858AA8600CED60E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33D67F532858AA8600CED60E /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		33049D7728E3915000759B82 /* Buildkite.xctestplan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Buildkite.xctestplan; sourceTree = "<group>"; };
 		330664D32859FB2000C34770 /* Buildkite */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Buildkite; path = ..; sourceTree = "<group>"; };
 		336E2F7D28E21CDA00052FBE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		336E2F7F28E21CDE00052FBE /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -34,13 +36,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				330664D52859FC8E00C34770 /* BuildkitePackage in Frameworks */,
+				33049D7528E3385700759B82 /* AppFeature in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		33049D7628E390CA00759B82 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				33049D7728E3915000759B82 /* Buildkite.xctestplan */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 		33285EAC2858AD13001139CB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +88,7 @@
 				330664D32859FB2000C34770 /* Buildkite */,
 				33D67F512858AA8600CED60E /* App */,
 				337FB3F42858A38900E43FD4 /* Config */,
+				33049D7628E390CA00759B82 /* Tests */,
 				33285EAC2858AD13001139CB /* Frameworks */,
 				33D834F02858A022006D0EF7 /* Products */,
 			);
@@ -108,7 +119,7 @@
 			);
 			name = Buildkite;
 			packageProductDependencies = (
-				330664D42859FC8E00C34770 /* BuildkitePackage */,
+				33049D7428E3385700759B82 /* AppFeature */,
 			);
 			productName = Buildkite;
 			productReference = 33D834EF2858A022006D0EF7 /* BuildkiteApp.app */;
@@ -122,7 +133,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1400;
-				LastUpgradeCheck = 1400;
+				LastUpgradeCheck = 1410;
 				TargetAttributes = {
 					33D834EE2858A022006D0EF7 = {
 						CreatedOnToolsVersion = 14.0;
@@ -155,6 +166,7 @@
 			files = (
 				33D67F592858AA8600CED60E /* Assets.xcassets in Resources */,
 				336E2F7C28E21CDA00052FBE /* Localizable.strings in Resources */,
+				33049D7828E3915000759B82 /* Buildkite.xctestplan in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,9 +248,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		330664D42859FC8E00C34770 /* BuildkitePackage */ = {
+		33049D7428E3385700759B82 /* AppFeature */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = BuildkitePackage;
+			productName = AppFeature;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -7,15 +7,23 @@ let package = Package(
     defaultLocalization: "en",
     platforms: [
         .iOS(.v16),
-        .macOS(.v12),
+        .macOS(.v13),
     ],
     products: [
-        .library(
-            name: "BuildkitePackage",
-            targets: [
-                "AppFeature"
-            ]
-        )
+        .library(name: "AgentsFeature", targets: ["AgentsFeature"]),
+        .library(name: "APIClient", targets: ["APIClient"]),
+        .library(name: "AppFeature", targets: ["AppFeature"]),
+        .library(name: "AuthenticationClient", targets: ["AuthenticationClient"]),
+        .library(name: "BuildsFeature", targets: ["BuildsFeature"]),
+        .library(name: "ChangelogFeature", targets: ["ChangelogFeature"]),
+        .library(name: "EmojiClient", targets: ["EmojiClient"]),
+        .library(name: "GraphQLHelpers", targets: ["GraphQLHelpers"]),
+        .library(name: "LoginFeature", targets: ["LoginFeature"]),
+        .library(name: "PipelinesFeature", targets: ["PipelinesFeature"]),
+        .library(name: "ProfileFeature", targets: ["ProfileFeature"]),
+        .library(name: "Styling", targets: ["Styling"]),
+        .library(name: "TeamsFeature", targets: ["TeamsFeature"]),
+        .library(name: "UsersFeature", targets: ["UsersFeature"]),
     ],
     dependencies: [
         .package(url: "https://github.com/aaronsky/buildkite-swift", branch: "main"),
@@ -76,6 +84,7 @@ let package = Package(
                 "LoginFeature",
                 "PipelinesFeature",
                 "ProfileFeature",
+                "Styling",
                 "TeamsFeature",
                 "UsersFeature",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
@@ -191,6 +200,14 @@ let package = Package(
             name: "ProfileFeatureTests",
             dependencies: [
                 "ProfileFeature",
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+            ]
+        ),
+        .target(name: "Styling"),
+        .testTarget(
+            name: "StylingTests",
+            dependencies: [
+                "Styling",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
