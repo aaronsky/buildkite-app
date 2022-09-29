@@ -117,7 +117,7 @@ struct AgentView: View {
                 viewStore.send(.refresh)
                 viewStore.send(.agentStatusTimer)
             }
-            .navigationTitle(viewStore.agent.nameFormatted)
+            .navigationTitle(viewStore.agent.name)
             .toolbar {
                 ToolbarItem(placement: .destructiveAction) {
                     Button(

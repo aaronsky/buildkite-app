@@ -17,6 +17,8 @@ import SwiftUI
  </svg>
  */
 
+let factor: CGFloat = 5
+
 public struct BuildkiteIcon: View {
     var primaryColor: Color
     var secondaryColor: Color
@@ -30,57 +32,42 @@ public struct BuildkiteIcon: View {
     }
 
     public var body: some View {
-        Path { path in
-
-        }
-        .fill(primaryColor)
-        Path { path in
-
-        }
-        .fill(secondaryColor)
-    }
-}
-
-/*
-public struct BuildkiteIconOLD: View {
-
-    public var body: some View {
         ZStack {
-            Shape1()
-                .fill(BuildkiteIcon.brightGreen)
-            Shape2()
-                .fill(BuildkiteIcon.deepGreen)
-                .animation(Animation.default, value: false)
+            PrimaryPath()
+                .fill(primaryColor)
+            SecondaryPath()
+                .fill(secondaryColor)
         }
         .aspectRatio(contentMode: .fit)
+        .frame(width: 100)
     }
 
-    struct Shape1: Shape {
+    struct PrimaryPath: Shape {
         func path(in rect: CGRect) -> Path {
-            let xUnit = rect.width / 8
-            let yUnit = rect.height / 8
+            let xUnit = rect.width / factor
+            let yUnit = rect.height / factor
             return Path { path in
                 path.move(to: .zero)
                 path.addLine(to: CGPoint(x: xUnit * 2, y: yUnit))
                 path.addLine(to: CGPoint(x: xUnit * 2, y: yUnit * 3))
-                path.addLine(to: CGPoint(x: 0, y: yUnit * 2))
-                path.move(to: CGPoint(x: xUnit * 4, y: 0))
+                path.addLine(to: CGPoint(x: 0,         y: yUnit * 2))
+                path.move(to:    CGPoint(x: xUnit * 4, y: 0))
                 path.addLine(to: CGPoint(x: xUnit * 6, y: yUnit))
                 path.addLine(to: CGPoint(x: xUnit * 4, y: yUnit * 2))
             }
         }
     }
 
-    struct Shape2: Shape {
+    struct SecondaryPath: Shape {
         func path(in rect: CGRect) -> Path {
-            let xUnit = rect.width / 8
-            let yUnit = rect.height / 8
+            let xUnit = rect.width / factor
+            let yUnit = rect.height / factor
             return Path { path in
-                path.move(to: CGPoint(x: xUnit * 4, y: 0))
+                path.move(to:    CGPoint(x: xUnit * 4, y: 0))
                 path.addLine(to: CGPoint(x: xUnit * 2, y: yUnit))
                 path.addLine(to: CGPoint(x: xUnit * 2, y: yUnit * 3))
                 path.addLine(to: CGPoint(x: xUnit * 4, y: yUnit * 2))
-                path.move(to: CGPoint(x: xUnit * 6, y: yUnit))
+                path.move(to:    CGPoint(x: xUnit * 6, y: yUnit))
                 path.addLine(to: CGPoint(x: xUnit * 4, y: yUnit * 2))
                 path.addLine(to: CGPoint(x: xUnit * 4, y: yUnit * 4))
                 path.addLine(to: CGPoint(x: xUnit * 6, y: yUnit * 3))
@@ -88,11 +75,24 @@ public struct BuildkiteIconOLD: View {
         }
     }
 }
-*/
 
 struct BuildkiteLogo_Previews: PreviewProvider {
     static var previews: some View {
-        BuildkiteIcon()
+        VStack {
+            BuildkiteIcon()
+            BuildkiteIcon(
+                primaryColor: Color(
+                    red: 1.0,
+                    green: 0.843,
+                    blue: 0.0
+                ),
+                secondaryColor: Color(
+                    red: 0.0,
+                    green: 0.341,
+                    blue: 0.718
+                )
+            )
+        }
     }
 }
 

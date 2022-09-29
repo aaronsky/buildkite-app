@@ -83,7 +83,7 @@ public struct AgentsListView: View {
                                 isRunningJob: agent.isRunningJob
                             )
                             VStack(alignment: .leading) {
-                                Text(agent.nameFormatted)
+                                Text(agent.name)
                                     .font(.system(size: 15))
                                 Text(agent.metaData.joined(separator: ","))
                                     .font(.system(size: 14))
